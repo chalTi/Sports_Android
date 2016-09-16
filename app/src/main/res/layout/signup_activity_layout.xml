@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#607D8B">
+
+    <ImageView
+        android:id="@+id/iv_sign_up_user_head"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/photo" />
+
+    <LinearLayout
+        android:layout_below="@id/iv_sign_up_user_head"
+        android:id="@+id/ll_sign_up_container"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="USERNAME"
+            android:textColor="#B6B6B6"
+            android:textSize="12dp"/>
+        <EditText
+            android:id="@+id/et_sign_up_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="@android:color/white"
+            android:background="@null"
+            android:drawableBottom="@drawable/bottom_line"
+            android:textSize="15dp"
+            android:text="superwoman"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="PASSWORD"
+            android:textColor="#B6B6B6"
+            android:textSize="12dp"/>
+        <EditText
+            android:id="@+id/et_sign_up_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="@android:color/white"
+            android:background="@null"
+            android:drawableBottom="@drawable/bottom_line"
+            android:inputType="textPassword"
+            android:textSize="15dp"
+            android:text="superwoman"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="CONFIRM"
+            android:textColor="#B6B6B6"
+            android:textSize="12dp"/>
+        <EditText
+            android:id="@+id/et_sign_up_pwd_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="@android:color/white"
+            android:background="@null"
+            android:drawableBottom="@drawable/bottom_line"
+            android:inputType="textPassword"
+            android:textSize="15dp"
+            android:text="superwoman"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="EMAIL"
+            android:textColor="#B6B6B6"
+            android:textSize="12dp"/>
+        <EditText
+            android:id="@+id/et_sign_up_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="@android:color/white"
+            android:background="@null"
+            android:drawableBottom="@drawable/bottom_line"
+            android:textSize="15dp"
+            android:text="superwoman@163.com"
+            />
+
+        <RadioGroup
+            android:id="@+id/rg_sign_up_select_sex"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/rb_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:textColor="@android:color/white"
+                android:textSize="12dp"/>
+            <RadioButton
+                android:id="@+id/rb_female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:textColor="@android:color/white"
+                android:textSize="12dp"/>
+
+        </RadioGroup>
+
+
+        <CheckBox
+            android:id="@+id/cb_sign_up_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send me weekly updates"
+            android:textColor="@android:color/white"
+            android:textSize="15dp"/>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_sign_up_container"
+        android:layout_marginEnd="70dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_orange_background"
+        android:text="Regist"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="15dp"
+        />
+
+    <ImageView
+        android:id="@+id/iv_login_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/btn_sign_in"
+        android:layout_marginEnd="130dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="15dp"
+        android:background="#33000000" />
+
+
+
+</RelativeLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#607D8B"
+    android:paddingTop="50dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="CREAT AN EVENT"
+                android:textColor="@android:color/white"
+                android:textSize="30sp" />
+
+            <LinearLayout
+                android:id="@+id/ll_create_event_container"
+                style="@style/edittext_container_style"
+                android:layout_below="@id/title">
+
+                <EditText
+                    android:id="@+id/event_name"
+                    style="@style/creat_event_edittext_style"
+                    android:drawableLeft="@drawable/event_name"
+                    android:drawablePadding="5dp"
+                    android:hint="Enter the event name" />
+
+                <EditText
+                    android:id="@+id/event_time"
+                    style="@style/creat_event_edittext_style"
+                    android:drawableLeft="@drawable/event_time"
+                    android:drawablePadding="5dp"
+                    android:hint="2016-05-31" />
+
+                <EditText
+                    android:id="@+id/event_location"
+                    style="@style/creat_event_edittext_style"
+                    android:drawableLeft="@drawable/event_lieu"
+                    android:drawablePadding="5dp"
+                    android:hint="Enter the location" />
+
+                <EditText
+                    android:id="@+id/event_person_number"
+                    style="@style/creat_event_edittext_style"
+                    android:drawableLeft="@drawable/event_persons"
+                    android:drawablePadding="5dp"
+                    android:hint="Number of person" />
+            </LinearLayout>
+
+            <GridView
+                android:id="@+id/event_type_container"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_below="@id/ll_create_event_container"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
+                android:layout_marginTop="5dp"
+                android:columnWidth="50dp"
+                android:numColumns="4" />
+
+            <EditText
+                android:id="@+id/event_description"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@id/event_type_container"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/login_et_background"
+                android:gravity="top"
+                android:hint="Description..........."
+                android:singleLine="false" />
+
+            <Button
+                android:id="@+id/event_confirm_btn"
+                style="@style/creat_event_button_style"
+                android:layout_below="@id/event_description"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/btn_orange_background"
+                android:text="Confirm" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

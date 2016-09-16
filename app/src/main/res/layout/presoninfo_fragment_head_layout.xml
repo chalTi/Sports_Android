@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_preson_info_top_container"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:background="#607D8B">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="#B3E5FC"
+        android:scaleType="fitXY" />
+    <!--放在背景下面,让其置于顶部-->
+    <com.wentongwang.mysports.custome.CircleImageView
+        android:id="@+id/iv_preson_info_user_head"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/tv_preson_info_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_preson_info_user_head"
+        android:gravity="center"
+        android:padding="2dp"
+        android:text="用户名"
+        android:textColor="@android:color/white"
+        android:textSize="18dp" />
+    <TextView
+        android:id="@+id/tv_preson_info_user_brief"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_preson_info_user_name"
+        android:gravity="center"
+        android:padding="2dp"
+        android:text="这个用户很懒,什么都没有留下"
+        android:textColor="@android:color/white"
+        android:textSize="15dp" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:background="@drawable/btn_light_blue_background"
+        android:text="Follow"
+        android:textColor="@android:color/white" />
+</RelativeLayout>
+

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="false"
+    android:background="#607D8B">
+
+    <ImageView
+        android:id="@+id/iv_login_logo"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="60dp"
+        android:background="@android:color/white" />
+
+    <LinearLayout
+        android:id="@+id/ll_login_container"
+        style="@style/edittext_container_style"
+        android:layout_below="@id/iv_login_logo">
+
+        <EditText
+            android:id="@+id/login_user_name"
+            style="@style/login_edittext_style"
+            android:drawableLeft="@drawable/user_name"
+            android:hint="E-mail address" />
+
+        <EditText
+            android:id="@+id/login_user_pwd"
+            style="@style/login_edittext_style"
+            android:drawableLeft="@drawable/password"
+            android:inputType="textPassword"
+            android:hint="Password" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_sign_in"
+        style="@style/login_button_style"
+        android:layout_below="@id/ll_login_container"
+        android:background="@drawable/btn_orange_background"
+        android:text="@string/login_btn" />
+
+    <ImageView
+        android:id="@+id/iv_login_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/btn_sign_in"
+        android:layout_marginEnd="130dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="15dp"
+        android:background="#33000000" />
+
+    <Button
+        android:id="@+id/btn_sign_in_facebook"
+        style="@style/login_button_style"
+        android:layout_below="@id/iv_login_divider"
+        android:background="@drawable/btn_dark_blue_background"
+        android:text="@string/login_by_facebook" />
+
+    <Button
+        android:id="@+id/btn_sign_in_twitter"
+        style="@style/login_button_style"
+        android:layout_below="@id/btn_sign_in_facebook"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btn_light_blue_background"
+        android:text="@string/login_by_twitter" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/login_find_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Forgot password?"
+            android:textColor="#5f000000"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/login_sign_up"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="New here? Sign up"
+            android:textColor="#5f000000"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+</RelativeLayout>

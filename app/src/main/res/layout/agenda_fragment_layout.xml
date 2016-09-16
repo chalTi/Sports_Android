@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="50dp">
+
+    <!--<com.example.wentongwang.sports.custome.MyCalendarScrollView-->
+        <!--android:id="@+id/container_scrollview"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:fillViewport="true"-->
+        <!--android:scrollbars="none">-->
+    <!--<FrameLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+        <!--<com.example.wentongwang.sports.custome.MyListView-->
+            <!--android:id="@+id/list"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="300dp">-->
+        <!--</com.example.wentongwang.sports.custome.MyListView>-->
+    <!--</FrameLayout>-->
+    <!--</com.example.wentongwang.sports.custome.MyCalendarScrollView>-->
+
+    <include
+        android:id="@+id/calendar_view"
+        layout="@layout/calendar_view"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true" />
+
+
+</RelativeLayout>
