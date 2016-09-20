@@ -29,6 +29,38 @@ public class VollyRequestManager {
 
 
     /**
+     * get请求
+     * @param context
+     * @param url
+     * @param listener
+     */
+    public void doGet(final Context context, String url, final OnRequestFinishedListener listener) {
+        VollyStringRequest request = new VollyStringRequest(Request.Method.POST,
+                url, new com.android.volley.Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Boolean status = AppServerUtil.getIfSuccess(context, response, true);
+                if (status) {
+                    if (listener != null) {
+                        listener.onSucess(null);
+                    }
+                }
+            }
+        }, new com.android.volley.Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if (listener != null) {
+                    listener.onFailed("获取服务器数据失败, 请检查网络");
+                }
+                return;
+            }
+        });
+        queue.add(request);
+    }
+
+
+
+    /**
      * post请求,无数据返回，只判断是否成功
      *
      * @param context  上下文

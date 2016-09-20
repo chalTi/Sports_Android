@@ -61,16 +61,14 @@ public class LoginPresenter {
         String url = Constant.HOST + Constant.LOGIN_PATH;
 
         Map<String, String> params = new HashMap<>();
-        params.put("loginName", "admin");
-        params.put("password", "123456");
+        params.put("loginName", userName);
+        params.put("password", userPwd);
 
         view.showProgressBar();
         vollyRequestManager.doPost(mContext, url, params, new VollyRequestManager.OnRequestFinishedListener() {
             @Override
             public void onSucess(VollyResponse response) {
                 view.hideProgressBar();
-                //跳转操作
-                ToastUtil.show(mContext, "登录成功", 2000);
                 //存储用户登录信息，cookie之类的
                 view.goToHomeActivity();
             }
@@ -84,4 +82,7 @@ public class LoginPresenter {
 
     }
 
+    public void loginTest() {
+        view.goToHomeActivity();
+    }
 }
