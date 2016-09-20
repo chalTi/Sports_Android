@@ -7,6 +7,7 @@
         android:id="@+id/event_icon"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_centerInParent="true"
         android:src="@drawable/basketball"
         />
     <ImageView
