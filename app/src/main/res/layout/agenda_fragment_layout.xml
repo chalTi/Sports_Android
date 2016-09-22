@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pb="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="50dp">
 
     <!--<com.example.wentongwang.sports.custome.MyCalendarScrollView-->
-        <!--android:id="@+id/container_scrollview"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:fillViewport="true"-->
-        <!--android:scrollbars="none">-->
+    <!--android:id="@+id/container_scrollview"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:fillViewport="true"-->
+    <!--android:scrollbars="none">-->
     <!--<FrameLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content">-->
-        <!--<com.example.wentongwang.sports.custome.MyListView-->
-            <!--android:id="@+id/list"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="300dp">-->
-        <!--</com.example.wentongwang.sports.custome.MyListView>-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+    <!--<com.example.wentongwang.sports.custome.MyListView-->
+    <!--android:id="@+id/list"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="300dp">-->
+    <!--</com.example.wentongwang.sports.custome.MyListView>-->
     <!--</FrameLayout>-->
     <!--</com.example.wentongwang.sports.custome.MyCalendarScrollView>-->
 
@@ -30,5 +31,20 @@
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true" />
 
-
+    <com.wentongwang.mysports.custome.MyProgressBarHorizontal
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/calendar_view"
+        android:layout_marginTop="105dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:progress="60"
+        pb:reachColor="@color/colorPrimaryDark"
+        pb:reachHeight="10dp"
+        pb:unReachColor="#9E9E9E"
+        pb:unReachHeight="10dp"
+        pb:gradient="true"
+        />
 </RelativeLayout>
