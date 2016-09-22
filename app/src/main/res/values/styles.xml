@@ -110,4 +110,17 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:backgroundDimEnabled">true</item>
     </style>
+
+
+    <declare-styleable name="MyProgressBarHorizontal">
+        <attr name="reachColor" format="reference|color" />
+        <attr name="unReachColor" format="reference|color" />
+        <attr name="reachHeight" format="dimension" />
+        <attr name="unReachHeight" format="dimension" />
+        <attr name="gradient" format="boolean" />
+        <attr name="gradientStartColor" format="reference|color" />
+        <!--<attr name="gradientMiddleColor" format="reference|color" />-->
+        <attr name="gradientEndColor" format="reference|color" />
+
+    </declare-styleable>
 </resources>
