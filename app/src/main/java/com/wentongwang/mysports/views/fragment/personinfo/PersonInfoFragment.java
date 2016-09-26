@@ -1,4 +1,4 @@
-package com.wentongwang.mysports.views.fragment.presoninfo;
+package com.wentongwang.mysports.views.fragment.personinfo;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.views.BaseFragment;
@@ -6,10 +6,10 @@ import com.wentongwang.mysports.views.BaseFragment;
 /**
  * Created by Wentong WANG on 2016/9/17.
  */
-public class PresonInfoFragment extends BaseFragment {
+public class PersonInfoFragment extends BaseFragment {
     @Override
     public int getLayoutId() {
-        return R.layout.presoninfo_fragment_layout;
+        return R.layout.personinfo_fragment_layout;
     }
 
     @Override

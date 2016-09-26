@@ -19,7 +19,7 @@ import com.wentongwang.mysports.views.activity.createvent.CreatEventActivity;
 import com.wentongwang.mysports.views.fragment.agenda.AgendaFragment;
 import com.wentongwang.mysports.views.fragment.home.HomeFragment;
 import com.wentongwang.mysports.views.fragment.news.NewsFragment;
-import com.wentongwang.mysports.views.fragment.presoninfo.PresonInfoFragment;
+import com.wentongwang.mysports.views.fragment.personinfo.PersonInfoFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,7 +76,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
         mFragmentList.add(new HomeFragment());
         mFragmentList.add(new AgendaFragment());
         mFragmentList.add(new NewsFragment());
-        mFragmentList.add(new PresonInfoFragment());
+        mFragmentList.add(new PersonInfoFragment());
     }
 
     @Override
