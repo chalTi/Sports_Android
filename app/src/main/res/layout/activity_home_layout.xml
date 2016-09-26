@@ -19,7 +19,6 @@
         android:id="@+id/vp_home_activity_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/tool_bar"
         android:layout_marginBottom="50dp"></android.support.v4.view.ViewPager>
 
     <!--底部Tab栏-->
