@@ -9,7 +9,9 @@ import com.wentongwang.mysports.views.BaseView;
  */
 public interface HomeView extends BaseView {
 
-    void hiddenToolBarAnim(float positionOffset);
+    void hiddenToolBarAnim();
+
+    void showToolBarAnim();
 
     RadioButton getCheckedBtn(int position);
 

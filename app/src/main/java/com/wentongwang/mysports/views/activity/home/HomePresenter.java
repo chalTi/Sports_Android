@@ -1,27 +1,34 @@
 package com.wentongwang.mysports.views.activity.home;
 
 
+import com.wentongwang.mysports.utils.Logger;
+
+import java.math.BigDecimal;
+
 /**
  * Created by Wentong WANG on 2016/9/16.
  */
 public class HomePresenter {
 
-
     private HomeView view;
 
+    private int currentPage = 0;
+    private boolean isToolBarVisible = true;
     public HomePresenter(HomeView homeView) {
         this.view = homeView;
     }
 
     /**
-     * hide toolbar depende on different page
+     * hide or show toolbar depende on different page
      *
      * @param position       page position
-     * @param positionOffset percentage
      */
-    public void hiddenToolBar(int position, float positionOffset) {
-        if (position == 2) {
-            view.hiddenToolBarAnim(positionOffset);
+    public void toolBarAnim(int position) {
+
+        if (position == 3 && isToolBarVisible) {
+            view.hiddenToolBarAnim();
+        } else if (position != 3 && !isToolBarVisible) {
+            view.showToolBarAnim();
         }
     }
 
@@ -31,6 +38,7 @@ public class HomePresenter {
      * @param position
      */
     public void setPage(int position) {
+        currentPage = position;
         view.getCheckedBtn(position).setChecked(true);
 
         //change some infos of the toolbar
@@ -40,5 +48,9 @@ public class HomePresenter {
     public void toCreatEvent() {
         view.goToCreatEventActivity();
 
+    }
+
+    public void setToolBarVisible(boolean visible) {
+        this.isToolBarVisible = visible;
     }
 }

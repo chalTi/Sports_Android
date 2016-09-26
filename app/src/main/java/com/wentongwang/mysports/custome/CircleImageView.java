@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.utils.ImageUtil;
+import com.wentongwang.mysports.utils.Logger;
 
 /**
  * Created by Wentong WANG on 2016/6/2.
@@ -77,7 +78,7 @@ public class CircleImageView extends View {
             canvas.drawBitmap(ImageUtil.createCircleImage(bitmap, imageSize), 0, 0, mPaint);
         } else {
             defaut = ImageUtil.decodeBitmapFromResource(getResources(), R.drawable.user_head_defaut, imageSize, imageSize);
-            defaut = ImageUtil.resize(bitmap, imageSize, imageSize);
+            defaut = ImageUtil.resize(defaut, imageSize, imageSize);
             canvas.drawBitmap(ImageUtil.createCircleImage(defaut, imageSize), 0, 0, mPaint);
         }
     }

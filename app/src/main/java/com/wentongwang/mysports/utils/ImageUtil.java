@@ -174,7 +174,12 @@ public class ImageUtil {
         /**
          * 绘制图片
          */
-        canvas.drawBitmap(source, 0, 0, paint);
+        if (min / 2 < source.getWidth()) {
+            canvas.drawBitmap(source, 0, 0, paint);
+        } else {
+            canvas.drawBitmap(source,min / 2 - source.getWidth() / 2, min / 2 - source.getWidth() / 2, paint);
+        }
+
         return target;
     }
 
