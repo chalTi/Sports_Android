@@ -7,13 +7,12 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
-import android.widget.Button;
+import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.wentongwang.mysports.R;
-import com.wentongwang.mysports.custome.CircleImageView;
 import com.wentongwang.mysports.custome.CommonHeadView;
 import com.wentongwang.mysports.views.BaseActivity;
 import com.wentongwang.mysports.views.activity.createvent.CreatEventActivity;
@@ -35,9 +34,6 @@ public class HomeActivity extends BaseActivity implements HomeView {
 
     @BindView(R.id.vp_home_activity_content)
     protected ViewPager mViewPager;
-    //左侧菜单栏中用户头像
-    @BindView(R.id.iv_left_menu_user_head)
-    protected CircleImageView userHeade;
     //底部tab栏
     @BindView(R.id.rg_home_bottom_tab)
     protected RadioGroup mRg;
@@ -95,7 +91,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
         mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                mPresenter.hiddenToolBar(position, positionOffset);
+                mPresenter.toolBarAnim(position);
             }
 
             @Override
@@ -133,13 +129,57 @@ public class HomeActivity extends BaseActivity implements HomeView {
 
     /**
      * execute hide toolbar animation
-     * @param positionOffset
+     *
      */
     @Override
-    public void hiddenToolBarAnim(float positionOffset) {
-        AlphaAnimation animation = new AlphaAnimation(positionOffset, 1 - positionOffset);
-        animation.setDuration(0);
+    public void hiddenToolBarAnim() {
+        AlphaAnimation animation = new AlphaAnimation(1, 0);
+        animation.setDuration(200);
         animation.setFillAfter(true);
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                mPresenter.setToolBarVisible(false);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+        mToolbar.setAnimation(animation);
+        animation.start();
+    }
+    /**
+     * execute show toolbar animation
+     *
+     */
+    @Override
+    public void showToolBarAnim() {
+        AlphaAnimation animation = new AlphaAnimation(0, 1);
+        animation.setDuration(200);
+        animation.setFillAfter(true);
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                mPresenter.setToolBarVisible(true);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
         mToolbar.setAnimation(animation);
         animation.start();
     }

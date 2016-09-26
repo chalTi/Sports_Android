@@ -72,12 +72,12 @@
         <item name="android:background">@drawable/bottom_tab_bg_selector</item>
     </style>
 
-    <!--<style name="mypopwindow_anim_style">-->
-        <!--<item name="android:windowEnterAnimation">@anim/popupwindow_show_anim</item>-->
-        <!--&lt;!&ndash; 指定显示的动画xml &ndash;&gt;-->
-        <!--<item name="android:windowExitAnimation">@anim/popupwindow_hidden_anim</item>-->
-        <!--&lt;!&ndash; 指定消失的动画xml &ndash;&gt;-->
-    <!--</style>-->
+    <style name="popwindow_anim_style">
+        <item name="android:windowEnterAnimation">@anim/popupwindow_show_anim</item>
+        <!-- 指定显示的动画xml -->
+        <item name="android:windowExitAnimation">@anim/popupwindow_hidden_anim</item>
+        <!-- 指定消失的动画xml -->
+    </style>
 
 
     <declare-styleable name="ToolBarLayout">

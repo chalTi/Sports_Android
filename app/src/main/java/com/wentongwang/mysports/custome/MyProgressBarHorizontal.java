@@ -131,6 +131,7 @@ public class MyProgressBarHorizontal extends ProgressBar {
         if (radio < 1) {
             needUnReach = true;
         }
+        //draw reach bar
         float endX = radio * mRealWidth;
         if (endX > 0) {
             mReachPaint.setStyle(Paint.Style.FILL);//设置实心
@@ -141,8 +142,6 @@ public class MyProgressBarHorizontal extends ProgressBar {
             } else {
                 mReachPaint.setColor(mReachColor);
             }
-
-
 
             canvas.drawPath(drawReachBarPath(endX), mReachPaint);
         }
@@ -161,6 +160,7 @@ public class MyProgressBarHorizontal extends ProgressBar {
 
 
     private Path drawReachBarPath(float endX) {
+        //进度条边上圆弧赛贝尔曲线的执行点
         int r_cycle = getHeight() / 2;
 
         Path path = new Path();
@@ -180,12 +180,22 @@ public class MyProgressBarHorizontal extends ProgressBar {
         int r_cycle = getHeight() / 2;
 
         Path path = new Path();
-        path.moveTo(endX - r_cycle, 0);
-        path.quadTo(endX, r_cycle, endX - r_cycle, getHeight()); //赛贝尔曲线画圆弧
-        path.lineTo(mRealWidth - r_cycle, getHeight());
-        path.quadTo(mRealWidth, r_cycle, mRealWidth - r_cycle, 0); //赛贝尔曲线画圆弧
+        if (endX > 0) {
+            path.moveTo(endX - r_cycle, 0);
+            path.quadTo(endX, r_cycle, endX - r_cycle, getHeight()); //赛贝尔曲线画圆弧
+            path.lineTo(mRealWidth - r_cycle, getHeight());
+            path.quadTo(mRealWidth, r_cycle, mRealWidth - r_cycle, 0); //赛贝尔曲线画圆弧
 //        path.lineTo(mRealWidth, 0);
-        path.close();//封闭
+            path.close();//封闭
+        } else {
+            path.moveTo(r_cycle, getHeight());
+            path.lineTo(mRealWidth - r_cycle, getHeight());
+            path.quadTo(mRealWidth, r_cycle, mRealWidth - r_cycle, 0); //赛贝尔曲线画圆弧
+            path.lineTo(r_cycle, 0);
+            path.quadTo(0, r_cycle, r_cycle, getHeight()); //赛贝尔曲线画圆弧
+            path.close();//封闭
+        }
+
 
         return path;
     }
