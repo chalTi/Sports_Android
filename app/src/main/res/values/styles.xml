@@ -123,4 +123,16 @@
         <attr name="gradientEndColor" format="reference|color" />
 
     </declare-styleable>
+
+    <declare-styleable name="TabLayoutStyle">
+        <attr name="lineColor" format="reference|color" />
+        <attr name="lineHeight" format="dimension" />
+        <attr name="useTriangle" format="boolean" />
+        <attr name="triangleColor" format="reference|color" />
+        <attr name="textColorNormal" format="reference|color" />
+        <attr name="textSize" format="dimension" />
+        <attr name="textColorLight" format="reference|color" />
+
+
+    </declare-styleable>
 </resources>
