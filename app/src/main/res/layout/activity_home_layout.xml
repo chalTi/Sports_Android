@@ -33,11 +33,13 @@
         android:paddingRight="20dp">
 
         <RadioButton
+            android:paddingTop="10dp"
             android:id="@+id/btn_home"
             style="@style/radio_button_style"
             android:drawableTop="@drawable/bottom_tag_home" />
 
         <RadioButton
+            android:paddingTop="10dp"
             android:id="@+id/btn_calendar"
             style="@style/radio_button_style"
             android:layout_marginRight="30dp"
@@ -50,12 +52,14 @@
 
 
         <RadioButton
+            android:paddingTop="10dp"
             android:id="@+id/btn_news"
             style="@style/radio_button_style"
             android:layout_marginLeft="30dp"
             android:drawableTop="@drawable/bottom_tag_news" />
 
         <RadioButton
+            android:paddingTop="10dp"
             android:id="@+id/btn_preson"
             style="@style/radio_button_style"
             android:drawableTop="@drawable/bottom_tag_person_info" />

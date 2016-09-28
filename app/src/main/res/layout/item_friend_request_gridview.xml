@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="12dp"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#559E9E9E">
+
+    <ImageView
+        android:layout_alignParentRight="true"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:background="@color/black"/>
+
+    <com.wentongwang.mysports.custome.CircleImageView
+        android:id="@+id/person_head"
+        android:layout_centerHorizontal="true"
+        android:layout_width="80dp"
+        android:layout_height="80dp" />
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/person_head"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/person_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="user name"/>
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/person_name"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/person_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="i want you"/>
+
+    <Button
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/person_description"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:gravity="top|center"
+        android:text="+"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_light_green_background"/>
+
+</RelativeLayout>

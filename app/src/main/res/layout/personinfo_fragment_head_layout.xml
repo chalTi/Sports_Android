@@ -5,29 +5,18 @@
     android:layout_height="250dp"
     android:background="#607D8B">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:background="#B3E5FC"
-        android:scaleType="fitXY" />
-    <!--放在背景下面,让其置于顶部-->
-    <com.wentongwang.mysports.custome.CircleImageView
-        android:id="@+id/iv_preson_info_user_head"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_centerHorizontal="true"
-        />
 
     <TextView
+        android:layout_marginTop="50dp"
         android:id="@+id/tv_preson_info_user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/iv_preson_info_user_head"
         android:gravity="center"
         android:padding="2dp"
         android:text="用户名"
         android:textColor="@android:color/white"
         android:textSize="18dp" />
+
     <TextView
         android:id="@+id/tv_preson_info_user_brief"
         android:layout_width="match_parent"
