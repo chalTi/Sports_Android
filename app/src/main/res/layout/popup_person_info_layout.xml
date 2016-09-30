@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:background="@drawable/popupwindow_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#607D8B" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@color/transparent">
+
+            <ImageView
+                android:id="@+id/transparent_bg"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/transparent" />
+
+            <RelativeLayout
+                android:id="@+id/rl_preson_info_top_container"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@id/transparent_bg"
+                android:background="#00BCD4">
+
+                <TextView
+                    android:id="@+id/tv_preson_info_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="160dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="用户名"
+                    android:textColor="@android:color/white"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/tv_preson_info_user_brief"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_preson_info_user_name"
+                    android:layout_marginLeft="160dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="left"
+                    android:padding="2dp"
+                    android:text="这个用户很懒,什么都没有留下!!!!!!"
+                    android:textColor="@android:color/white"
+                    android:textSize="16dp" />
+
+
+                <include
+                    layout="@layout/person_info_bottom_tab_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="10dp" />
+
+            </RelativeLayout>
+
+            <com.wentongwang.mysports.custome.CircleImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="30dp" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>
