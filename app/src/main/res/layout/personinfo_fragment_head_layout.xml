@@ -7,10 +7,10 @@
 
 
     <TextView
-        android:layout_marginTop="50dp"
         android:id="@+id/tv_preson_info_user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:gravity="center"
         android:padding="2dp"
         android:text="用户名"
@@ -27,7 +27,10 @@
         android:text="这个用户很懒,什么都没有留下"
         android:textColor="@android:color/white"
         android:textSize="15dp" />
+
+
     <Button
+        android:id="@+id/btn_follow"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_alignParentBottom="true"
@@ -37,5 +40,13 @@
         android:background="@drawable/btn_light_blue_background"
         android:text="Follow"
         android:textColor="@android:color/white" />
+
+
+    <include
+        layout="@layout/person_info_bottom_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btn_follow"
+        android:layout_marginBottom="10dp" />
 </RelativeLayout>
 
