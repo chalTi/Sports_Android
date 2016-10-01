@@ -117,16 +117,6 @@
 
         </RadioGroup>
 
-
-        <CheckBox
-            android:id="@+id/cb_sign_up_activity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Send me weekly updates"
-            android:textColor="@android:color/white"
-            android:textSize="15dp"/>
-
-
     </LinearLayout>
 
     <Button

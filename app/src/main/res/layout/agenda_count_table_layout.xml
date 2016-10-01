@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:text="Active Time"
-            android:textColor="@color/gray" />
+            android:textColor="@color/colorSecondaryText" />
 
         <TextView
             android:id="@+id/active_time_number"
@@ -27,7 +27,7 @@
             android:drawableLeft="@drawable/event_time"
             android:drawablePadding="5dp"
             android:text="4h30min"
-            android:textColor="@color/text_black" />
+            android:textColor="@color/colorPrimaryText" />
 
     </RelativeLayout>
 
@@ -41,6 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:textColor="@color/colorSecondaryText"
             android:text="Active Burn" />
 
         <TextView
@@ -50,7 +51,7 @@
             android:layout_below="@id/active_burn_title"
             android:layout_centerHorizontal="true"
             android:text="2555 cal"
-            android:textColor="@color/text_black" />
+            android:textColor="@color/colorPrimaryText" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -63,6 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:textColor="@color/colorSecondaryText"
             android:text="Sports Done" />
 
         <TextView
@@ -72,7 +74,7 @@
             android:layout_below="@id/sports_done_title"
             android:layout_centerHorizontal="true"
             android:text="3"
-            android:textColor="@color/text_black" />
+            android:textColor="@color/colorPrimaryText" />
     </RelativeLayout>
 
 </LinearLayout>

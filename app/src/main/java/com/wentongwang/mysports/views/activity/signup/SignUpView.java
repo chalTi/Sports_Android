@@ -7,4 +7,9 @@ import com.wentongwang.mysports.views.BaseView;
  */
 public interface SignUpView extends BaseView {
 
+    String getUserName();
+    String getUserPwd();
+    String getUserPwd2();
+    String getUserEmail();
+    String getUserSex();
 }
