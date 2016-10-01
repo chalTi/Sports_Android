@@ -12,6 +12,7 @@ public class Constant {
 
     //*********************** servlet path *******************************//
     public static final String LOGIN_PATH = "/user/login";
+    public static final String SIGN_UP_PATH = "/user/register";
 
 
     //测试提交1

@@ -8,7 +8,7 @@
         android:id="@+id/tool_bar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        mToolbar:tbBackground="#607D8B"
+        mToolbar:tbBackground="@color/colorPrimary"
         mToolbar:tbImgLeft="@drawable/left_btn"
         mToolbar:tbInfoLeftVisiable="false">
 
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:background="#607D8B"
+        android:background="@color/colorPrimary"
         android:orientation="horizontal"
         android:paddingLeft="20dp"
         android:paddingRight="20dp">
@@ -73,7 +73,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_marginBottom="4dp"
-        android:background="@drawable/btn_dark_blue_background"
+        android:background="@drawable/btn_drak_primary_color"
         android:button="@null"
         android:padding="5dp"
         android:src="@drawable/bottom_tag_creat_event" />

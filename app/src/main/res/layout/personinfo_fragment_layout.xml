@@ -65,7 +65,7 @@
                 android:layout_height="50dp"
                 android:background="@color/colorPrimaryDark"
                 tab:useTriangle="false"
-                tab:lineColor="@color/gray"
+                tab:lineColor="@color/white"
                 tab:lineHeight="5dp">
 
             </com.wentongwang.mysports.custome.MyTabLayout>
@@ -76,7 +76,7 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white">
+            android:background="@color/colorPrimary">
 
         </android.support.v4.view.ViewPager>
 

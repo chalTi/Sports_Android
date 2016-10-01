@@ -1,6 +1,7 @@
 package com.wentongwang.mysports.views.activity.signup;
 
-import android.content.Context;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
@@ -25,9 +26,12 @@ public class SignUpActivity extends BaseActivity implements SignUpView {
     protected EditText userEmail;
     @BindView(R.id.rg_sign_up_select_sex)
     protected RadioGroup mRadioGroup;
+    @BindView(R.id.btn_sign_in)
+    protected Button btnSignUp;
 
 
     private int userSex = 0; //0 = male; 1 = female
+    private SignUpPresenter mPresenter = new SignUpPresenter(this);
 
     @Override
     protected boolean notitle() {
@@ -42,6 +46,7 @@ public class SignUpActivity extends BaseActivity implements SignUpView {
     @Override
     protected void initDatasAndViews() {
         ButterKnife.bind(SignUpActivity.this);
+        mPresenter.init(SignUpActivity.this);
     }
 
     @Override
@@ -56,8 +61,14 @@ public class SignUpActivity extends BaseActivity implements SignUpView {
                 }
             }
         });
-    }
 
+        btnSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.signUp();
+            }
+        });
+    }
 
 
     @Override
@@ -68,5 +79,30 @@ public class SignUpActivity extends BaseActivity implements SignUpView {
     @Override
     public void hideProgressBar() {
 
+    }
+
+    @Override
+    public String getUserName() {
+        return userName.getText().toString();
+    }
+
+    @Override
+    public String getUserPwd() {
+        return userPwd.getText().toString();
+    }
+
+    @Override
+    public String getUserPwd2() {
+        return userPwd2.getText().toString();
+    }
+
+    @Override
+    public String getUserEmail() {
+        return userEmail.getText().toString();
+    }
+
+    @Override
+    public String getUserSex() {
+        return Integer.toString(userSex);
     }
 }

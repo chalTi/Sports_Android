@@ -17,8 +17,8 @@
             android:padding="2dp"
             android:gravity="center"
             android:textColor="@android:color/white"
-            android:textSize="20dp"
-            android:text="Friends"
+            android:textSize="18dp"
+            android:text="FRIENDS"
             />
 
         <TextView
@@ -27,7 +27,7 @@
             android:padding="2dp"
             android:gravity="center"
             android:textColor="@android:color/white"
-            android:textSize="25dp"
+            android:textSize="22dp"
             android:text="170"
             />
 
@@ -53,8 +53,8 @@
             android:padding="2dp"
             android:gravity="center"
             android:textColor="@android:color/white"
-            android:textSize="20dp"
-            android:text="Friends"
+            android:textSize="18dp"
+            android:text="EVENTS DONE"
             />
 
         <TextView
@@ -63,8 +63,8 @@
             android:padding="2dp"
             android:gravity="center"
             android:textColor="@android:color/white"
-            android:textSize="25dp"
-            android:text="170"
+            android:textSize="22dp"
+            android:text="14"
             />
 
     </LinearLayout>
@@ -88,8 +88,8 @@
             android:padding="2dp"
             android:gravity="center"
             android:textColor="@android:color/white"
-            android:textSize="20dp"
-            android:text="Friends"
+            android:textSize="18dp"
+            android:text="POSTS"
             />
 
         <TextView
@@ -98,8 +98,8 @@
             android:padding="2dp"
             android:gravity="center"
             android:textColor="@android:color/white"
-            android:textSize="25dp"
-            android:text="170"
+            android:textSize="22dp"
+            android:text="130"
             />
 
     </LinearLayout>
