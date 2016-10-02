@@ -1,19 +1,26 @@
 package com.wentongwang.mysports.views.activity.home;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.custome.CommonHeadView;
+import com.wentongwang.mysports.utils.ToastUtil;
 import com.wentongwang.mysports.views.BaseActivity;
 import com.wentongwang.mysports.views.activity.createvent.CreatEventActivity;
 import com.wentongwang.mysports.views.fragment.agenda.AgendaFragment;
@@ -31,7 +38,8 @@ import butterknife.ButterKnife;
  * Created by Wentong WANG on 2016/9/16.
  */
 public class HomeActivity extends BaseActivity implements HomeView {
-
+    @BindView(R.id.root_view)
+    protected View rootView;
     @BindView(R.id.vp_home_activity_content)
     protected ViewPager mViewPager;
     //底部tab栏
@@ -47,7 +55,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
     private MyFragmentPagerAdapter mvpAdapter; //fragment的adapter
 
     private HomePresenter mPresenter = new HomePresenter(this);
-
+    private int userType = 1;
     @Override
     protected boolean notitle() {
         return false;
@@ -84,7 +92,14 @@ public class HomeActivity extends BaseActivity implements HomeView {
         creatEventBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.toCreatEvent();
+                if (userType == 0) {
+                    mPresenter.toCreatEvent();
+                } else if (userType == 1) {
+                    mPresenter.popupChoseWindow();
+                } else {
+                    ToastUtil.show(HomeActivity.this,"登录异常",2000);
+                }
+
             }
         });
 
@@ -194,6 +209,46 @@ public class HomeActivity extends BaseActivity implements HomeView {
         Intent it = new Intent();
         it.setClass(HomeActivity.this, CreatEventActivity.class);
         startActivity(it);
+    }
+
+    @Override
+    public void showPopupWindow(PopupWindow popupWindow) {
+        popupWindow.showAtLocation(rootView, Gravity.BOTTOM, 0, 0);
+    }
+
+    @Override
+    public void setBackGroundAlpha(float alpha) {
+        WindowManager.LayoutParams windowlp = HomeActivity.this.getWindow().getAttributes();
+        windowlp.alpha = alpha;
+        HomeActivity.this.getWindow().setAttributes(windowlp);
+    }
+
+    @Override
+    public Context getContext() {
+        return HomeActivity.this;
+    }
+
+    @Override
+    public View initPopupView() {
+        View popupView = LayoutInflater.from(this).inflate(R.layout.popup_chose_layout, null);
+
+        Button eventBtn = (Button) popupView.findViewById(R.id.btn_creat_event);
+        Button postBtn = (Button) popupView.findViewById(R.id.btn_creat_post);
+
+        eventBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.toCreatEvent();
+            }
+        });
+
+        postBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtil.show(HomeActivity.this, "跳转到Post界面", 1500);
+            }
+        });
+        return popupView;
     }
 
     @Override

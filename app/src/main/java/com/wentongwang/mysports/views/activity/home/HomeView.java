@@ -1,5 +1,8 @@
 package com.wentongwang.mysports.views.activity.home;
 
+import android.content.Context;
+import android.view.View;
+import android.widget.PopupWindow;
 import android.widget.RadioButton;
 
 import com.wentongwang.mysports.views.BaseView;
@@ -16,4 +19,12 @@ public interface HomeView extends BaseView {
     RadioButton getCheckedBtn(int position);
 
     void goToCreatEventActivity();
+
+    void showPopupWindow(PopupWindow popupWindow);
+
+    void setBackGroundAlpha(float alpha);
+
+    Context getContext();
+
+    View initPopupView();
 }
