@@ -1,6 +1,13 @@
 package com.wentongwang.mysports.views.activity.home;
 
 
+import android.graphics.drawable.ColorDrawable;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.PopupWindow;
+
+import com.wentongwang.mysports.R;
+import com.wentongwang.mysports.custome.PersonInfoPopupWindow;
 import com.wentongwang.mysports.utils.Logger;
 
 import java.math.BigDecimal;
@@ -14,6 +21,9 @@ public class HomePresenter {
 
     private int currentPage = 0;
     private boolean isToolBarVisible = true;
+    private PopupWindow popupWindow;
+
+
     public HomePresenter(HomeView homeView) {
         this.view = homeView;
     }
@@ -50,6 +60,24 @@ public class HomePresenter {
 
     }
 
+    public void popupChoseWindow(){
+        //获取数据，通过构造函数塞到popupWindow里
+        popupWindow = new PopupWindow(view.initPopupView(), ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        popupWindow.setTouchable(true);
+        popupWindow.setFocusable(true);
+        popupWindow.setOutsideTouchable(true);
+        popupWindow.setBackgroundDrawable(new ColorDrawable(0x00000000));
+        popupWindow.setAnimationStyle(R.style.popwindow_anim_style);
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                view.setBackGroundAlpha(1.0f);
+            }
+        });
+        view.showPopupWindow(popupWindow);
+        view.setBackGroundAlpha(0.55f);
+
+    }
     public void setToolBarVisible(boolean visible) {
         this.isToolBarVisible = visible;
     }
