@@ -18,4 +18,10 @@
     <color name="gray">#757575</color>
 
     <color name="transparent">#00000000</color>
+
+    <color name="holo_yellow_dark">#FBC02D</color>
+    <color name="holo_orange_dark">#FF9800</color>
+    <color name="holo_teal_light">#009688</color>
+    <color name="holo_blue_light">#2196F3</color>
+    <color name="holo_purple_light">#9C27B0</color>
 </resources>
