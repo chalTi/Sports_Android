@@ -32,6 +32,8 @@ public abstract class BaseFragment extends Fragment {
      */
     public abstract void initEvents();
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(getLayoutId(), container, false);
