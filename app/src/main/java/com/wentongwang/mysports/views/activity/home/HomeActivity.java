@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -42,20 +43,21 @@ public class HomeActivity extends BaseActivity implements HomeView {
     protected View rootView;
     @BindView(R.id.vp_home_activity_content)
     protected ViewPager mViewPager;
-    //底部tab栏
+    //bottom tab layout
     @BindView(R.id.rg_home_bottom_tab)
     protected RadioGroup mRg;
-    //顶部toolbar
+    //toolbar
     @BindView(R.id.tool_bar)
     protected CommonHeadView mToolbar;
     @BindView(R.id.btn_creat_event)
     protected ImageView creatEventBtn;
 
     private List<Fragment> mFragmentList;
-    private MyFragmentPagerAdapter mvpAdapter; //fragment的adapter
+    private MyFragmentPagerAdapter mvpAdapter; //adapter of fragment
 
     private HomePresenter mPresenter = new HomePresenter(this);
     private int userType = 1;
+
     @Override
     protected boolean notitle() {
         return false;
@@ -97,7 +99,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
                 } else if (userType == 1) {
                     mPresenter.popupChoseWindow();
                 } else {
-                    ToastUtil.show(HomeActivity.this,"登录异常",2000);
+                    ToastUtil.show(HomeActivity.this, "登录异常", 2000);
                 }
 
             }
@@ -144,7 +146,6 @@ public class HomeActivity extends BaseActivity implements HomeView {
 
     /**
      * execute hide toolbar animation
-     *
      */
     @Override
     public void hiddenToolBarAnim() {
@@ -170,9 +171,9 @@ public class HomeActivity extends BaseActivity implements HomeView {
         mToolbar.setAnimation(animation);
         animation.start();
     }
+
     /**
      * execute show toolbar animation
-     *
      */
     @Override
     public void showToolBarAnim() {
@@ -199,6 +200,22 @@ public class HomeActivity extends BaseActivity implements HomeView {
         animation.start();
     }
 
+    /**
+     * make right Btn visible or not
+     *
+     * @param show
+     */
+    @Override
+    public void setToolBarRightBtnVisible(boolean show) {
+        mToolbar.setRightImageShow(show);
+    }
+
+    /**
+     * get which tab btn is checked
+     *
+     * @param position
+     * @return
+     */
     @Override
     public RadioButton getCheckedBtn(int position) {
         return (RadioButton) mRg.getChildAt(position);
@@ -209,23 +226,6 @@ public class HomeActivity extends BaseActivity implements HomeView {
         Intent it = new Intent();
         it.setClass(HomeActivity.this, CreatEventActivity.class);
         startActivity(it);
-    }
-
-    @Override
-    public void showPopupWindow(PopupWindow popupWindow) {
-        popupWindow.showAtLocation(rootView, Gravity.BOTTOM, 0, 0);
-    }
-
-    @Override
-    public void setBackGroundAlpha(float alpha) {
-        WindowManager.LayoutParams windowlp = HomeActivity.this.getWindow().getAttributes();
-        windowlp.alpha = alpha;
-        HomeActivity.this.getWindow().setAttributes(windowlp);
-    }
-
-    @Override
-    public Context getContext() {
-        return HomeActivity.this;
     }
 
     @Override
@@ -252,6 +252,24 @@ public class HomeActivity extends BaseActivity implements HomeView {
     }
 
     @Override
+    public void showPopupWindow(PopupWindow popupWindow) {
+        popupWindow.showAtLocation(rootView, Gravity.BOTTOM, 0, 0);
+    }
+
+    @Override
+    public void setBackGroundAlpha(float alpha) {
+        WindowManager.LayoutParams windowlp = HomeActivity.this.getWindow().getAttributes();
+        windowlp.alpha = alpha;
+        HomeActivity.this.getWindow().setAttributes(windowlp);
+    }
+
+    @Override
+    public Context getContext() {
+        return HomeActivity.this;
+    }
+
+
+    @Override
     public void showProgressBar() {
 
     }
@@ -261,6 +279,15 @@ public class HomeActivity extends BaseActivity implements HomeView {
 
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            mPresenter.keyBackAction();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
     class MyFragmentPagerAdapter extends FragmentPagerAdapter {
         List<Fragment> list;

@@ -18,7 +18,7 @@ import com.wentongwang.mysports.R;
  * 好友列表的弹框
  * Created by Wentong WANG on 2016/9/24.
  */
-public class FriendListPopupWindow extends PopupWindow {
+public class ListPopupWindow extends PopupWindow {
 
     private Context context;
     private int mWidth;
@@ -29,7 +29,7 @@ public class FriendListPopupWindow extends PopupWindow {
     private RecyclerView friendList;
 
 
-    public FriendListPopupWindow(Context context) {
+    public ListPopupWindow(Context context) {
         this.context = context;
         calWidthAndHeight(context);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

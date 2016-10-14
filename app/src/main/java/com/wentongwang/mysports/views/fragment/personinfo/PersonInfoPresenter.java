@@ -11,4 +11,8 @@ public class PersonInfoPresenter {
         this.view = view;
     }
 
+
+    public void goToDetailActivity(){
+        view.goToDetail();
+    }
 }
