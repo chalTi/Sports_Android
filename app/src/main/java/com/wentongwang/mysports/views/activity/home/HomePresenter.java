@@ -85,6 +85,14 @@ public class HomePresenter {
         this.isToolBarVisible = visible;
     }
 
+    public void goToChoseSports(){
+        if (currentPage == 0) {
+            view.goToChoseSports();
+        }
+
+    }
+
+
     public void keyBackAction(){
         if ((System.currentTimeMillis() - mExitTime) > 2000) {
             ToastUtil.show(view.getContext(), "click again to quit", 2000);
