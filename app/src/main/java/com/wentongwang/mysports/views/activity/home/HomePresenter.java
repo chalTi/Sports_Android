@@ -3,14 +3,11 @@ package com.wentongwang.mysports.views.activity.home;
 
 import android.graphics.drawable.ColorDrawable;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.PopupWindow;
 
 import com.wentongwang.mysports.R;
-import com.wentongwang.mysports.custome.PersonInfoPopupWindow;
-import com.wentongwang.mysports.utils.Logger;
-
-import java.math.BigDecimal;
+import com.wentongwang.mysports.utils.ActivityManager;
+import com.wentongwang.mysports.utils.ToastUtil;
 
 /**
  * Created by Wentong WANG on 2016/9/16.
@@ -23,6 +20,7 @@ public class HomePresenter {
     private boolean isToolBarVisible = true;
     private PopupWindow popupWindow;
 
+    private long mExitTime;
 
     public HomePresenter(HomeView homeView) {
         this.view = homeView;
@@ -34,6 +32,11 @@ public class HomePresenter {
      * @param position       page position
      */
     public void toolBarAnim(int position) {
+        if (position == 0) {
+            view.setToolBarRightBtnVisible(true);
+        } else {
+            view.setToolBarRightBtnVisible(false);
+        }
 
         if (position == 3 && isToolBarVisible) {
             view.hiddenToolBarAnim();
@@ -80,5 +83,14 @@ public class HomePresenter {
     }
     public void setToolBarVisible(boolean visible) {
         this.isToolBarVisible = visible;
+    }
+
+    public void keyBackAction(){
+        if ((System.currentTimeMillis() - mExitTime) > 2000) {
+            ToastUtil.show(view.getContext(), "click again to quit", 2000);
+            mExitTime = System.currentTimeMillis();
+        } else {
+            ActivityManager.getInstance().exit();
+        }
     }
 }

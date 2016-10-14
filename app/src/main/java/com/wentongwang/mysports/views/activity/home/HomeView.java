@@ -16,6 +16,8 @@ public interface HomeView extends BaseView {
 
     void showToolBarAnim();
 
+    void setToolBarRightBtnVisible(boolean show);
+
     RadioButton getCheckedBtn(int position);
 
     void goToCreatEventActivity();

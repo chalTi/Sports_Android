@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,15 +15,15 @@ import android.widget.TextView;
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.custome.NoScrollListView;
 import com.wentongwang.mysports.views.BaseFragment;
+import com.wentongwang.mysports.views.activity.home.HomeView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
+ * test
  * Created by Wentong WANG on 2016/9/17.
  */
-public class HomeFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+public class HomeFragment extends BaseFragment implements HomeFragView,SwipeRefreshLayout.OnRefreshListener{
 
     @BindView(R.id.home_swipe_container)
     protected SwipeRefreshLayout homeContainer;
@@ -32,6 +31,7 @@ public class HomeFragment extends BaseFragment implements SwipeRefreshLayout.OnR
     protected NoScrollListView homeListView;
     private static final int REFRESH_COMPLETE = 0X110;
     private HomeListViewAdapter homeAdapter;
+
     private Handler homehandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -48,12 +48,6 @@ public class HomeFragment extends BaseFragment implements SwipeRefreshLayout.OnR
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-
-    private void initViews(View root) {
-        //****没有使用R.id 需要修改
-
-    }
-
 
     @Override
     public int getLayoutId() {
@@ -74,6 +68,7 @@ public class HomeFragment extends BaseFragment implements SwipeRefreshLayout.OnR
                 R.color.holo_purple_light
         );
         homeContainer.setRefreshing(false);
+
 //        homeListView= (NoScrollListView) root.findViewById(R.id.home_noscrollistview);
         homeListView.setOverScrollMode(View.OVER_SCROLL_NEVER);
     }
@@ -85,7 +80,18 @@ public class HomeFragment extends BaseFragment implements SwipeRefreshLayout.OnR
 
     @Override
     public void onRefresh() {
+        //这里用presenter去请求服务器
         homehandler.sendEmptyMessageDelayed(REFRESH_COMPLETE, 2000);
+    }
+
+    @Override
+    public void showProgressBar() {
+        homeContainer.setRefreshing(true);
+    }
+
+    @Override
+    public void hideProgressBar() {
+        homeContainer.setRefreshing(false);
     }
 
     private class HomeListViewAdapter extends BaseAdapter {
@@ -119,7 +125,6 @@ public class HomeFragment extends BaseFragment implements SwipeRefreshLayout.OnR
             }
             return convertView;
         }
-
         private class ViewHolder {
             TextView tv;
         }
