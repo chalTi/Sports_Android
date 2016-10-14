@@ -29,4 +29,6 @@ public interface HomeView extends BaseView {
     Context getContext();
 
     View initPopupView();
+
+    void goToChoseSports();
 }

@@ -24,6 +24,9 @@
         <activity
             android:name=".views.activity.persondetail.PersonDetailActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.activity.chosesports.ChoseSportsActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
