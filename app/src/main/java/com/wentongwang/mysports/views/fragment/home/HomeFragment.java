@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.custome.NoScrollListView;
 import com.wentongwang.mysports.views.BaseFragment;
+import com.wentongwang.mysports.views.activity.home.HomeView;
 
 import butterknife.BindView;
 
@@ -22,7 +23,7 @@ import butterknife.BindView;
  * test
  * Created by Wentong WANG on 2016/9/17.
  */
-public class HomeFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener{
+public class HomeFragment extends BaseFragment implements HomeFragView,SwipeRefreshLayout.OnRefreshListener{
 
     @BindView(R.id.home_swipe_container)
     protected SwipeRefreshLayout homeContainer;
@@ -30,6 +31,7 @@ public class HomeFragment extends BaseFragment implements SwipeRefreshLayout.OnR
     protected NoScrollListView homeListView;
     private static final int REFRESH_COMPLETE = 0X110;
     private HomeListViewAdapter homeAdapter;
+
     private Handler homehandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -66,19 +68,32 @@ public class HomeFragment extends BaseFragment implements SwipeRefreshLayout.OnR
                 R.color.holo_purple_light
         );
         homeContainer.setRefreshing(false);
+
 //        homeListView= (NoScrollListView) root.findViewById(R.id.home_noscrollistview);
         homeListView.setOverScrollMode(View.OVER_SCROLL_NEVER);
     }
 
     @Override
     public void initEvents() {
-
+        homeContainer.setOnRefreshListener(this);
     }
 
     @Override
     public void onRefresh() {
+        //这里用presenter去请求服务器
         homehandler.sendEmptyMessageDelayed(REFRESH_COMPLETE, 2000);
     }
+
+    @Override
+    public void showProgressBar() {
+        homeContainer.setRefreshing(true);
+    }
+
+    @Override
+    public void hideProgressBar() {
+        homeContainer.setRefreshing(false);
+    }
+
     private class HomeListViewAdapter extends BaseAdapter {
 
         @Override

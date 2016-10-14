@@ -12,6 +12,7 @@ import com.wentongwang.mysports.views.BaseFragment;
 import butterknife.BindView;
 
 /**
+ * a fragment in the PersoninfoFragment
  * Created by Wentong WANG on 2016/9/29.
  */
 public class FriendRequestFragment extends BaseFragment {

@@ -11,7 +11,8 @@
         android:layout_height="50dp"
         mToolbar:tbBackground="@color/colorPrimary"
         mToolbar:tbImgLeft="@drawable/left_btn"
-        mToolbar:tbInfoLeftVisiable="false">
+        mToolbar:tbInfoLeftVisiable="false"
+        mToolbar:tbImgRight="@drawable/right_btn">
 
     </com.wentongwang.mysports.custome.CommonHeadView>
 

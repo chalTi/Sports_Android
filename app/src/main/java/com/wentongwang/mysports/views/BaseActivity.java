@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
-import butterknife.ButterKnife;
+import com.wentongwang.mysports.utils.ActivityManager;
 
 /**
  * Created by Wentong WANG on 2016/8/18.
@@ -14,6 +14,7 @@ public abstract class BaseActivity extends FragmentActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        ActivityManager.getInstance().addActivity(this);
         super.onCreate(savedInstanceState);
         if (notitle()) {
             setNoTitle();
@@ -53,6 +54,8 @@ public abstract class BaseActivity extends FragmentActivity {
 
     @Override
     protected void onDestroy() {
+        ActivityManager.getInstance().exit(this);
         super.onDestroy();
+
     }
 }
