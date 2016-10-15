@@ -21,8 +21,10 @@ import android.widget.RadioGroup;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.custome.CommonHeadView;
+import com.wentongwang.mysports.utils.Logger;
 import com.wentongwang.mysports.utils.ToastUtil;
 import com.wentongwang.mysports.views.BaseActivity;
+import com.wentongwang.mysports.views.activity.chosesports.ChoseSportsActivity;
 import com.wentongwang.mysports.views.activity.createvent.CreatEventActivity;
 import com.wentongwang.mysports.views.fragment.agenda.AgendaFragment;
 import com.wentongwang.mysports.views.fragment.home.HomeFragment;
@@ -39,6 +41,8 @@ import butterknife.ButterKnife;
  * Created by Wentong WANG on 2016/9/16.
  */
 public class HomeActivity extends BaseActivity implements HomeView {
+    private static final int FINISHE_CHOSE_SPORTS = 0x123;
+
     @BindView(R.id.root_view)
     protected View rootView;
     @BindView(R.id.vp_home_activity_content)
@@ -139,6 +143,24 @@ public class HomeActivity extends BaseActivity implements HomeView {
                         mViewPager.setCurrentItem(3);
                         break;
                 }
+            }
+        });
+
+        mToolbar.setCallbck(new CommonHeadView.CALLBACK() {
+            @Override
+            public void onLeftClick() {
+
+            }
+
+            @Override
+            public void onRightClick() {
+                Logger.i("HomeActivity", "点击了");
+                mPresenter.goToChoseSports();
+            }
+
+            @Override
+            public void onCenterClick() {
+
             }
         });
     }
@@ -252,6 +274,13 @@ public class HomeActivity extends BaseActivity implements HomeView {
     }
 
     @Override
+    public void goToChoseSports() {
+        Intent it = new Intent();
+        it.setClass(HomeActivity.this, ChoseSportsActivity.class);
+        startActivityForResult(it, 0);
+    }
+
+    @Override
     public void showPopupWindow(PopupWindow popupWindow) {
         popupWindow.showAtLocation(rootView, Gravity.BOTTOM, 0, 0);
     }
@@ -287,6 +316,14 @@ public class HomeActivity extends BaseActivity implements HomeView {
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == FINISHE_CHOSE_SPORTS) {
+            //TODO:重新刷新界面
+            Logger.i("HomeActivity", "选择成功");
+        }
     }
 
     class MyFragmentPagerAdapter extends FragmentPagerAdapter {
