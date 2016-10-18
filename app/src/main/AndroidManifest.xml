@@ -25,7 +25,7 @@
             android:name=".views.activity.persondetail.PersonDetailActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".views.activity.chosesports.ChoseSportsActivity"
+            android:name=".views.activity.choosesports.ChooseSportsActivity"
             android:screenOrientation="portrait" />
     </application>
 
