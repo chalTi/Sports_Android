@@ -93,7 +93,7 @@ public class AgendaFragment extends BaseFragment implements AgendaView {
         public View getView(int position, View convertView, ViewGroup parent) {
             ViewHolder viewHolder = null;
             if (convertView == null) {
-                convertView = LayoutInflater.from(getActivity()).inflate(R.layout.item_agenda_event_list, null);
+                convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_agenda_event_list, null);
                 viewHolder = new ViewHolder(convertView);
 
                 convertView.setTag(viewHolder);

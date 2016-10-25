@@ -1,21 +1,22 @@
 package com.wentongwang.mysports.views.fragment.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.custome.NoScrollListView;
 import com.wentongwang.mysports.views.BaseFragment;
-import com.wentongwang.mysports.views.activity.home.HomeView;
+import com.wentongwang.mysports.views.activity.eventdetail.EventDetailActivity;
 
 import butterknife.BindView;
 
@@ -76,6 +77,14 @@ public class HomeFragment extends BaseFragment implements HomeFragView,SwipeRefr
     @Override
     public void initEvents() {
         homeContainer.setOnRefreshListener(this);
+        homeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent it = new Intent();
+                it.setClass(getActivity(), EventDetailActivity.class);
+                startActivity(it);
+            }
+        });
     }
 
     @Override
@@ -119,7 +128,6 @@ public class HomeFragment extends BaseFragment implements HomeFragView,SwipeRefr
                 holder = new ViewHolder();
                 holder.tv = (TextView) convertView.findViewById(R.id.content);
                 convertView.setTag(holder);
-                Log.i("xxxx", "init");
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
