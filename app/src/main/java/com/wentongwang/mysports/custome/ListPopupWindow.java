@@ -77,7 +77,7 @@ public class ListPopupWindow extends PopupWindow {
     }
 
 
-    class FriendListAdapter extends RecyclerView.Adapter<FriendListAdapter.MyViewHolder> {
+    class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> {
 
 
         @Override
