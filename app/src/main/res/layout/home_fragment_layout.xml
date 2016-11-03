@@ -9,15 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="50dp">
-        <android.support.v4.widget.NestedScrollView
+        <ExpandableListView
+            android:id="@+id/expandable_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <com.wentongwang.mysports.custome.NoScrollListView
-                android:id="@+id/home_noscrollistview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </com.wentongwang.mysports.custome.NoScrollListView>
-        </android.support.v4.widget.NestedScrollView>
+        </ExpandableListView>
     </android.support.v4.widget.SwipeRefreshLayout>
 
 

@@ -1,6 +1,7 @@
 package com.wentongwang.mysports.views.fragment.home;
 
 import android.content.Intent;
+import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -11,12 +12,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.custome.NoScrollListView;
+import com.wentongwang.mysports.model.module.SportsFirstClass;
+import com.wentongwang.mysports.model.module.SportsSecondClass;
 import com.wentongwang.mysports.views.BaseFragment;
 import com.wentongwang.mysports.views.activity.eventdetail.EventDetailActivity;
+
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -24,14 +31,16 @@ import butterknife.BindView;
  * test
  * Created by Wentong WANG on 2016/9/17.
  */
-public class HomeFragment extends BaseFragment implements HomeFragView,SwipeRefreshLayout.OnRefreshListener{
-
+public class HomeFragment extends BaseFragment implements HomeFragView, SwipeRefreshLayout.OnRefreshListener {
+    @BindView(R.id.expandable_list)
+    protected ExpandableListView expandableListView;
     @BindView(R.id.home_swipe_container)
     protected SwipeRefreshLayout homeContainer;
-    @BindView(R.id.home_noscrollistview)
-    protected NoScrollListView homeListView;
+
     private static final int REFRESH_COMPLETE = 0X110;
-    private HomeListViewAdapter homeAdapter;
+
+    private HomeFragPresenter mPresenter = new HomeFragPresenter(this);
+
 
     private Handler homehandler = new Handler() {
         @Override
@@ -44,6 +53,7 @@ public class HomeFragment extends BaseFragment implements HomeFragView,SwipeRefr
             }
         }
     };
+    private MyExpandableListAdpater adapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,8 +67,11 @@ public class HomeFragment extends BaseFragment implements HomeFragView,SwipeRefr
 
     @Override
     public void initDatas() {
-        homeAdapter = new HomeListViewAdapter();
-        homeListView.setAdapter(homeAdapter);
+        mPresenter.init(getActivity());
+
+        adapter = new MyExpandableListAdpater(getActivity());
+        expandableListView.setAdapter(adapter);
+
         homeContainer.setColorSchemeColors(
                 android.R.color.holo_red_light,
                 R.color.holo_orange_dark,
@@ -70,19 +83,18 @@ public class HomeFragment extends BaseFragment implements HomeFragView,SwipeRefr
         );
         homeContainer.setRefreshing(false);
 
-//        homeListView= (NoScrollListView) root.findViewById(R.id.home_noscrollistview);
-        homeListView.setOverScrollMode(View.OVER_SCROLL_NEVER);
+        mPresenter.getSportEventsTest();
+
     }
 
     @Override
     public void initEvents() {
         homeContainer.setOnRefreshListener(this);
-        homeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent it = new Intent();
-                it.setClass(getActivity(), EventDetailActivity.class);
-                startActivity(it);
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                mPresenter.goToEventDetail(groupPosition,childPosition);
+                return false;
             }
         });
     }
@@ -103,38 +115,20 @@ public class HomeFragment extends BaseFragment implements HomeFragView,SwipeRefr
         homeContainer.setRefreshing(false);
     }
 
-    private class HomeListViewAdapter extends BaseAdapter {
+    @Override
+    public void refreshList(List<SportsFirstClass> list) {
+        adapter.setSportTypes(list);
+//        adapter.refresh();
+        adapter.notifyDataSetChanged();
+    }
 
-        @Override
-        public int getCount() {
-            return 15;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder holder = null;
-            if (convertView == null) {
-                convertView = LayoutInflater.from(getActivity()).inflate(R.layout.item_home_listview, null);
-                holder = new ViewHolder();
-                holder.tv = (TextView) convertView.findViewById(R.id.content);
-                convertView.setTag(holder);
-            } else {
-                holder = (ViewHolder) convertView.getTag();
-            }
-            return convertView;
-        }
-        private class ViewHolder {
-            TextView tv;
-        }
+    @Override
+    public void goToEventDetail(SportsSecondClass info) {
+        Intent it = new Intent();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("data", info);
+        it.putExtras(bundle);
+        it.setClass(getActivity(), EventDetailActivity.class);
+        startActivity(it);
     }
 }
