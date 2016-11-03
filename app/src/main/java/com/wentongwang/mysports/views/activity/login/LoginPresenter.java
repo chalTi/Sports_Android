@@ -5,6 +5,8 @@ import android.text.TextUtils;
 
 import com.wentongwang.mysports.constant.Constant;
 import com.wentongwang.mysports.model.bussiness.VollyResponse;
+import com.wentongwang.mysports.model.module.LoginResponse;
+import com.wentongwang.mysports.utils.SharedPreferenceUtil;
 import com.wentongwang.mysports.utils.ToastUtil;
 import com.wentongwang.mysports.utils.VolleyUtil;
 import com.wentongwang.mysports.model.bussiness.VollyRequestManager;
@@ -13,7 +15,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
  * Created by Wentong WANG on 2016/9/8.
  */
 public class LoginPresenter {
@@ -30,6 +31,7 @@ public class LoginPresenter {
      * initial presenter
      * get Activity context
      * initial VolleyRequestManager
+     *
      * @param context
      */
     public void init(Context context) {
@@ -60,16 +62,20 @@ public class LoginPresenter {
 
         String url = Constant.HOST + Constant.LOGIN_PATH;
 
+        VollyResponse<LoginResponse> loginResponse = new VollyResponse<>();
+
         Map<String, String> params = new HashMap<>();
         params.put("loginName", userName);
         params.put("password", userPwd);
 
         view.showProgressBar();
-        vollyRequestManager.doPost(mContext, url, params, new VollyRequestManager.OnRequestFinishedListener() {
+        vollyRequestManager.doPost(mContext, url, loginResponse, params, new VollyRequestManager.OnRequestFinishedListener() {
             @Override
             public void onSucess(VollyResponse response) {
                 view.hideProgressBar();
                 //存储用户登录信息，cookie之类的
+                LoginResponse result = (LoginResponse) response.getResult(LoginResponse.class);
+                SharedPreferenceUtil.put(mContext, "user_base_info", result);
                 view.goToHomeActivity();
             }
 
