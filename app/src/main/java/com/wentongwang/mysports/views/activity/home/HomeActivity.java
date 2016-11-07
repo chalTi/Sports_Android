@@ -24,7 +24,7 @@ import com.wentongwang.mysports.custome.CommonHeadView;
 import com.wentongwang.mysports.utils.Logger;
 import com.wentongwang.mysports.utils.ToastUtil;
 import com.wentongwang.mysports.views.BaseActivity;
-import com.wentongwang.mysports.views.activity.chosesports.ChoseSportsActivity;
+import com.wentongwang.mysports.views.activity.choosesports.ChooseSportsActivity;
 import com.wentongwang.mysports.views.activity.createvent.CreatEventActivity;
 import com.wentongwang.mysports.views.fragment.agenda.AgendaFragment;
 import com.wentongwang.mysports.views.fragment.home.HomeFragment;
@@ -276,7 +276,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
     @Override
     public void goToChoseSports() {
         Intent it = new Intent();
-        it.setClass(HomeActivity.this, ChoseSportsActivity.class);
+        it.setClass(HomeActivity.this, ChooseSportsActivity.class);
         startActivityForResult(it, 0);
     }
 

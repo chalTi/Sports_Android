@@ -2,6 +2,7 @@ package com.wentongwang.mysports.views;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -10,7 +11,7 @@ import com.wentongwang.mysports.utils.ActivityManager;
 /**
  * Created by Wentong WANG on 2016/8/18.
  */
-public abstract class BaseActivity extends FragmentActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
