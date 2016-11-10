@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import com.wentongwang.mysports.constant.Constant;
 import com.wentongwang.mysports.model.bussiness.VollyResponse;
 import com.wentongwang.mysports.model.module.LoginResponse;
+import com.wentongwang.mysports.utils.Logger;
 import com.wentongwang.mysports.utils.SharedPreferenceUtil;
 import com.wentongwang.mysports.utils.ToastUtil;
 import com.wentongwang.mysports.utils.VolleyUtil;
@@ -72,6 +73,7 @@ public class LoginPresenter {
         vollyRequestManager.doPost(mContext, url, loginResponse, params, new VollyRequestManager.OnRequestFinishedListener() {
             @Override
             public void onSucess(VollyResponse response) {
+                Logger.i("Login", response.getMsg());
                 view.hideProgressBar();
                 //存储用户登录信息，cookie之类的
                 LoginResponse result = (LoginResponse) response.getResult(LoginResponse.class);
