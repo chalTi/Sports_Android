@@ -7,6 +7,9 @@ import com.google.gson.Gson;
 import com.wentongwang.mysports.constant.Constant;
 import com.wentongwang.mysports.model.bussiness.VollyRequestManager;
 import com.wentongwang.mysports.model.bussiness.VollyResponse;
+import com.wentongwang.mysports.model.module.LoginResponse;
+import com.wentongwang.mysports.utils.Logger;
+import com.wentongwang.mysports.utils.SharedPreferenceUtil;
 import com.wentongwang.mysports.utils.ToastUtil;
 import com.wentongwang.mysports.utils.VolleyUtil;
 
@@ -64,15 +67,14 @@ public class SignUpPresenter {
             return;
         }
 
-        String url = Constant.HOST + Constant.LOGIN_PATH;
-        url = "http://192.168.1.23:6060/sports/user/register";
+        String url = Constant.HOST + Constant.SIGN_UP_PATH;
         Map<String, String> map = new HashMap<>();
 
-        map.put("name", userName);
-        map.put("password", userPwd);
-        map.put("mail", userEmail);
-        map.put("sex", userSex);
-        map.put("head", "");
+        map.put("user_name", userName);
+        map.put("user_password", userPwd);
+        map.put("user_email", userEmail);
+        map.put("user_sex", userSex);
+        map.put("user_imageURL", "");
         String userInfo = new Gson().toJson(map);
 
 
@@ -86,7 +88,41 @@ public class SignUpPresenter {
             public void onSucess(VollyResponse response) {
                 view.hideProgressBar();
                 //存储用户登录信息，cookie之类的
+                login();
+            }
 
+            @Override
+            public void onFailed(String msg) {
+                view.hideProgressBar();
+                ToastUtil.show(mContext, msg, 1500);
+            }
+        });
+
+    }
+
+    /**
+     * 注册成功的自动登录
+     */
+    private void login() {
+        String userName = view.getUserName();
+        String userPwd = view.getUserPwd();
+        String url = Constant.HOST + Constant.LOGIN_PATH;
+
+        VollyResponse<LoginResponse> loginResponse = new VollyResponse<>();
+
+        Map<String, String> params = new HashMap<>();
+        params.put("loginName", userName);
+        params.put("password", userPwd);
+
+        view.showProgressBar();
+        vollyRequestManager.doPost(mContext, url, loginResponse, params, new VollyRequestManager.OnRequestFinishedListener() {
+            @Override
+            public void onSucess(VollyResponse response) {
+                view.hideProgressBar();
+                //存储用户登录信息，cookie之类的
+                LoginResponse result = (LoginResponse) response.getResult(LoginResponse.class);
+                SharedPreferenceUtil.put(mContext, "user_base_info", result);
+                view.goToHomeActivity();
             }
 
             @Override

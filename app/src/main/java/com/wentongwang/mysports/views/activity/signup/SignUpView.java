@@ -12,4 +12,6 @@ public interface SignUpView extends BaseView {
     String getUserPwd2();
     String getUserEmail();
     String getUserSex();
+    void goToHomeActivity();
+
 }

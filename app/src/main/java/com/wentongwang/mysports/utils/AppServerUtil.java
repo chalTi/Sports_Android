@@ -70,13 +70,13 @@ public class AppServerUtil {
         try {
             JSONObject jsonObj = new JSONObject(resultData);
             if (jsonObj.getString(ServerConstant.CODE).equals(ServerConstant.SUCCESS)) {
-                String sizeString = jsonObj.getString(ServerConstant.JSONARRAY_SIZE).trim();
-                int arraySize = Integer.parseInt(sizeString);
-
-                if (arraySize > 0) {
-                    result = jsonObj.getString(ServerConstant.RESULT);
+                if (jsonObj.has(ServerConstant.JSONARRAY_SIZE)) {
+                    String sizeString = jsonObj.getString(ServerConstant.JSONARRAY_SIZE).trim();
+                    int arraySize = Integer.parseInt(sizeString);
+                    if (arraySize > 0) {
+                        result = jsonObj.getString(ServerConstant.RESULT);
+                    }
                 }
-
             } else {
                 ToastUtil.show(context, jsonObj.getString(ServerConstant.MESSAGE), Toast.LENGTH_SHORT);
             }
