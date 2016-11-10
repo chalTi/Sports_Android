@@ -125,8 +125,9 @@ public class MyExpandableListAdpater extends BaseExpandableListAdapter {
         } else {
             holder = (GroupViewHolder) convertView.getTag();
         }
-
-
+        SportsFirstClass item = sportTypes.get(groupPosition);
+        holder.sport_type.setText(item.getType());
+        holder.event_total_count.setText(item.getSports().size() + "EVENMENT");
         return convertView;
     }
 

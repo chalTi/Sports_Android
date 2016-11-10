@@ -1,5 +1,6 @@
 package com.wentongwang.mysports.views.activity.signup;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -7,6 +8,7 @@ import android.widget.RadioGroup;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.views.BaseActivity;
+import com.wentongwang.mysports.views.activity.home.HomeActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -104,5 +106,12 @@ public class SignUpActivity extends BaseActivity implements SignUpView {
     @Override
     public String getUserSex() {
         return Integer.toString(userSex);
+    }
+
+    @Override
+    public void goToHomeActivity() {
+        Intent it = new Intent();
+        it.setClass(SignUpActivity.this, HomeActivity.class);
+        startActivity(it);
     }
 }
