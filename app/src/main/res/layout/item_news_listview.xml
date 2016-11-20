@@ -72,6 +72,7 @@
             android:drawablePadding="5dp"
             android:text="14 Applies"/>
         <CheckBox
+            android:id="@+id/like_button"
             android:button="@null"
             android:layout_width="0dp"
             android:layout_height="match_parent"

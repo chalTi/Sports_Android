@@ -42,7 +42,7 @@ public class SignUpActivity extends BaseActivity implements SignUpView {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.signup_activity_layout;
+        return R.layout.activity_sginup_layout;
     }
 
     @Override
