@@ -45,7 +45,7 @@ public class NewsPresenter {
 
     public void getNews(){
 
-        String url = "http://192.168.1.11:8080/sports" + Constant.GET_NEWS_PATH;
+        String url = "http://192.168.1.25:8080/sports" + Constant.GET_NEWS_PATH;
 
         VollyResponse<NewsInfo> newsResponse = new VollyResponse<>();
 
@@ -59,7 +59,7 @@ public class NewsPresenter {
         vollyRequestManager.doPost(mContext, url, newsResponse, params, new VollyRequestManager.OnRequestFinishedListener() {
             @Override
             public void onSucess(VollyResponse response) {
-                Logger.i("News", response.getMsg());
+                //Logger.i("News", response.getMsg());
                 mView.hideProgressBar();
                 List<NewsInfo> list = response.getResultArray(NewsInfo.class);
                 mView.setNewsList(list);

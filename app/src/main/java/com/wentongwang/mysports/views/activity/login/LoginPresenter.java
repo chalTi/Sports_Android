@@ -50,10 +50,7 @@ public class LoginPresenter {
         String userName = view.getUserName();
         String userPwd = view.getUserPwd();
 
-        if (TextUtils.isEmpty(userName)) {
-            ToastUtil.show(mContext, "用户名不能为空", 1500);
-            return;
-        }
+        if (TextUtils.isEmpty(userName))
 
         if (TextUtils.isEmpty(userPwd)) {
             ToastUtil.show(mContext, "密码不能为空", 1500);

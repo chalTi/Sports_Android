@@ -119,7 +119,7 @@ public class MyExpandableListAdpater extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         GroupViewHolder holder = null;
         if (convertView == null) {
-            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_sports_first_class, parent, false);
+                convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_sports_first_class, parent, false);
             holder = new GroupViewHolder(convertView);
             convertView.setTag(holder);
         } else {
