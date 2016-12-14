@@ -14,4 +14,8 @@ public interface HomeFragView extends BaseView{
     void refreshList(List<SportsFirstClass> list);
 
     void goToEventDetail(SportsSecondClass info);
+
+    void setHomeEventList(List<SportsFirstClass> list);
+
+    void SportsEventDetail(List<SportsSecondClass> list);
 }

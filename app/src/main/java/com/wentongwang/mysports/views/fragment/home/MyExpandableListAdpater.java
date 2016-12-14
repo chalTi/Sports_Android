@@ -16,8 +16,14 @@ import android.widget.TextView;
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.custome.CircleImageView;
 import com.wentongwang.mysports.model.module.SportsFirstClass;
+import com.wentongwang.mysports.model.module.SportsSecondClass;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
@@ -30,6 +36,7 @@ import butterknife.ButterKnife;
 public class MyExpandableListAdpater extends BaseExpandableListAdapter {
 
     private List<SportsFirstClass> sportTypes;
+    private List<SportsSecondClass> sportTypesDetail;
     private Context mContext;
 
     public MyExpandableListAdpater(Context mContext) {
@@ -39,11 +46,22 @@ public class MyExpandableListAdpater extends BaseExpandableListAdapter {
 
     public MyExpandableListAdpater(Context mContext, List<SportsFirstClass> sportTypes) {
         this.sportTypes = sportTypes;
+        ;
+        this.mContext = mContext;
+    }
+
+    public MyExpandableListAdpater(List<SportsFirstClass> sportTypes, List<SportsSecondClass> sportTypesDetail, Context mContext) {
+        this.sportTypes = sportTypes;
+        this.sportTypesDetail = sportTypesDetail;
         this.mContext = mContext;
     }
 
     public void setSportTypes(List<SportsFirstClass> sportTypes) {
         this.sportTypes = sportTypes;
+    }
+
+    public void setSportTypesDetail(List<SportsSecondClass> sportTypesDetail) {
+        this.sportTypesDetail = sportTypesDetail;
     }
 
     /**
@@ -87,7 +105,7 @@ public class MyExpandableListAdpater extends BaseExpandableListAdapter {
      */
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return sportTypes.get(groupPosition).getSports().get(childPosition);
+        return sportTypes.get(groupPosition).getSports().size();
     }
 
     @Override
@@ -119,7 +137,7 @@ public class MyExpandableListAdpater extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         GroupViewHolder holder = null;
         if (convertView == null) {
-                convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_sports_first_class, parent, false);
+            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_sports_first_class, parent, false);
             holder = new GroupViewHolder(convertView);
             convertView.setTag(holder);
         } else {
@@ -152,6 +170,12 @@ public class MyExpandableListAdpater extends BaseExpandableListAdapter {
             holder = (ChildViewHolder) convertView.getTag();
         }
 
+        SportsSecondClass item = sportTypesDetail.get(childPosition);
+        holder.creator_name.setText(item.getEvent_creat_time());
+        holder.event_place.setText(item.getEvent_place());
+        holder.event_start_time.setText(item.getEvent_start_time());
+        holder.event_end_time.setText(item.getEvent_end_time());
+        holder.event_number_vs_total.setText((childPosition+1)+"/" + Integer.valueOf(item.getEvent_number()) + "");
         return convertView;
     }
 

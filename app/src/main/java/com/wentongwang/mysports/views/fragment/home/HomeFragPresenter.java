@@ -1,12 +1,16 @@
 package com.wentongwang.mysports.views.fragment.home;
 
 import android.content.Context;
+import android.util.Log;
 
+import com.wentongwang.mysports.constant.Constant;
 import com.wentongwang.mysports.model.bussiness.VollyRequestManager;
 import com.wentongwang.mysports.model.bussiness.VollyResponse;
+import com.wentongwang.mysports.model.module.AgendaEvents;
 import com.wentongwang.mysports.model.module.SportEvents;
 import com.wentongwang.mysports.model.module.SportsFirstClass;
 import com.wentongwang.mysports.model.module.SportsSecondClass;
+import com.wentongwang.mysports.utils.ToastUtil;
 import com.wentongwang.mysports.utils.VolleyUtil;
 
 import java.util.ArrayList;
@@ -70,22 +74,31 @@ public class HomeFragPresenter {
         params.put("user_id", "123456");
         params.put("user_like", "sssss");
 
-        String url = "";
-        VollyResponse<SportEvents> response = new VollyResponse<>();
+        String url = "http://192.168.1.25:8080/sports/home/gethomesportevent";
+        VollyResponse<SportsFirstClass> response = new VollyResponse<>();
         vollyRequestManager.doPost(mContext, url, response, params, new VollyRequestManager.OnRequestFinishedListener() {
             @Override
             public void onSucess(VollyResponse response) {
-
+                Log.i("Home", response.getMsg());
+                mView.hideProgressBar();
+                List<SportsFirstClass> list = response.getResultArray(SportsFirstClass.class);
+                mView.setHomeEventList(list);
+                for (int i = 0; i < list.size(); i++) {
+                    List<SportsSecondClass> listSecond = list.get(i).getSports();
+                    Log.i("listSecond.size()",listSecond.size()+"");
+                    mView.SportsEventDetail(listSecond);
+                }
             }
 
             @Override
             public void onFailed(String msg) {
-
+                mView.hideProgressBar();
+                ToastUtil.show(mContext, msg, 1500);
             }
         });
     }
 
-    public void goToEventDetail(int groupPosition, int childPosition){
+    public void goToEventDetail(int groupPosition, int childPosition) {
         SportsSecondClass item = sportsList.get(groupPosition).getSports().get(childPosition);
         mView.goToEventDetail(item);
     }

@@ -82,7 +82,7 @@ public class HomeFragment extends BaseFragment implements HomeFragView, SwipeRef
         );
         homeContainer.setRefreshing(false);
 
-        mPresenter.getSportEventsTest();
+        mPresenter.getSportEvents();
 
     }
 
@@ -129,5 +129,19 @@ public class HomeFragment extends BaseFragment implements HomeFragView, SwipeRef
         it.putExtras(bundle);
         it.setClass(getActivity(), EventDetailActivity.class);
         startActivity(it);
+    }
+
+    @Override
+    public void setHomeEventList(List<SportsFirstClass> list) {
+        adapter.setSportTypes(list);
+//        adapter.refresh();
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void SportsEventDetail(List<SportsSecondClass> list) {
+        adapter.setSportTypesDetail(list);
+//        adapter.refresh();
+        adapter.notifyDataSetChanged();
     }
 }
