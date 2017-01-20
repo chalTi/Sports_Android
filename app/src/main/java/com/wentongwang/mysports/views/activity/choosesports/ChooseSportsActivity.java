@@ -40,8 +40,6 @@ public class ChooseSportsActivity extends BaseActivity implements ChooseSportsVi
     @BindView(R.id.confirm_btn)
     protected Button btnConfirm;
 
-    private MySportsChosenAdapter sportsChooseAdapter;
-
     //save each gridview
     private List<View> listGridViews;
     //amount of item in one page
@@ -49,6 +47,10 @@ public class ChooseSportsActivity extends BaseActivity implements ChooseSportsVi
     //grideview's page size
     private int gvPageSize = 1;
     private int gvColumns = 3;
+
+    private SportsViewPagerAdapter adapter;
+    private SportsGridViewAdapter gridViewAdapter;
+    private SportsChosenAdapter sportsChooseAdapter;
 
     private ChooseSportsPresenter mPresenter = new ChooseSportsPresenter(this);
 
@@ -70,8 +72,9 @@ public class ChooseSportsActivity extends BaseActivity implements ChooseSportsVi
         listGridViews = new ArrayList<>();
         mPresenter.initSportEvents();
 
-        mGridViewContainer.setAdapter(new MyViewPagerAdapter());
-        sportsChooseAdapter = new MySportsChosenAdapter();
+        adapter = new SportsViewPagerAdapter(listGridViews);
+        mGridViewContainer.setAdapter(adapter);
+        sportsChooseAdapter = new SportsChosenAdapter();
         gvSportsChoose.setAdapter(sportsChooseAdapter);
     }
 
@@ -166,9 +169,10 @@ public class ChooseSportsActivity extends BaseActivity implements ChooseSportsVi
 
         gridView.setNumColumns(gvColumns);
 
-        MyGridViewAdapter adapter = new MyGridViewAdapter(index, pageItemCount, mPresenter.getSportEvents());
+        gridViewAdapter = new SportsGridViewAdapter(index, pageItemCount, mPresenter.getSportEvents());
+        gridViewAdapter.setPresenterHandler(mPresenter);
 
-        gridView.setAdapter(adapter);
+        gridView.setAdapter(gridViewAdapter);
 
         return gridView;
     }
@@ -183,204 +187,6 @@ public class ChooseSportsActivity extends BaseActivity implements ChooseSportsVi
 
     }
 
-    /**
-     * viewpager's adapter
-     */
-    private class MyViewPagerAdapter extends PagerAdapter {
-
-        @Override
-        public int getCount() {
-            return listGridViews.size();
-        }
-
-        @Override
-        public boolean isViewFromObject(View view, Object object) {
-            return view == object;
-        }
-
-        @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            View gv = listGridViews.get(position);
-            //gridview加入到viewpager里
-            mGridViewContainer.addView(gv);
-            return gv;
-        }
-
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-            View gv = listGridViews.get(position);
-            mGridViewContainer.removeView(gv);
-        }
-    }
-
-    /**
-     * girdview's adapter in the viewpager
-     */
-    private class MyGridViewAdapter extends BaseAdapter {
-        private List<SportEvents> items;
-
-        /**
-         * ViewPager页码
-         */
-        private int index;
-        /**
-         * 根据屏幕大小计算得到的每页item个数
-         */
-        private int pageItemCount;
-
-        /**
-         * 构造函数
-         *
-         * @param index         页码
-         * @param pageItemCount 每页个数
-         */
-        public MyGridViewAdapter(int index, int pageItemCount, List<SportEvents> sportEvents) {
-            this.index = index;
-            this.pageItemCount = pageItemCount;
-            int totalEvents = sportEvents.size();
-            items = new ArrayList<SportEvents>();
-
-            //get pageitemcount items
-            int list_index = index * pageItemCount;
-            int lastItem = list_index + pageItemCount;
-            if (lastItem > totalEvents) {
-                lastItem = totalEvents;
-            }
-            for (int i = list_index; i < lastItem; i++) {
-                items.add(sportEvents.get(i));
-            }
-        }
-
-        @Override
-        public int getCount() {
-            return items.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return items.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(final int position, View convertView, ViewGroup parent) {
-            ViewHolder holder = null;
-            if (convertView == null) {
-                convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.events_gridview_items, null);
-                holder = new ViewHolder(convertView);
-                convertView.setTag(holder);
-            } else {
-                holder = (ViewHolder) convertView.getTag();
-            }
-
-            final ViewHolder finalHolder = holder;
-            final SportEvents event = items.get(position);
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), event.getEvent_image());
-            holder.event_icon.setImageBitmap(bitmap);
-            holder.event_icon.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (event.isSelected()) {
-                        //设为不选定
-                        finalHolder.selected.setVisibility(View.INVISIBLE);
-                        items.get(position).setIsSelected(false);
-                        //从已选择的运动中剔除
-                        mPresenter.removeChooseEvent(event);
-                    } else {
-                        //设为选定
-                        finalHolder.selected.setVisibility(View.VISIBLE);
-                        items.get(position).setIsSelected(true);
-                        //加入到已选择运动中
-                        mPresenter.addChooseEvent(event);
-                    }
-                }
-            });
-
-
-            if (event.isSelected()) {
-                holder.selected.setVisibility(View.VISIBLE);
-            } else {
-                holder.selected.setVisibility(View.INVISIBLE);
-            }
-
-            return convertView;
-        }
-
-        private class ViewHolder {
-            ImageView event_icon;
-            ImageView selected;
-
-            public ViewHolder(View view) {
-                event_icon = (ImageView) view.findViewById(R.id.event_icon);
-                selected = (ImageView) view.findViewById(R.id.iv_selected);
-            }
-        }
-    }
-
-    /**
-     * 已选择运动的girdview的adapter
-     */
-    class MySportsChosenAdapter extends BaseAdapter {
-        private List<SportEvents> items;
-
-        public MySportsChosenAdapter() {
-            items = new ArrayList<>();
-        }
-
-        @Override
-        public int getCount() {
-            return items.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return items.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder holder = null;
-            if (convertView == null) {
-                convertView = LayoutInflater.from(ChooseSportsActivity.this).inflate(R.layout.events_gridview_items, null);
-                holder = new ViewHolder(convertView);
-                convertView.setTag(holder);
-            } else {
-                holder = (ViewHolder) convertView.getTag();
-            }
-            SportEvents event = items.get(position);
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), event.getEvent_image());
-            holder.event_icon.setImageBitmap(bitmap);
-            holder.selected.setVisibility(View.INVISIBLE);
-            return convertView;
-        }
-
-        public List<SportEvents> getItems() {
-            return items;
-        }
-
-        public void setItems(List<SportEvents> items) {
-            this.items = items;
-        }
-
-        private class ViewHolder {
-            ImageView event_icon;
-            ImageView selected;
-
-            public ViewHolder(View view) {
-                event_icon = (ImageView) view.findViewById(R.id.event_icon);
-                selected = (ImageView) view.findViewById(R.id.iv_selected);
-            }
-        }
-    }
 
 }
 

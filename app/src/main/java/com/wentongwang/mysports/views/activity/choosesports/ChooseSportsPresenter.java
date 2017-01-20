@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by Wentong WANG on 2016/10/14.
  */
-public class ChooseSportsPresenter {
+public class ChooseSportsPresenter implements PresenterHandler{
 
     private ChooseSportsView mView;
     private Context mContext;
@@ -72,12 +72,14 @@ public class ChooseSportsPresenter {
         return sportEvents;
     }
 
+    @Override
     public void addChooseEvent(SportEvents item) {
         sportEventsChosen.add(item);
         mView.refreshEventChoose(sportEventsChosen);
 
     }
 
+    @Override
     public void removeChooseEvent(SportEvents item) {
         sportEventsChosen.remove(item);
         mView.refreshEventChoose(sportEventsChosen);
