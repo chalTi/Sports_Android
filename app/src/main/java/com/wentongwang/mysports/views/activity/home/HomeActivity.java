@@ -112,7 +112,6 @@ public class HomeActivity extends BaseActivity implements HomeView {
         mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                mPresenter.toolBarAnim(position);
             }
 
             @Override
@@ -165,62 +164,6 @@ public class HomeActivity extends BaseActivity implements HomeView {
         });
     }
 
-
-    /**
-     * execute hide toolbar animation
-     */
-    @Override
-    public void hiddenToolBarAnim() {
-        AlphaAnimation animation = new AlphaAnimation(1, 0);
-        animation.setDuration(200);
-        animation.setFillAfter(true);
-        animation.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                mPresenter.setToolBarVisible(false);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-        mToolbar.setAnimation(animation);
-        animation.start();
-    }
-
-    /**
-     * execute show toolbar animation
-     */
-    @Override
-    public void showToolBarAnim() {
-        AlphaAnimation animation = new AlphaAnimation(0, 1);
-        animation.setDuration(200);
-        animation.setFillAfter(true);
-        animation.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                mPresenter.setToolBarVisible(true);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-        mToolbar.setAnimation(animation);
-        animation.start();
-    }
 
     /**
      * make right Btn visible or not
