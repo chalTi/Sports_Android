@@ -26,24 +26,6 @@ public class HomePresenter {
         this.view = homeView;
     }
 
-    /**
-     * hide or show toolbar depende on different page
-     *
-     * @param position       page position
-     */
-    public void toolBarAnim(int position) {
-        if (position == 0) {
-            view.setToolBarRightBtnVisible(true);
-        } else {
-            view.setToolBarRightBtnVisible(false);
-        }
-
-        if (position == 3 && isToolBarVisible) {
-            view.hiddenToolBarAnim();
-        } else if (position != 3 && !isToolBarVisible) {
-            view.showToolBarAnim();
-        }
-    }
 
     /**
      * selon the position to set page in viewpager
@@ -55,6 +37,11 @@ public class HomePresenter {
         view.getCheckedBtn(position).setChecked(true);
 
         //change some infos of the toolbar
+        if (position == 0) {
+            view.setToolBarRightBtnVisible(true);
+        } else {
+            view.setToolBarRightBtnVisible(false);
+        }
 
     }
 

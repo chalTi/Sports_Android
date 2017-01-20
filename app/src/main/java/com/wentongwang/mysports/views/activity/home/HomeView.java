@@ -12,9 +12,6 @@ import com.wentongwang.mysports.views.BaseView;
  */
 public interface HomeView extends BaseView {
 
-    void hiddenToolBarAnim();
-
-    void showToolBarAnim();
 
     void setToolBarRightBtnVisible(boolean show);
 
