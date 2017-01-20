@@ -30,14 +30,16 @@
                 android:layout_marginRight="35dp"
                 android:layout_marginTop="5dp" />
 
-            <LinearLayout
+            <com.wentongwang.mysports.custome.PointsLayout
+                android:layout_below="@id/event_type_container"
                 android:id="@+id/ll_point_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/event_type_container"
                 android:layout_centerInParent="true"
                 android:orientation="horizontal"
-                android:padding="15dp"></LinearLayout>
+                android:padding="15dp">
+
+            </com.wentongwang.mysports.custome.PointsLayout>
 
             <TextView
                 android:id="@+id/title2"

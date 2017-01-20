@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.wentongwang.mysports.R;
+import com.wentongwang.mysports.custome.PointsLayout;
 import com.wentongwang.mysports.model.module.SportEvents;
 import com.wentongwang.mysports.utils.Logger;
 import com.wentongwang.mysports.views.BaseActivity;
@@ -33,7 +34,7 @@ public class CreatEventActivity extends BaseActivity implements CreatEventView {
 
 
     @BindView(R.id.ll_point_container)
-    protected LinearLayout mPointContainer;
+    protected PointsLayout mPointContainer;
     @BindView(R.id.event_type_container)
     protected ViewPager mGridViewContainer;
 
@@ -96,26 +97,11 @@ public class CreatEventActivity extends BaseActivity implements CreatEventView {
     private void initGirdViewsAndPoints() {
         if (totalEvents > 0) {
             gvPageSize = totalEvents / pageItemCount + 1;
+            mPointContainer.initPoints(gvPageSize);
             for (int i = 0; i < gvPageSize; i++) {
                 //add gridview to list
                 listGViews.add(getViewPagerItem(i));
-
-                View point = new View(this);
-                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(15, 15);
-                if (i == 0) {
-                    point.setBackgroundResource(R.drawable.point_selected);
-                } else {
-                    params.leftMargin = 10;
-                    point.setBackgroundResource(R.drawable.point_normal);
-                }
-                mPointContainer.addView(point, params);
-
-
             }
-            mPointContainer.setVisibility(View.VISIBLE);
-        } else {
-            mPointContainer.removeAllViews();
-            mPointContainer.setVisibility(View.GONE);
         }
 
     }
@@ -131,7 +117,7 @@ public class CreatEventActivity extends BaseActivity implements CreatEventView {
 
             @Override
             public void onPageSelected(int position) {
-                setPointSelected(position);
+                mPointContainer.setPointSelected(position);
             }
 
             @Override
@@ -140,18 +126,6 @@ public class CreatEventActivity extends BaseActivity implements CreatEventView {
             }
         });
 
-    }
-
-    /**
-     * position页的圆点变为选中
-     * @param position
-     */
-    private void setPointSelected(int position) {
-        int total = mPointContainer.getChildCount();
-        for (int i = 0; i < total; i++) {
-            View v = mPointContainer.getChildAt(i);
-            v.setBackgroundResource(position == i ? R.drawable.point_selected : R.drawable.point_normal);
-        }
     }
 
     /**
