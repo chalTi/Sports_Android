@@ -94,6 +94,7 @@
             android:paddingLeft="24dp"
             android:paddingRight="24dp"
             android:visibility="visible"
+            android:tag="@drawable/drawer_list"
             android:src="@drawable/drawer_list" />
     </LinearLayout>
 

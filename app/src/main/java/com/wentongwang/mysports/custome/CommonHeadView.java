@@ -229,6 +229,26 @@ public class CommonHeadView extends LinearLayout {
             mIvLeft.setVisibility(View.GONE);
         }
     }
+    /**
+     *  是否改变左右的图标
+     * @param id
+     */
+    public void setImageRight(int id){
+        mIvRight.setImageResource(id);
+    }
+
+    public void setmImageLft(int id ){
+        mIvLeft.setImageResource(id);
+    }
+
+    /**
+     * 获取image 的src
+     * @param imageView
+     * @return
+     */
+    public String getImageInfo(ImageView imageView){
+        return imageView.getTag().toString();
+    }
 
     private class MyClickListener implements OnClickListener {
 

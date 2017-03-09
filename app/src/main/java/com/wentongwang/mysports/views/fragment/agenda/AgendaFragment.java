@@ -13,7 +13,12 @@ import android.widget.TextView;
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.custome.CircleImageView;
 import com.wentongwang.mysports.custome.MyProgressBarHorizontal;
+import com.wentongwang.mysports.model.module.AgendaEvents;
+import com.wentongwang.mysports.model.module.NewsInfo;
 import com.wentongwang.mysports.views.BaseFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,9 +45,9 @@ public class AgendaFragment extends BaseFragment implements AgendaView {
     @Override
     public void initDatas() {
         mPresenter.init(getActivity());
-
         adapter = new MyAdapter();
         listView.setAdapter(adapter);
+        mPresenter.getAgenda();
     }
 
     @Override
@@ -72,16 +77,28 @@ public class AgendaFragment extends BaseFragment implements AgendaView {
         getActivity().getWindow().setAttributes(windowlp);
     }
 
+    @Override
+    public void setAgendaList(List<AgendaEvents> list) {
+        adapter.setItemList(list);
+        adapter.notifyDataSetChanged();
+    }
+
     class MyAdapter extends BaseAdapter {
+
+        private List<AgendaEvents> itemList = new ArrayList<>();
+
+        public void setItemList(List<AgendaEvents> list) {
+            this.itemList = list;
+        }
 
         @Override
         public int getCount() {
-            return 11;
+            return itemList.size();
         }
 
         @Override
         public Object getItem(int position) {
-            return null;
+            return itemList.get(position);
         }
 
         @Override
@@ -100,12 +117,11 @@ public class AgendaFragment extends BaseFragment implements AgendaView {
             } else {
                 viewHolder = (ViewHolder) convertView.getTag();
             }
-
-            viewHolder.event_place.setText("UTT");
-            viewHolder.event_time.setText("12:00");
-            viewHolder.event_type.setText("BASKETBALL");
-            viewHolder.event_progress.setProgress(position * 10);
-
+            AgendaEvents agendaEvents = itemList.get(position);
+            viewHolder.event_place.setText(agendaEvents.getUser_events_place());
+            viewHolder.event_time.setText(agendaEvents.getUser_events_time());
+            viewHolder.event_type.setText(agendaEvents.getUser_events_name());
+            viewHolder.event_progress.setProgress(Integer.parseInt(agendaEvents.getEvents_Progress()));
             viewHolder.user_head.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

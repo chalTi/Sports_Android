@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mToolbar="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:orientation="vertical">
+            <com.wentongwang.mysports.custome.CommonHeadView
+                android:id="@+id/tool_bar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                mToolbar:tbBackground="@color/colorPrimary"
+                mToolbar:tbImgLeft="@drawable/back"
+                mToolbar:tbInfoLeftVisiable="false"
+                mToolbar:tbImgRight="@drawable/like_btn_selector" />
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/ctl_news_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:expandedTitleMarginEnd="64dp"
+                app:expandedTitleMarginStart="48dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                    <ImageView
+                        android:id="@+id/iv_news_item_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:scaleType="fitXY"
+                        android:background="#00bcd4"
+                        app:layout_collapseMode="parallax"/>
+                    <TextView
+                        android:layout_above="@+id/tv_news_item_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:textSize="25sp"
+                        android:background="#00bcd4"
+                        android:text="This is title"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="5dp"/>
+            </android.support.design.widget.CollapsingToolbarLayout>
+        </LinearLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <TextView
+            android:id="@+id/tv_news_item_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/my_testtxt"
+            android:textSize="20sp" />
+
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>
