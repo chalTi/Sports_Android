@@ -3,7 +3,9 @@ package com.wentongwang.mysports.views.activity.login;
 import android.content.Context;
 import android.text.TextUtils;
 
+import com.android.volley.Request;
 import com.wentongwang.mysports.constant.Constant;
+import com.wentongwang.mysports.model.bussiness.RxVolleyRequest;
 import com.wentongwang.mysports.model.bussiness.VollyResponse;
 import com.wentongwang.mysports.model.module.LoginResponse;
 import com.wentongwang.mysports.utils.Logger;
@@ -14,6 +16,11 @@ import com.wentongwang.mysports.model.bussiness.VollyRequestManager;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import rx.Observable;
+import rx.Observer;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by Wentong WANG on 2016/9/8.
@@ -89,5 +96,51 @@ public class LoginPresenter {
 
     public void loginTest() {
         view.goToHomeActivity();
+    }
+
+
+    public void loginRx() {
+        String userName = view.getUserName();
+        String userPwd = view.getUserPwd();
+
+        if (TextUtils.isEmpty(userName))
+
+            if (TextUtils.isEmpty(userPwd)) {
+                ToastUtil.show(mContext, "密码不能为空", 1500);
+                return;
+            }
+
+
+        String url = Constant.HOST + Constant.LOGIN_PATH;
+
+
+
+        Map<String, String> params = new HashMap<>();
+        params.put("loginName", userName);
+        params.put("password", userPwd);
+
+        view.showProgressBar();
+
+        RxVolleyRequest.getRequestObservable(mContext, Request.Method.POST, url, params)
+                .subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
+                .observeOn(AndroidSchedulers.mainThread())// 指定 Subscriber 的回调发生在主线程
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(String vollyResponse) {
+                        VollyResponse<LoginResponse> loginResponse = new VollyResponse<>();
+                        loginResponse.setMsg(vollyResponse);
+
+                    }
+                });
     }
 }
