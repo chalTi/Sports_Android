@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.android.volley.Request;
 import com.wentongwang.mysports.constant.Constant;
 import com.wentongwang.mysports.model.bussiness.RxVolleyRequest;
-import com.wentongwang.mysports.model.bussiness.VollyResponse;
+import com.wentongwang.mysports.model.bussiness.VolleyResponse;
 import com.wentongwang.mysports.model.module.LoginResponse;
 import com.wentongwang.mysports.utils.Logger;
 import com.wentongwang.mysports.utils.SharedPreferenceUtil;
@@ -17,7 +17,6 @@ import com.wentongwang.mysports.model.bussiness.VollyRequestManager;
 import java.util.HashMap;
 import java.util.Map;
 
-import rx.Observable;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -67,7 +66,7 @@ public class LoginPresenter {
 
         String url = Constant.HOST + Constant.LOGIN_PATH;
 
-        VollyResponse<LoginResponse> loginResponse = new VollyResponse<>();
+        VolleyResponse<LoginResponse> loginResponse = new VolleyResponse<LoginResponse>();
 
         Map<String, String> params = new HashMap<>();
         params.put("loginName", userName);
@@ -76,7 +75,7 @@ public class LoginPresenter {
         view.showProgressBar();
         vollyRequestManager.doPost(mContext, url, loginResponse, params, new VollyRequestManager.OnRequestFinishedListener() {
             @Override
-            public void onSucess(VollyResponse response) {
+            public void onSuccess(VolleyResponse response) {
                 Logger.i("Login", response.getMsg());
                 view.hideProgressBar();
                 //存储用户登录信息，cookie之类的
@@ -121,24 +120,27 @@ public class LoginPresenter {
 
         view.showProgressBar();
 
-        RxVolleyRequest.getRequestObservable(mContext, Request.Method.POST, url, params)
+        RxVolleyRequest.getInstance().getRequestObservable(mContext, Request.Method.POST, url, params)
                 .subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
                 .observeOn(AndroidSchedulers.mainThread())// 指定 Subscriber 的回调发生在主线程
-                .subscribe(new Observer<String>() {
+                .subscribe(new Observer<VolleyResponse<LoginResponse>>() {
                     @Override
                     public void onCompleted() {
-
+                        view.hideProgressBar();
+                        view.goToHomeActivity();
                     }
 
                     @Override
                     public void onError(Throwable e) {
-
+                        view.hideProgressBar();
+                        ToastUtil.show(mContext, e.hashCode(), 1500);
                     }
 
                     @Override
-                    public void onNext(String vollyResponse) {
-                        VollyResponse<LoginResponse> loginResponse = new VollyResponse<>();
-                        loginResponse.setMsg(vollyResponse);
+                    public void onNext(VolleyResponse<LoginResponse> volleyResponse) {
+
+                        SharedPreferenceUtil.put(mContext, "user_base_info", volleyResponse.getResult(LoginResponse.class));
+                        view.goToHomeActivity();
 
                     }
                 });

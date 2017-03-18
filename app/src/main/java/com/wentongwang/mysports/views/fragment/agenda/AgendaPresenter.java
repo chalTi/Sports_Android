@@ -3,14 +3,12 @@ package com.wentongwang.mysports.views.fragment.agenda;
 import android.content.Context;
 import android.util.Log;
 import android.widget.PopupWindow;
-import android.widget.Toast;
 
 import com.wentongwang.mysports.constant.Constant;
 import com.wentongwang.mysports.custome.PersonInfoPopupWindow;
 import com.wentongwang.mysports.model.bussiness.VollyRequestManager;
-import com.wentongwang.mysports.model.bussiness.VollyResponse;
+import com.wentongwang.mysports.model.bussiness.VolleyResponse;
 import com.wentongwang.mysports.model.module.AgendaEvents;
-import com.wentongwang.mysports.utils.Logger;
 import com.wentongwang.mysports.utils.ToastUtil;
 import com.wentongwang.mysports.utils.VolleyUtil;
 
@@ -62,7 +60,7 @@ public class AgendaPresenter {
     //*********************************************************
     public void getAgenda(){
         String url="http://192.168.1.25:8080/sports"+ Constant.GET_AGENDA_PATH;
-        VollyResponse<AgendaEvents> agendaEventsVollyResponse=new VollyResponse<>();
+        VolleyResponse<AgendaEvents> agendaEventsVollyResponse=new VolleyResponse<>();
 
         Map<String, String> params = new HashMap<>();
         params.put("user_id", "");
@@ -72,7 +70,7 @@ public class AgendaPresenter {
         view.showProgressBar();
         vollyRequestManager.doPost(mContext, url, agendaEventsVollyResponse, params, new VollyRequestManager.OnRequestFinishedListener() {
             @Override
-            public void onSucess(VollyResponse response) {
+            public void onSuccess(VolleyResponse response) {
                 Log.i("Agenda", response.getMsg());
                 view.hideProgressBar();
                 List<AgendaEvents> list=response.getResultArray(AgendaEvents.class);

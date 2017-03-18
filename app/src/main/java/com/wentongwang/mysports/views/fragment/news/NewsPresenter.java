@@ -1,15 +1,11 @@
 package com.wentongwang.mysports.views.fragment.news;
 
 import android.content.Context;
-import android.text.TextUtils;
 
 import com.wentongwang.mysports.constant.Constant;
 import com.wentongwang.mysports.model.bussiness.VollyRequestManager;
-import com.wentongwang.mysports.model.bussiness.VollyResponse;
-import com.wentongwang.mysports.model.module.LoginResponse;
+import com.wentongwang.mysports.model.bussiness.VolleyResponse;
 import com.wentongwang.mysports.model.module.NewsInfo;
-import com.wentongwang.mysports.utils.Logger;
-import com.wentongwang.mysports.utils.SharedPreferenceUtil;
 import com.wentongwang.mysports.utils.ToastUtil;
 import com.wentongwang.mysports.utils.VolleyUtil;
 
@@ -47,7 +43,7 @@ public class NewsPresenter {
 
         String url = "http://192.168.1.25:8080/sports" + Constant.GET_NEWS_PATH;
 
-        VollyResponse<NewsInfo> newsResponse = new VollyResponse<>();
+        VolleyResponse<NewsInfo> newsResponse = new VolleyResponse<>();
 
         Map<String, String> params = new HashMap<>();
         params.put("user_id", "");
@@ -58,7 +54,7 @@ public class NewsPresenter {
         mView.showProgressBar();
         vollyRequestManager.doPost(mContext, url, newsResponse, params, new VollyRequestManager.OnRequestFinishedListener() {
             @Override
-            public void onSucess(VollyResponse response) {
+            public void onSuccess(VolleyResponse response) {
                 //Logger.i("News", response.getMsg());
                 mView.hideProgressBar();
                 List<NewsInfo> list = response.getResultArray(NewsInfo.class);

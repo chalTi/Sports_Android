@@ -6,9 +6,8 @@ import android.text.TextUtils;
 import com.google.gson.Gson;
 import com.wentongwang.mysports.constant.Constant;
 import com.wentongwang.mysports.model.bussiness.VollyRequestManager;
-import com.wentongwang.mysports.model.bussiness.VollyResponse;
+import com.wentongwang.mysports.model.bussiness.VolleyResponse;
 import com.wentongwang.mysports.model.module.LoginResponse;
-import com.wentongwang.mysports.utils.Logger;
 import com.wentongwang.mysports.utils.SharedPreferenceUtil;
 import com.wentongwang.mysports.utils.ToastUtil;
 import com.wentongwang.mysports.utils.VolleyUtil;
@@ -85,7 +84,7 @@ public class SignUpPresenter {
         view.showProgressBar();
         vollyRequestManager.doPost(mContext, url, params, new VollyRequestManager.OnRequestFinishedListener() {
             @Override
-            public void onSucess(VollyResponse response) {
+            public void onSuccess(VolleyResponse response) {
                 view.hideProgressBar();
                 //存储用户登录信息，cookie之类的
                 login();
@@ -108,7 +107,7 @@ public class SignUpPresenter {
         String userPwd = view.getUserPwd();
         String url = Constant.HOST + Constant.LOGIN_PATH;
 
-        VollyResponse<LoginResponse> loginResponse = new VollyResponse<>();
+        VolleyResponse<LoginResponse> loginResponse = new VolleyResponse<>();
 
         Map<String, String> params = new HashMap<>();
         params.put("loginName", userName);
@@ -117,7 +116,7 @@ public class SignUpPresenter {
         view.showProgressBar();
         vollyRequestManager.doPost(mContext, url, loginResponse, params, new VollyRequestManager.OnRequestFinishedListener() {
             @Override
-            public void onSucess(VollyResponse response) {
+            public void onSuccess(VolleyResponse response) {
                 view.hideProgressBar();
                 //存储用户登录信息，cookie之类的
                 LoginResponse result = (LoginResponse) response.getResult(LoginResponse.class);

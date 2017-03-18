@@ -22,9 +22,9 @@ import java.util.Map;
  * @author fan
  *
  */
-public class VollyStringRequest extends StringRequest {
+public class VolleyStringRequest extends StringRequest {
 
-	public VollyStringRequest(int method, String url, Listener<String> listener, ErrorListener errorListener) {
+	public VolleyStringRequest(int method, String url, Listener<String> listener, ErrorListener errorListener) {
 		super(method, url, listener, errorListener);
 
 		// 设置连接超时和重连策略

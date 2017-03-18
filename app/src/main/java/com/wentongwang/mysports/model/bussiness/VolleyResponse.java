@@ -15,7 +15,7 @@ import java.util.List;
  * Volly请求封装
  * Created by Wentong WANG on 2016/7/15.
  */
-public class VollyResponse<T> {
+public class VolleyResponse<T> {
 
     private String msg;
 
