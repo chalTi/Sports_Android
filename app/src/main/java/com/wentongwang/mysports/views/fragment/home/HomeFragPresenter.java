@@ -3,11 +3,8 @@ package com.wentongwang.mysports.views.fragment.home;
 import android.content.Context;
 import android.util.Log;
 
-import com.wentongwang.mysports.constant.Constant;
 import com.wentongwang.mysports.model.bussiness.VollyRequestManager;
-import com.wentongwang.mysports.model.bussiness.VollyResponse;
-import com.wentongwang.mysports.model.module.AgendaEvents;
-import com.wentongwang.mysports.model.module.SportEvents;
+import com.wentongwang.mysports.model.bussiness.VolleyResponse;
 import com.wentongwang.mysports.model.module.SportsFirstClass;
 import com.wentongwang.mysports.model.module.SportsSecondClass;
 import com.wentongwang.mysports.utils.ToastUtil;
@@ -75,10 +72,10 @@ public class HomeFragPresenter {
         params.put("user_like", "sssss");
 
         String url = "http://192.168.1.25:8080/sports/home/gethomesportevent";
-        VollyResponse<SportsFirstClass> response = new VollyResponse<>();
+        VolleyResponse<SportsFirstClass> response = new VolleyResponse<>();
         vollyRequestManager.doPost(mContext, url, response, params, new VollyRequestManager.OnRequestFinishedListener() {
             @Override
-            public void onSucess(VollyResponse response) {
+            public void onSuccess(VolleyResponse response) {
                 Log.i("Home", response.getMsg());
                 mView.hideProgressBar();
                 List<SportsFirstClass> list = response.getResultArray(SportsFirstClass.class);

@@ -8,7 +8,6 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
 import com.wentongwang.mysports.utils.AppServerUtil;
-import com.wentongwang.mysports.utils.Logger;
 
 
 import java.util.HashMap;
@@ -36,14 +35,14 @@ public class VollyRequestManager {
      * @param listener
      */
     public void doGet(final Context context, String url, final OnRequestFinishedListener listener) {
-        VollyStringRequest request = new VollyStringRequest(Request.Method.POST,
+        VolleyStringRequest request = new VolleyStringRequest(Request.Method.POST,
                 url, new com.android.volley.Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Boolean status = AppServerUtil.getIfSuccess(context, response, true);
                 if (status) {
                     if (listener != null) {
-                        listener.onSucess(null);
+                        listener.onSuccess(null);
                     }
                 }
             }
@@ -71,14 +70,14 @@ public class VollyRequestManager {
      */
     public void doPost(final Context context, String url, final Map<String, String> params,
                        final OnRequestFinishedListener listener) {
-        VollyStringRequest request = new VollyStringRequest(Request.Method.POST,
+        VolleyStringRequest request = new VolleyStringRequest(Request.Method.POST,
                 url, new com.android.volley.Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Boolean status = AppServerUtil.getIfSuccess(context, response, true);
                 if (status) {
                     if (listener != null) {
-                        listener.onSucess(null);
+                        listener.onSuccess(null);
                     }
                 }
             }
@@ -112,9 +111,9 @@ public class VollyRequestManager {
      * @param listener 回调
      */
     public void doPost(final Context context, String url,
-                       final VollyResponse result, final Map<String, String> params,
+                       final VolleyResponse result, final Map<String, String> params,
                        final OnRequestFinishedListener listener) {
-        VollyStringRequest request = new VollyStringRequest(Request.Method.POST,
+        VolleyStringRequest request = new VolleyStringRequest(Request.Method.POST,
                 url, new com.android.volley.Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -123,7 +122,7 @@ public class VollyRequestManager {
                     //获取数组型数据
                     result.setMsg(msg);
                     if (listener != null) {
-                        listener.onSucess(result);
+                        listener.onSuccess(result);
                     }
                 } else {
                     //获取普通型数据
@@ -131,7 +130,7 @@ public class VollyRequestManager {
                     if (!TextUtils.isEmpty(msg)) {
                         result.setMsg(msg);
                         if (listener != null) {
-                            listener.onSucess(result);
+                            listener.onSuccess(result);
                         }
                     } else {
                         //没有获取到任何数据
@@ -171,9 +170,9 @@ public class VollyRequestManager {
      * @param listener
      */
     public void doPost(final Context context, String url,
-                       final VollyResponse result, final Map<String, String> params, final String cookies,
+                       final VolleyResponse result, final Map<String, String> params, final String cookies,
                        final OnRequestFinishedListener listener) {
-        VollyStringRequest request = new VollyStringRequest(Request.Method.POST,
+        VolleyStringRequest request = new VolleyStringRequest(Request.Method.POST,
                 url, new com.android.volley.Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -182,14 +181,14 @@ public class VollyRequestManager {
                 if (!TextUtils.isEmpty(msg)) {
                     result.setMsg(msg);
                     if (listener != null) {
-                        listener.onSucess(result);
+                        listener.onSuccess(result);
                     }
                 } else {
                     msg = AppServerUtil.getResultData(context, response);
                     if (!TextUtils.isEmpty(msg)) {
                         result.setMsg(msg);
                         if (listener != null) {
-                            listener.onSucess(result);
+                            listener.onSuccess(result);
                         }
                     } else {
                         if (listener != null) {
@@ -227,7 +226,7 @@ public class VollyRequestManager {
 
 
     public interface OnRequestFinishedListener {
-        void onSucess(VollyResponse response);
+        void onSuccess(VolleyResponse response);
 
         void onFailed(String msg);
     }

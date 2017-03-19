@@ -2,9 +2,13 @@ package com.wentongwang.mysports.views.activity.login;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 
+import com.android.volley.Request;
 import com.wentongwang.mysports.constant.Constant;
-import com.wentongwang.mysports.model.bussiness.VollyResponse;
+import com.wentongwang.mysports.model.bussiness.RxVolleyRequest;
+import com.wentongwang.mysports.model.bussiness.VolleyQueueManager;
+import com.wentongwang.mysports.model.bussiness.VolleyResponse;
 import com.wentongwang.mysports.model.module.LoginResponse;
 import com.wentongwang.mysports.utils.Logger;
 import com.wentongwang.mysports.utils.SharedPreferenceUtil;
@@ -14,6 +18,10 @@ import com.wentongwang.mysports.model.bussiness.VollyRequestManager;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import rx.Observer;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by Wentong WANG on 2016/9/8.
@@ -37,7 +45,7 @@ public class LoginPresenter {
      */
     public void init(Context context) {
         this.mContext = context;
-        vollyRequestManager = new VollyRequestManager(VolleyUtil.getInstance(mContext).getRequestQueue());
+        vollyRequestManager = new VollyRequestManager(VolleyQueueManager.getRequestQueue());
     }
 
     public void goToSignUp() {
@@ -60,7 +68,7 @@ public class LoginPresenter {
 
         String url = Constant.HOST + Constant.LOGIN_PATH;
 
-        VollyResponse<LoginResponse> loginResponse = new VollyResponse<>();
+        VolleyResponse<LoginResponse> loginResponse = new VolleyResponse<LoginResponse>();
 
         Map<String, String> params = new HashMap<>();
         params.put("loginName", userName);
@@ -69,7 +77,7 @@ public class LoginPresenter {
         view.showProgressBar();
         vollyRequestManager.doPost(mContext, url, loginResponse, params, new VollyRequestManager.OnRequestFinishedListener() {
             @Override
-            public void onSucess(VollyResponse response) {
+            public void onSuccess(VolleyResponse response) {
                 Logger.i("Login", response.getMsg());
                 view.hideProgressBar();
                 //存储用户登录信息，cookie之类的
@@ -89,5 +97,56 @@ public class LoginPresenter {
 
     public void loginTest() {
         view.goToHomeActivity();
+    }
+
+
+    public void loginRx() {
+        String userName = view.getUserName();
+        String userPwd = view.getUserPwd();
+
+        if (TextUtils.isEmpty(userName))
+
+            if (TextUtils.isEmpty(userPwd)) {
+                ToastUtil.show(mContext, "密码不能为空", 1500);
+                return;
+            }
+
+
+        String url = Constant.HOST + Constant.LOGIN_PATH;
+
+
+
+        Map<String, String> params = new HashMap<>();
+        params.put("loginName", userName);
+        params.put("password", userPwd);
+
+        view.showProgressBar();
+
+        RxVolleyRequest.getInstance().getRequestObservable(mContext, Request.Method.POST, url, params)
+                .subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
+                .observeOn(AndroidSchedulers.mainThread())// 指定 Subscriber 的回调发生在主线程
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onCompleted() {
+                        view.hideProgressBar();
+                        view.goToHomeActivity();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        view.hideProgressBar();
+                        ToastUtil.show(mContext, e.hashCode(), 1500);
+                    }
+
+                    @Override
+                    public void onNext(String volleyResponse) {
+                        Log.i("xxxxx", volleyResponse + "    ");
+                        VolleyResponse<LoginResponse> loginResponse = new VolleyResponse<LoginResponse>();
+                        loginResponse.setMsg(volleyResponse);
+                        Log.i("xxxxx", loginResponse.getResult(LoginResponse.class).toString());
+//                        view.goToHomeActivity();
+
+                    }
+                });
     }
 }
