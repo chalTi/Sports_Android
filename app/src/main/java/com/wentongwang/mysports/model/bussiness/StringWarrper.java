@@ -11,7 +11,7 @@ public class StringWarrper {
         return content;
     }
 
-    public void setContent(String content) {
+    public void setMsg(String content) {
         this.content = content;
     }
 

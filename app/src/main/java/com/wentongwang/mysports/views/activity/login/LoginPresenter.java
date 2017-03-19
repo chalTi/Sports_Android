@@ -2,10 +2,12 @@ package com.wentongwang.mysports.views.activity.login;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.wentongwang.mysports.constant.Constant;
 import com.wentongwang.mysports.model.bussiness.RxVolleyRequest;
+import com.wentongwang.mysports.model.bussiness.VolleyQueueManager;
 import com.wentongwang.mysports.model.bussiness.VolleyResponse;
 import com.wentongwang.mysports.model.module.LoginResponse;
 import com.wentongwang.mysports.utils.Logger;
@@ -43,7 +45,7 @@ public class LoginPresenter {
      */
     public void init(Context context) {
         this.mContext = context;
-        vollyRequestManager = new VollyRequestManager(VolleyUtil.getInstance(mContext).getRequestQueue());
+        vollyRequestManager = new VollyRequestManager(VolleyQueueManager.getRequestQueue());
     }
 
     public void goToSignUp() {
@@ -123,7 +125,7 @@ public class LoginPresenter {
         RxVolleyRequest.getInstance().getRequestObservable(mContext, Request.Method.POST, url, params)
                 .subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
                 .observeOn(AndroidSchedulers.mainThread())// 指定 Subscriber 的回调发生在主线程
-                .subscribe(new Observer<VolleyResponse<LoginResponse>>() {
+                .subscribe(new Observer<String>() {
                     @Override
                     public void onCompleted() {
                         view.hideProgressBar();
@@ -137,10 +139,12 @@ public class LoginPresenter {
                     }
 
                     @Override
-                    public void onNext(VolleyResponse<LoginResponse> volleyResponse) {
-
-                        SharedPreferenceUtil.put(mContext, "user_base_info", volleyResponse.getResult(LoginResponse.class));
-                        view.goToHomeActivity();
+                    public void onNext(String volleyResponse) {
+                        Log.i("xxxxx", volleyResponse + "    ");
+                        VolleyResponse<LoginResponse> loginResponse = new VolleyResponse<LoginResponse>();
+                        loginResponse.setMsg(volleyResponse);
+                        Log.i("xxxxx", loginResponse.getResult(LoginResponse.class).toString());
+//                        view.goToHomeActivity();
 
                     }
                 });
