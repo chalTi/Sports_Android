@@ -1,9 +1,13 @@
 package com.wentongwang.mysports.views.activity.signup;
 
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.text.TextUtils;
+import android.view.ViewGroup;
+import android.widget.PopupWindow;
 
 import com.google.gson.Gson;
+import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.constant.Constant;
 import com.wentongwang.mysports.model.bussiness.VollyRequestManager;
 import com.wentongwang.mysports.model.bussiness.VolleyResponse;
@@ -23,7 +27,7 @@ public class SignUpPresenter {
     private SignUpView view;
     private Context mContext;
     private VollyRequestManager vollyRequestManager;
-
+    private PopupWindow popupWindow;
 
     public SignUpPresenter(SignUpView view){
         this.view = view;
@@ -132,4 +136,25 @@ public class SignUpPresenter {
         });
 
     }
+
+
+    public void popupChoseWindow(){
+        //获取数据，通过构造函数塞到popupWindow里
+        popupWindow = new PopupWindow(view.initPopupView(), ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        popupWindow.setTouchable(true);
+        popupWindow.setFocusable(true);
+        popupWindow.setOutsideTouchable(true);
+        popupWindow.setBackgroundDrawable(new ColorDrawable(0x00000000));
+        popupWindow.setAnimationStyle(R.style.popwindow_anim_style);
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                view.setBackGroundAlpha(1.0f);
+            }
+        });
+        view.showPopupWindow(popupWindow);
+        view.setBackGroundAlpha(0.55f);
+
+    }
+
 }
