@@ -10,4 +10,8 @@ public class IntentConstants {
     public static final int EXTRA_PICTURE_MULTI_PICK = 2;
     public static final int EXTRA_CAMERA_PICK = 4;
     public static final int EXTRA_CROP_PHOTO = 3;
+
+    //permission
+    public static final int MY_PERMISSIONS_REQUEST_TAKE_PHOTO = 1;
+    public static final int MY_PERMISSIONS_REQUEST_CHOOSE_PHOTO = 2;
 }
