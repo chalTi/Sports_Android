@@ -41,7 +41,6 @@ public class PersonDetailActivity extends BaseActivity implements PersonDetailVi
 
     @Override
     protected void initDatasAndViews() {
-        ButterKnife.bind(PersonDetailActivity.this);
 
         tabTitles = new ArrayList<>();
         tabTitles.add("tab 1");

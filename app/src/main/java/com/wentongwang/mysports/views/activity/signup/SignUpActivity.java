@@ -22,6 +22,7 @@ import android.widget.PopupWindow;
 import android.widget.RadioGroup;
 
 import com.wentongwang.mysports.R;
+import com.wentongwang.mysports.base.GetPictureBaseActivity;
 import com.wentongwang.mysports.constant.IntentConstants;
 import com.wentongwang.mysports.utils.ToastUtil;
 import com.wentongwang.mysports.base.BaseActivity;
@@ -29,6 +30,7 @@ import com.wentongwang.mysports.views.activity.home.HomeActivity;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,7 +39,7 @@ import butterknife.OnClick;
 /**
  * Created by Wentong WANG on 2016/9/8.
  */
-public class SignUpActivity extends BaseActivity implements SignUpView {
+public class SignUpActivity extends GetPictureBaseActivity implements SignUpView {
 
 
     @BindView(R.id.root_view)
@@ -74,7 +76,6 @@ public class SignUpActivity extends BaseActivity implements SignUpView {
 
     @Override
     protected void initDatasAndViews() {
-        ButterKnife.bind(SignUpActivity.this);
         mPresenter.init(SignUpActivity.this);
 
         File outputFileDir = new File(Environment.getExternalStorageDirectory()
@@ -186,31 +187,6 @@ public class SignUpActivity extends BaseActivity implements SignUpView {
         return popupView;
     }
 
-    private void takePhoto() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
-                PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                    IntentConstants.MY_PERMISSIONS_REQUEST_TAKE_PHOTO);
-
-        } else {
-            goToTakePhoto();
-        }
-    }
-
-    private void choosePhoto() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                    IntentConstants.MY_PERMISSIONS_REQUEST_CHOOSE_PHOTO);
-
-        } else {
-            //启动自带的相册选择照片
-            goToChoosePhoto();
-        }
-    }
-
     @OnClick(R.id.iv_sign_up_user_head)
     public void chooseUserHead() {
         mPresenter.popupChoseWindow();
@@ -223,112 +199,13 @@ public class SignUpActivity extends BaseActivity implements SignUpView {
 
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        try {
-            switch (requestCode) {
-                case IntentConstants.EXTRA_CAMERA_PICK:
-                    Intent intent1 = buildCropImageIntent(500, 500);
-                    intent1.setDataAndType(imageUri, "image/*");
-                    intent1.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-                    startActivityForResult(intent1, IntentConstants.EXTRA_CROP_PHOTO);
-                    break;
-                case IntentConstants.EXTRA_PICTURE_PICK:
-                    Uri uri = data.getData();
-                    Intent intent = buildCropImageIntent(500, 500);
-                    intent.setDataAndType(uri, "image/*");
-                    intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-                    startActivityForResult(intent, IntentConstants.EXTRA_CROP_PHOTO);
-                    break;
-                case IntentConstants.EXTRA_CROP_PHOTO:
-                    Bitmap photo = null;
-                    photo = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUri));
-                    userHead.setImageBitmap(photo);
-                    //TODO: 将图片压缩到file里并且将这个File上传到服务器（presenter里走逻辑）
-//                        File file = new File(this.getCacheDir(), "userHead");
-//                        if (file.exists()) {
-//                            file.delete();
-//                        }
-                    break;
-            }
-
-
-//            multi pick 代码
-//             ClipData clipData = data.getClipData();
-//                    for (int i = 0, l = clipData.getItemCount(); i < l; i++) {
-//                        ClipData.Item item = clipData.getItemAt(i);
-//                        Uri uri = item.getUri();
-//                        photos.add(MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), uri));
-//                        File file = new File(getActivity().getCacheDir(),
-//                                AuthPreference.getUserId() + "momentPhoto" + System.currentTimeMillis() + "-" + photoCount);
-//                        if (file.exists()) {
-//                            file.delete();
-//                        }
-//                        photoFiles.add(file);
-//                        photoCount++;
-        } catch (IOException e) {
-            e.printStackTrace();
-            ToastUtil.show(this, "添加照片失败", 1000);
-        }
+    protected ImageView getImageView() {
+        return userHead;
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == IntentConstants.MY_PERMISSIONS_REQUEST_TAKE_PHOTO) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                goToTakePhoto();
-            } else {
-                // Permission Denied
-                ToastUtil.show(this, "权限获取失败", 1000);
-            }
-        }
-        if (requestCode == IntentConstants.MY_PERMISSIONS_REQUEST_CHOOSE_PHOTO) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                goToChoosePhoto();
-            } else {
-                // Permission Denied
-                ToastUtil.show(this, "权限获取失败", 1000);
-            }
-        }
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    protected void imagesPicked(List<Bitmap> bitmaps) {
+
     }
 
-    private void goToTakePhoto() {
-        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-        startActivityForResult(intent, IntentConstants.EXTRA_CAMERA_PICK); // 启动相机程序
-
-//        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//        startActivityForResult(intent, IntentConstants.EXTRA_CAMERA_PICK);
-    }
-
-    private void goToChoosePhoto() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, IntentConstants.EXTRA_PICTURE_PICK);
-    }
-
-
-    /**
-     * 图片的裁剪
-     *
-     * @param outputX 图片输出大小
-     * @param outputY 图片输出大小
-     */
-    private Intent buildCropImageIntent(int outputX, int outputY) {
-        //裁剪图片意图
-        Intent intent = new Intent("com.android.camera.action.CROP");
-        intent.putExtra("crop", "true");
-        //裁剪框的比例，1：1
-        intent.putExtra("aspectX", 1);
-        intent.putExtra("aspectY", 1);
-        //裁剪后输出图片的尺寸大小
-        intent.putExtra("outputX", outputX);
-        intent.putExtra("outputY", outputY);
-        //图片格式
-        intent.putExtra("outputFormat", "JPEG");
-        intent.putExtra("noFaceDetection", true);
-        intent.putExtra("return-data", true);
-        return intent;
-    }
 }

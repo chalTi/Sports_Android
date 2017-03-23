@@ -7,6 +7,8 @@ import android.view.WindowManager;
 
 import com.wentongwang.mysports.utils.ActivityManager;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by Wentong WANG on 2016/8/18.
  */
@@ -20,6 +22,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             setNoTitle();
         }
         setContentView(getLayoutId());
+        ButterKnife.bind(this);
         initDatasAndViews();
         initEvents();
     }

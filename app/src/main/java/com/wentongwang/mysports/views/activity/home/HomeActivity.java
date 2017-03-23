@@ -72,8 +72,6 @@ public class HomeActivity extends BaseActivity implements HomeView {
 
     @Override
     protected void initDatasAndViews() {
-        ButterKnife.bind(HomeActivity.this);
-
         initFragments();
 
         FragmentManager manager = getSupportFragmentManager();

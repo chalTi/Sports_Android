@@ -45,7 +45,6 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     @Override
     protected void initDatasAndViews() {
-        ButterKnife.bind(LoginActivity.this);
         //initial datas
         mPresenter.init(LoginActivity.this);
     }
