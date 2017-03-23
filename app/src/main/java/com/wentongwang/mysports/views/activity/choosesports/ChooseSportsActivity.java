@@ -60,7 +60,6 @@ public class ChooseSportsActivity extends BaseActivity implements ChooseSportsVi
 
     @Override
     protected void initDatasAndViews() {
-        ButterKnife.bind(ChooseSportsActivity.this);
         mPresenter.init(ChooseSportsActivity.this);
 
         listGridViews = new ArrayList<>();

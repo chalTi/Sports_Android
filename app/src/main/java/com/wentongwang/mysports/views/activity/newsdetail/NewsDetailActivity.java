@@ -32,7 +32,6 @@ public class NewsDetailActivity extends BaseActivity implements NewsDetailView {
 
     @Override
     protected void initDatasAndViews() {
-        ButterKnife.bind(NewsDetailActivity.this);
 
         if (isSelected) {
             mToolbar.setImageRight(R.drawable.liked);

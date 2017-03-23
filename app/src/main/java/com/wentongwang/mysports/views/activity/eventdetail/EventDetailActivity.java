@@ -41,7 +41,6 @@ public class EventDetailActivity extends BaseActivity {
      */
     @Override
     protected void initDatasAndViews() {
-        ButterKnife.bind(EventDetailActivity.this);
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.back));
         setSupportActionBar(toolbar);
 

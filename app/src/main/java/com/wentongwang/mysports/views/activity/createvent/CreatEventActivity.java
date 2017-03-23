@@ -61,7 +61,6 @@ public class CreatEventActivity extends BaseActivity implements CreatEventView {
         listGViews = new ArrayList<>();
 
         initSportEvents();
-        ButterKnife.bind(CreatEventActivity.this);
         initGirdViewsAndPoints();
         mGridViewContainer.setAdapter(new MyViewPagerAdapter());
 
