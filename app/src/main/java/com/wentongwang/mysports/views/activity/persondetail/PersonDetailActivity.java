@@ -6,7 +6,7 @@ import android.support.v4.view.ViewPager;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.custome.MyTabLayout;
-import com.wentongwang.mysports.views.BaseActivity;
+import com.wentongwang.mysports.base.BaseActivity;
 import com.wentongwang.mysports.views.fragment.friendrequest.FriendRequestFragment;
 
 import java.util.ArrayList;

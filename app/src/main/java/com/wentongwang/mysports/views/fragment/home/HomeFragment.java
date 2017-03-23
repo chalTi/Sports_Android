@@ -1,26 +1,18 @@
 package com.wentongwang.mysports.views.fragment.home;
 
 import android.content.Intent;
-import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.TextView;
 
 import com.wentongwang.mysports.R;
-import com.wentongwang.mysports.custome.NoScrollListView;
 import com.wentongwang.mysports.model.module.SportsFirstClass;
 import com.wentongwang.mysports.model.module.SportsSecondClass;
-import com.wentongwang.mysports.views.BaseFragment;
+import com.wentongwang.mysports.base.BaseFragment;
 import com.wentongwang.mysports.views.activity.eventdetail.EventDetailActivity;
 
 import java.util.List;

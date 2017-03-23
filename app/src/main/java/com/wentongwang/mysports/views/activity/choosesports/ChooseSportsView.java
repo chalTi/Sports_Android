@@ -1,7 +1,7 @@
 package com.wentongwang.mysports.views.activity.choosesports;
 
 import com.wentongwang.mysports.model.module.SportEvents;
-import com.wentongwang.mysports.views.BaseView;
+import com.wentongwang.mysports.base.BaseView;
 
 import java.util.List;
 

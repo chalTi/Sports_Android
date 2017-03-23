@@ -2,16 +2,9 @@ package com.wentongwang.mysports.views.activity.newsdetail;
 
 
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.custome.CommonHeadView;
-import com.wentongwang.mysports.views.BaseActivity;
-import com.wentongwang.mysports.views.activity.home.HomeActivity;
-import com.wentongwang.mysports.views.fragment.news.NewsFragment;
+import com.wentongwang.mysports.base.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

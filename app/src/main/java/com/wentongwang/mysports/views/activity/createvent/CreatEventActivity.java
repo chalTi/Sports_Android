@@ -11,13 +11,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.custome.PointsLayout;
 import com.wentongwang.mysports.model.module.SportEvents;
 import com.wentongwang.mysports.utils.Logger;
-import com.wentongwang.mysports.views.BaseActivity;
+import com.wentongwang.mysports.base.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;

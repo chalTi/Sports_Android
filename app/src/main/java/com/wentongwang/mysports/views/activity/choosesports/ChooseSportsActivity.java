@@ -1,24 +1,17 @@
 package com.wentongwang.mysports.views.activity.choosesports;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.custome.NoScrollGridView;
 import com.wentongwang.mysports.custome.PointsLayout;
 import com.wentongwang.mysports.model.module.SportEvents;
-import com.wentongwang.mysports.views.BaseActivity;
+import com.wentongwang.mysports.base.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;

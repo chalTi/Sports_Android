@@ -3,11 +3,9 @@ package com.wentongwang.mysports.views.activity.eventdetail;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.wentongwang.mysports.R;
-import com.wentongwang.mysports.utils.Logger;
-import com.wentongwang.mysports.views.BaseActivity;
+import com.wentongwang.mysports.base.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

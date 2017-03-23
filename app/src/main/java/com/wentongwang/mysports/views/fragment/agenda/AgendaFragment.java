@@ -14,8 +14,7 @@ import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.custome.CircleImageView;
 import com.wentongwang.mysports.custome.MyProgressBarHorizontal;
 import com.wentongwang.mysports.model.module.AgendaEvents;
-import com.wentongwang.mysports.model.module.NewsInfo;
-import com.wentongwang.mysports.views.BaseFragment;
+import com.wentongwang.mysports.base.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;

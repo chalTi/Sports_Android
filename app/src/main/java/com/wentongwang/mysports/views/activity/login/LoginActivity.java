@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.wentongwang.mysports.R;
-import com.wentongwang.mysports.views.BaseActivity;
+import com.wentongwang.mysports.base.BaseActivity;
 import com.wentongwang.mysports.views.activity.home.HomeActivity;
 import com.wentongwang.mysports.views.activity.signup.SignUpActivity;
 

@@ -2,7 +2,7 @@ package com.wentongwang.mysports.views.fragment.home;
 
 import com.wentongwang.mysports.model.module.SportsFirstClass;
 import com.wentongwang.mysports.model.module.SportsSecondClass;
-import com.wentongwang.mysports.views.BaseView;
+import com.wentongwang.mysports.base.BaseView;
 
 import java.util.List;
 
