@@ -1,16 +1,9 @@
 package com.wentongwang.mysports.views.activity.signup;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
-import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,9 +16,6 @@ import android.widget.RadioGroup;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.base.GetPictureBaseActivity;
-import com.wentongwang.mysports.constant.IntentConstants;
-import com.wentongwang.mysports.utils.ToastUtil;
-import com.wentongwang.mysports.base.BaseActivity;
 import com.wentongwang.mysports.views.activity.home.HomeActivity;
 
 import java.io.File;
@@ -33,7 +23,6 @@ import java.io.IOException;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**

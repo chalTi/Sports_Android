@@ -87,6 +87,7 @@ public abstract class GetPictureBaseActivity extends BaseActivity {
             goToChooseMultiPhoto();
         }
     }
+
     /**
      * 获取需要存放图片的ImageView
      */
@@ -94,6 +95,7 @@ public abstract class GetPictureBaseActivity extends BaseActivity {
 
     /**
      * 多张选择的时候返回的图片们
+     *
      * @param bitmaps
      */
     protected abstract void imagesPicked(List<Bitmap> bitmaps);
@@ -118,6 +120,10 @@ public abstract class GetPictureBaseActivity extends BaseActivity {
                 case IntentConstants.EXTRA_CROP_PHOTO:
                     Bitmap photo = null;
                     photo = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUri));
+                    if (photo == null && data != null) {
+                        Bundle bundle = data.getExtras();
+                        photo = (Bitmap) bundle.get("data");
+                    }
                     if (getImageView() != null)
                         getImageView().setImageBitmap(photo);
                     //TODO: 将图片压缩到file里并且将这个File上传到服务器（presenter里走逻辑）
@@ -144,44 +150,44 @@ public abstract class GetPictureBaseActivity extends BaseActivity {
                         break;
                     }
             }
-            }catch(IOException e){
-                e.printStackTrace();
-                ToastUtil.show(this, "添加照片失败", 1000);
-            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            ToastUtil.show(this, "添加照片失败", 1000);
         }
+    }
 
-        @Override
-        public void onRequestPermissionsResult ( int requestCode, @NonNull String[] permissions,
-        @NonNull int[] grantResults){
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
 
-            switch (requestCode) {
-                case IntentConstants.MY_PERMISSIONS_REQUEST_TAKE_PHOTO:
-                    if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                        goToTakePhoto();
-                    } else {
-                        // Permission Denied
-                        ToastUtil.show(this, "权限获取失败", 1000);
-                    }
-                    break;
-                case IntentConstants.MY_PERMISSIONS_REQUEST_CHOOSE_PHOTO:
-                    if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                        goToChoosePhoto();
-                    } else {
-                        // Permission Denied
-                        ToastUtil.show(this, "权限获取失败", 1000);
-                    }
-                    break;
-                case IntentConstants.MY_PERMISSIONS_REQUEST_CHOOSE_MULTI_PHOTO:
-                    if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                        goToChooseMultiPhoto();
-                    } else {
-                        // Permission Denied
-                        ToastUtil.show(this, "权限获取失败", 1000);
-                    }
-                    break;
-            }
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case IntentConstants.MY_PERMISSIONS_REQUEST_TAKE_PHOTO:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    goToTakePhoto();
+                } else {
+                    // Permission Denied
+                    ToastUtil.show(this, "权限获取失败", 1000);
+                }
+                break;
+            case IntentConstants.MY_PERMISSIONS_REQUEST_CHOOSE_PHOTO:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    goToChoosePhoto();
+                } else {
+                    // Permission Denied
+                    ToastUtil.show(this, "权限获取失败", 1000);
+                }
+                break;
+            case IntentConstants.MY_PERMISSIONS_REQUEST_CHOOSE_MULTI_PHOTO:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    goToChooseMultiPhoto();
+                } else {
+                    // Permission Denied
+                    ToastUtil.show(this, "权限获取失败", 1000);
+                }
+                break;
         }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
 
     private void goToTakePhoto() {
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
