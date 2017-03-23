@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.custome.NoScrollGridView;
-import com.wentongwang.mysports.views.BaseFragment;
+import com.wentongwang.mysports.base.BaseFragment;
 
 import butterknife.BindView;
 
