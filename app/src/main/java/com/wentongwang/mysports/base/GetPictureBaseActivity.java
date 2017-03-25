@@ -37,7 +37,7 @@ public abstract class GetPictureBaseActivity extends BaseActivity {
     }
 
     private void initFileForPicture() {
-        File outputFileDir = new File(Environment.getExternalStorageDirectory()
+        File outputFileDir = new File(getCacheDir()
                 + File.separator + "userHead");
         if (!outputFileDir.exists()) {
             outputFileDir.mkdirs();
