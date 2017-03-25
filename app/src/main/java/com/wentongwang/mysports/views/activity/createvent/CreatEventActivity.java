@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
 
 /**
  * creat event layout
- *
+ * <p>
  * Created by Wentong WANG on 2016/9/9.
  */
 public class CreatEventActivity extends BaseActivity implements CreatEventView {
@@ -46,6 +46,7 @@ public class CreatEventActivity extends BaseActivity implements CreatEventView {
     private int gvPageSize = 1;
     private int gvColumns = 3;
     private int totalEvents = 0;
+
     @Override
     protected boolean notitle() {
         return true;
@@ -62,7 +63,7 @@ public class CreatEventActivity extends BaseActivity implements CreatEventView {
 
         initSportEvents();
         initGirdViewsAndPoints();
-        mGridViewContainer.setAdapter(new MyViewPagerAdapter());
+        mGridViewContainer.setAdapter(new EventsViewPagerAdapter(listGViews));
 
     }
 
@@ -128,6 +129,7 @@ public class CreatEventActivity extends BaseActivity implements CreatEventView {
 
     /**
      * 获取不同页的gridview
+     *
      * @param index
      * @return
      */
@@ -138,13 +140,12 @@ public class CreatEventActivity extends BaseActivity implements CreatEventView {
 
         gridView.setNumColumns(gvColumns);
 
-        MyGridViewAdapter adapter = new MyGridViewAdapter(CreatEventActivity.this, index, pageItemCount);
+        EventsGridViewAdapter adapter = new EventsGridViewAdapter(index, pageItemCount,sportEvents);
 
         gridView.setAdapter(adapter);
 
         return gridView;
     }
-
 
 
     @Override
@@ -155,125 +156,6 @@ public class CreatEventActivity extends BaseActivity implements CreatEventView {
     @Override
     public void hideProgressBar() {
 
-    }
-
-    /**
-     * viewpager的adapter
-     */
-    private class MyViewPagerAdapter extends PagerAdapter{
-
-        @Override
-        public int getCount() {
-            return listGViews.size();
-        }
-
-        @Override
-        public boolean isViewFromObject(View view, Object object) {
-            return view == object;
-        }
-
-        @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            View gv = listGViews.get(position);
-            //gridview加入到viewpager里
-            mGridViewContainer.addView(gv);
-            return gv;
-        }
-
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-            View gv = listGViews.get(position);
-            mGridViewContainer.removeView(gv);
-        }
-    }
-
-    /**
-     * girdview的adapter
-     */
-    private class MyGridViewAdapter extends BaseAdapter {
-        private List<SportEvents> items;
-
-        private Context context;
-        /** ViewPager页码 */
-        private int index;
-        /** 根据屏幕大小计算得到的每页item个数 */
-        private int pageItemCount;
-
-        /**
-         *
-         * @param context 上下文
-         * @param index 页码
-         * @param pageItemCount 每页个数
-         */
-        public MyGridViewAdapter(Context context, int index, int pageItemCount) {
-            this.context = context;
-            this.index = index;
-            this.pageItemCount = pageItemCount;
-            items = new ArrayList<SportEvents>();
-
-            //get pageitemcount items
-            int list_index = index * pageItemCount;
-            int lastItem = list_index + pageItemCount;
-            if (lastItem > totalEvents) {
-                lastItem = totalEvents;
-            }
-
-            for (int i = list_index; i < lastItem; i++) {
-                Logger.i("gv", "item name " + sportEvents.get(i).getEvent_name());
-                items.add(sportEvents.get(i));
-            }
-
-
-        }
-        @Override
-        public int getCount() {
-            return items.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return sportEvents.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder holder = null;
-            if (convertView == null) {
-
-                convertView = LayoutInflater.from(CreatEventActivity.this).inflate(R.layout.events_gridview_items, null);
-                holder = new ViewHolder(convertView);
-
-
-                convertView.setTag(holder);
-            } else {
-                holder = (ViewHolder) convertView.getTag();
-            }
-            SportEvents event = items.get(position);
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), event.getEvent_image());
-            holder.event_icon.setImageBitmap(bitmap);
-
-            if (event.isSelected()) {
-                holder.selected.setVisibility(View.VISIBLE);
-            } else {
-                holder.selected.setVisibility(View.INVISIBLE);
-            }
-            return convertView;
-        }
-
-        private class ViewHolder {
-            ImageView event_icon;
-            ImageView selected;
-
-            public ViewHolder(View view){
-                event_icon = (ImageView) view.findViewById(R.id.event_icon);
-                selected = (ImageView) view.findViewById(R.id.iv_selected);
-            }
-        }
     }
 
 

@@ -15,6 +15,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.wentongwang.mysports.constant.Constant.GET_EVENT_PATH;
+import static com.wentongwang.mysports.constant.Constant.HOST;
+
 /**
  * Created by Wentong WANG on 2016/10/13.
  */
@@ -71,7 +74,7 @@ public class HomeFragPresenter {
         params.put("user_id", "123456");
         params.put("user_like", "sssss");
 
-        String url = "http://192.168.1.25:8080/sports/home/gethomesportevent";
+        String url = HOST+GET_EVENT_PATH;
         VolleyResponse<SportsFirstClass> response = new VolleyResponse<>();
         vollyRequestManager.doPost(mContext, url, response, params, new VollyRequestManager.OnRequestFinishedListener() {
             @Override
