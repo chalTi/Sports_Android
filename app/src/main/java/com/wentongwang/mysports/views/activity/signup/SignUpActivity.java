@@ -50,8 +50,7 @@ public class SignUpActivity extends GetPictureBaseActivity implements SignUpView
 
     private int userSex = 0; //0 = male; 1 = female
     private SignUpPresenter mPresenter = new SignUpPresenter(this);
-    private Uri imageUri;
-    private File outputFile;
+
 
     @Override
     protected boolean notitle() {
@@ -66,18 +65,6 @@ public class SignUpActivity extends GetPictureBaseActivity implements SignUpView
     @Override
     protected void initDatasAndViews() {
         mPresenter.init(SignUpActivity.this);
-
-        File outputFileDir = new File(Environment.getExternalStorageDirectory()
-                + File.separator + "userHead");
-        if (!outputFileDir.exists()) {
-            outputFileDir.mkdirs();
-        }
-        try {
-            outputFile = File.createTempFile("user_head",".jpg", outputFileDir);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        imageUri = Uri.fromFile(outputFile);
     }
 
     @Override
