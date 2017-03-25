@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by Wentong WANG on 2016/10/14.
  */
-public class ChooseSportsPresenter implements PresenterHandler{
+public class ChooseSportsPresenter implements PresenterHandler {
 
     private ChooseSportsView mView;
     private Context mContext;
@@ -43,7 +43,7 @@ public class ChooseSportsPresenter implements PresenterHandler{
         sportEventsChosen = new ArrayList<>();
     }
 
-    public void initSportEvents(){
+    public void initSportEvents() {
         //Event从服务器获取比较好一点
         sportEvents.add(new SportEvents(R.drawable.basketball, "basketball"));
         sportEvents.add(new SportEvents(R.drawable.soccerball, "soccerball"));
@@ -54,7 +54,6 @@ public class ChooseSportsPresenter implements PresenterHandler{
         sportEvents.add(new SportEvents(R.drawable.tennis, "tennis"));
         sportEvents.add(new SportEvents(R.drawable.bicycle, "bicycle"));
         sportEvents.add(new SportEvents(R.drawable.running, "running"));
-
         sportEvents.add(new SportEvents(R.drawable.swimming, "swimming"));
         sportEvents.add(new SportEvents(R.drawable.exercise, "exercise"));
         sportEvents.add(new SportEvents(R.drawable.boxing, "boxing"));

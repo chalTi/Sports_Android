@@ -170,7 +170,8 @@ public class SignUpActivity extends GetPictureBaseActivity implements SignUpView
 
     @OnClick(R.id.btn_sign_in)
     public void signUp() {
-        mPresenter.signUp();
+//        mPresenter.signUp();
+        mPresenter.singUpRx();
     }
 
 
