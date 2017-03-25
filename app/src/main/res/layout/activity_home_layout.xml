@@ -86,10 +86,12 @@
 
 
     </RelativeLayout>
+    <!-- DrawerLayout 侧边菜单-->
     <include
-        android:id="@+id/left_menu_home_activity"
+        android:id="@+id/home_drawer_layout"
         layout="@layout/home_drawer_layout"
         android:layout_width="200dp"
         android:layout_height="match_parent"
-        android:layout_gravity="start" />
+        android:layout_gravity="start"
+        />
 </android.support.v4.widget.DrawerLayout>

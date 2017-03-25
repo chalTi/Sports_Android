@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="200dp"
     android:layout_height="match_parent"
-    android:background="#455A64">
+    android:background="#455A64"
+    android:clickable="true">
 
     <com.wentongwang.mysports.custome.CircleImageView
         android:id="@+id/iv_left_menu_user_head"
