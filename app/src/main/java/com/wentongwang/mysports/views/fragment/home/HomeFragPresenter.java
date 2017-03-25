@@ -106,7 +106,7 @@ public class HomeFragPresenter {
     public void getSportEvents() {
         //这个可能不需要分页
         Map<String, String> params = new HashMap<>();
-        params.put("user_id", "123456");
+        params.put("user_id", "1");
         params.put("user_like", "sssss");
 
         String url = HOST + GET_EVENT_PATH;

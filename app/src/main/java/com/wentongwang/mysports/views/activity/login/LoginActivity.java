@@ -61,7 +61,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
         sign_in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.loginTest();
+                mPresenter.loginRx();
             }
         });
     }
