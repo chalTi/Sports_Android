@@ -90,6 +90,7 @@ public class LoginPresenter {
             public void onFailed(String msg) {
                 view.hideProgressBar();
                 ToastUtil.show(mContext, msg, 1500);
+
             }
         });
 

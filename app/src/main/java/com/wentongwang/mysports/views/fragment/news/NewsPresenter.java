@@ -41,7 +41,7 @@ public class NewsPresenter {
 
     public void getNews(){
 
-        String url = "http://192.168.1.25:8080/sports" + Constant.GET_NEWS_PATH;
+        String url =Constant.HOST + Constant.GET_NEWS_PATH;
 
         VolleyResponse<NewsInfo> newsResponse = new VolleyResponse<>();
 

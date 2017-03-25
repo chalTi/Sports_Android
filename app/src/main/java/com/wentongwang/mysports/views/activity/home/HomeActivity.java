@@ -55,7 +55,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
     protected ImageView creatEventBtn;
 
     private List<Fragment> mFragmentList;
-    private MyFragmentPagerAdapter mvpAdapter; //adapter of fragment
+    private HomeFragmentPagerAdapter mvpAdapter; //adapter of fragment
 
     private HomePresenter mPresenter = new HomePresenter(this);
     private int userType = 1;
@@ -75,7 +75,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
         initFragments();
 
         FragmentManager manager = getSupportFragmentManager();
-        mvpAdapter = new MyFragmentPagerAdapter(manager, mFragmentList);
+        mvpAdapter = new HomeFragmentPagerAdapter(manager, mFragmentList);
         mViewPager.setAdapter(mvpAdapter);
 
         mPresenter.setPage(0);
@@ -265,24 +265,5 @@ public class HomeActivity extends BaseActivity implements HomeView {
         }
     }
 
-    class MyFragmentPagerAdapter extends FragmentPagerAdapter {
-        List<Fragment> list;
 
-        public MyFragmentPagerAdapter(FragmentManager fm, List<Fragment> list) {
-            super(fm);
-            this.list = list;
-        }
-
-        @Override
-        public int getCount() {
-            return list.size();
-        }
-
-        @Override
-        public Fragment getItem(int arg0) {
-            return list.get(arg0);
-        }
-
-
-    }
 }

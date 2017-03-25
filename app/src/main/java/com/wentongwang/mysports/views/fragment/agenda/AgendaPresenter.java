@@ -59,7 +59,7 @@ public class AgendaPresenter {
     }
     //*********************************************************
     public void getAgenda(){
-        String url="http://192.168.1.25:8080/sports"+ Constant.GET_AGENDA_PATH;
+        String url=Constant.HOST+ Constant.GET_AGENDA_PATH;
         VolleyResponse<AgendaEvents> agendaEventsVollyResponse=new VolleyResponse<>();
 
         Map<String, String> params = new HashMap<>();
