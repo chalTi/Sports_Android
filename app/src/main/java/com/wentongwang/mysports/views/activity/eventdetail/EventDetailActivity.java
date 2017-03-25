@@ -5,10 +5,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.wentongwang.mysports.R;
-import com.wentongwang.mysports.base.BaseActivity;
+import com.wentongwang.mysports.views.base.BaseActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by Wentong WANG on 2016/10/24.

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -18,10 +17,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.wentongwang.mysports.R;
-import com.wentongwang.mysports.custome.CommonHeadView;
+import com.wentongwang.mysports.views.custome.CommonHeadView;
 import com.wentongwang.mysports.utils.Logger;
 import com.wentongwang.mysports.utils.ToastUtil;
-import com.wentongwang.mysports.base.BaseActivity;
+import com.wentongwang.mysports.views.base.BaseActivity;
 import com.wentongwang.mysports.views.activity.choosesports.ChooseSportsActivity;
 import com.wentongwang.mysports.views.activity.createvent.CreatEventActivity;
 import com.wentongwang.mysports.views.fragment.agenda.AgendaFragment;
@@ -33,7 +32,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by Wentong WANG on 2016/9/16.

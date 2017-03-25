@@ -14,7 +14,7 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="50dp"></android.support.v4.view.ViewPager>
 
-        <com.wentongwang.mysports.custome.CommonHeadView
+        <com.wentongwang.mysports.views.custome.CommonHeadView
             android:id="@+id/tool_bar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -23,7 +23,7 @@
             mToolbar:tbInfoLeftVisiable="false"
             mToolbar:tbImgRight="@drawable/right_btn">
 
-        </com.wentongwang.mysports.custome.CommonHeadView>
+        </com.wentongwang.mysports.views.custome.CommonHeadView>
         <!--底部Tab栏-->
         <RadioGroup
             android:id="@+id/rg_home_bottom_tab"

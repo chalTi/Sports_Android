@@ -5,15 +5,14 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
 import com.wentongwang.mysports.R;
-import com.wentongwang.mysports.custome.MyTabLayout;
-import com.wentongwang.mysports.base.BaseActivity;
+import com.wentongwang.mysports.views.custome.MyTabLayout;
+import com.wentongwang.mysports.views.base.BaseActivity;
 import com.wentongwang.mysports.views.fragment.friendrequest.FriendRequestFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by Wentong WANG on 2016/10/14.

@@ -1,4 +1,4 @@
-package com.wentongwang.mysports.base;
+package com.wentongwang.mysports.views.base;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

@@ -1,4 +1,4 @@
-package com.wentongwang.mysports.custome;
+package com.wentongwang.mysports.views.custome;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -9,7 +9,6 @@ import android.view.View;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.utils.ImageUtil;
-import com.wentongwang.mysports.utils.Logger;
 
 /**
  * Created by Wentong WANG on 2016/6/2.

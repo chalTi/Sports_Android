@@ -1,6 +1,6 @@
 package com.wentongwang.mysports.views.fragment.personinfo;
 
-import com.wentongwang.mysports.base.BaseView;
+import com.wentongwang.mysports.views.base.BaseView;
 
 /**
  * Created by Wentong WANG on 2016/9/27.

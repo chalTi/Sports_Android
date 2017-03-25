@@ -43,7 +43,7 @@
                     android:layout_alignParentBottom="true"
                     android:background="#44ffffff" />
 
-                <com.wentongwang.mysports.custome.CircleImageView
+                <com.wentongwang.mysports.views.custome.CircleImageView
                     android:id="@+id/event_creator_head"
                     android:layout_width="70dp"
                     android:layout_height="70dp"

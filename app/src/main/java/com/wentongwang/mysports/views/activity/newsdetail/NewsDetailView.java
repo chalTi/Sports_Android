@@ -1,6 +1,6 @@
 package com.wentongwang.mysports.views.activity.newsdetail;
 
-import com.wentongwang.mysports.base.BaseView;
+import com.wentongwang.mysports.views.base.BaseView;
 
 /**
  * Created by qifan on 2016/10/18.

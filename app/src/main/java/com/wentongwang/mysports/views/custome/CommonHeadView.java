@@ -1,4 +1,4 @@
-package com.wentongwang.mysports.custome;
+package com.wentongwang.mysports.views.custome;
 
 import android.content.Context;
 import android.content.res.TypedArray;

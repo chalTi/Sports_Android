@@ -16,7 +16,7 @@
         android:scaleType="fitXY"
         android:src="@drawable/annul"/>
 
-    <com.wentongwang.mysports.custome.CircleImageView
+    <com.wentongwang.mysports.views.custome.CircleImageView
         android:id="@+id/person_head"
         android:layout_gravity="center_horizontal"
         android:layout_width="80dp"

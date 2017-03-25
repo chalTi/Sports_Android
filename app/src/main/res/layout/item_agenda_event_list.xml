@@ -13,7 +13,7 @@
         card_view:contentPadding="10dp"
         >
 
-        <com.wentongwang.mysports.custome.CircleImageView
+        <com.wentongwang.mysports.views.custome.CircleImageView
             android:id="@+id/user_head"
             android:layout_width="45dp"
             android:layout_height="45dp"
@@ -56,7 +56,7 @@
                 android:textColor="@color/colorPrimaryText" />
         </LinearLayout>
 
-        <com.wentongwang.mysports.custome.MyProgressBarHorizontal
+        <com.wentongwang.mysports.views.custome.MyProgressBarHorizontal
             android:id="@+id/event_progress_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

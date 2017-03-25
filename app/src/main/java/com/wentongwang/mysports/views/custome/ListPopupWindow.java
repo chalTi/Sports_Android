@@ -1,4 +1,4 @@
-package com.wentongwang.mysports.custome;
+package com.wentongwang.mysports.views.custome;
 
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;

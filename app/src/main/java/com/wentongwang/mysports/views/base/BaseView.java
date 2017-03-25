@@ -1,6 +1,4 @@
-package com.wentongwang.mysports.base;
-
-import android.content.Context;
+package com.wentongwang.mysports.views.base;
 
 /**
  * Created by Wentong WANG on 2016/8/18.

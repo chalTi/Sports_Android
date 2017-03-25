@@ -1,13 +1,8 @@
 package com.wentongwang.mysports.views.fragment.friendrequest;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-
 import com.wentongwang.mysports.R;
-import com.wentongwang.mysports.custome.NoScrollGridView;
-import com.wentongwang.mysports.base.BaseFragment;
+import com.wentongwang.mysports.views.custome.NoScrollGridView;
+import com.wentongwang.mysports.views.base.BaseFragment;
 
 import butterknife.BindView;
 

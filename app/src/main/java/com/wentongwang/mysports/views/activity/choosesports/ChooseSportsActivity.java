@@ -8,16 +8,15 @@ import android.widget.Button;
 import android.widget.GridView;
 
 import com.wentongwang.mysports.R;
-import com.wentongwang.mysports.custome.NoScrollGridView;
-import com.wentongwang.mysports.custome.PointsLayout;
+import com.wentongwang.mysports.views.custome.NoScrollGridView;
+import com.wentongwang.mysports.views.custome.PointsLayout;
 import com.wentongwang.mysports.model.module.SportEvents;
-import com.wentongwang.mysports.base.BaseActivity;
+import com.wentongwang.mysports.views.base.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by Wentong WANG on 2016/10/14.

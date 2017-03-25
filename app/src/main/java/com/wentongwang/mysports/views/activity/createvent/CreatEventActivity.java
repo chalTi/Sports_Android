@@ -1,28 +1,20 @@
 package com.wentongwang.mysports.views.activity.createvent;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.GridView;
-import android.widget.ImageView;
 
 import com.wentongwang.mysports.R;
-import com.wentongwang.mysports.custome.PointsLayout;
+import com.wentongwang.mysports.views.custome.PointsLayout;
 import com.wentongwang.mysports.model.module.SportEvents;
-import com.wentongwang.mysports.utils.Logger;
-import com.wentongwang.mysports.base.BaseActivity;
+import com.wentongwang.mysports.views.base.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * creat event layout

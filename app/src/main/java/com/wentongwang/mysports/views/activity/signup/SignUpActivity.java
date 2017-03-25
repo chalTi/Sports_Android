@@ -2,8 +2,6 @@ package com.wentongwang.mysports.views.activity.signup;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.Environment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,11 +13,9 @@ import android.widget.PopupWindow;
 import android.widget.RadioGroup;
 
 import com.wentongwang.mysports.R;
-import com.wentongwang.mysports.base.GetPictureBaseActivity;
+import com.wentongwang.mysports.views.base.GetPictureBaseActivity;
 import com.wentongwang.mysports.views.activity.home.HomeActivity;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 import butterknife.BindView;

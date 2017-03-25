@@ -11,7 +11,7 @@
         card_view:cardCornerRadius="10dp"
         card_view:contentPadding="10dp">
 
-        <com.wentongwang.mysports.custome.CircleImageView
+        <com.wentongwang.mysports.views.custome.CircleImageView
             android:id="@+id/creator_head"
             android:layout_width="45dp"
             android:layout_height="45dp"

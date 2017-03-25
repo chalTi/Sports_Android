@@ -5,7 +5,7 @@ import android.util.Log;
 import android.widget.PopupWindow;
 
 import com.wentongwang.mysports.constant.Constant;
-import com.wentongwang.mysports.custome.PersonInfoPopupWindow;
+import com.wentongwang.mysports.views.custome.PersonInfoPopupWindow;
 import com.wentongwang.mysports.model.bussiness.VollyRequestManager;
 import com.wentongwang.mysports.model.bussiness.VolleyResponse;
 import com.wentongwang.mysports.model.module.AgendaEvents;

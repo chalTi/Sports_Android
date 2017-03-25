@@ -3,7 +3,7 @@ package com.wentongwang.mysports.views.fragment.agenda;
 import android.widget.PopupWindow;
 
 import com.wentongwang.mysports.model.module.AgendaEvents;
-import com.wentongwang.mysports.base.BaseView;
+import com.wentongwang.mysports.views.base.BaseView;
 
 import java.util.List;
 

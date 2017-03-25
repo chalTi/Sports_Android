@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.wentongwang.mysports.R;
-import com.wentongwang.mysports.base.BaseFragment;
+import com.wentongwang.mysports.views.base.BaseFragment;
 import com.wentongwang.mysports.views.activity.persondetail.PersonDetailActivity;
 
 import butterknife.BindView;

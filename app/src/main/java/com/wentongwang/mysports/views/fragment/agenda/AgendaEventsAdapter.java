@@ -7,8 +7,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.wentongwang.mysports.R;
-import com.wentongwang.mysports.custome.CircleImageView;
-import com.wentongwang.mysports.custome.MyProgressBarHorizontal;
+import com.wentongwang.mysports.views.custome.CircleImageView;
+import com.wentongwang.mysports.views.custome.MyProgressBarHorizontal;
 import com.wentongwang.mysports.model.module.AgendaEvents;
 
 import java.util.ArrayList;

@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
 
-import com.wentongwang.mysports.base.BaseView;
+import com.wentongwang.mysports.views.base.BaseView;
 
 /**
  * Created by Wentong WANG on 2016/9/16.

@@ -1,26 +1,18 @@
 package com.wentongwang.mysports.views.fragment.agenda;
 
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.PopupWindow;
-import android.widget.TextView;
 
 import com.wentongwang.mysports.R;
-import com.wentongwang.mysports.custome.CircleImageView;
-import com.wentongwang.mysports.custome.MyProgressBarHorizontal;
 import com.wentongwang.mysports.model.module.AgendaEvents;
-import com.wentongwang.mysports.base.BaseFragment;
+import com.wentongwang.mysports.views.base.BaseFragment;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by Wentong WANG on 2016/9/17.

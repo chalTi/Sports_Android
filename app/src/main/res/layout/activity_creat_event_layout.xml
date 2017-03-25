@@ -65,7 +65,7 @@
                 android:layout_marginRight="35dp"
                 android:layout_marginTop="5dp" />
 
-            <com.wentongwang.mysports.custome.PointsLayout
+            <com.wentongwang.mysports.views.custome.PointsLayout
                 android:layout_below="@id/event_type_container"
                 android:id="@+id/ll_point_container"
                 android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
                 android:padding="15dp"
                 >
 
-            </com.wentongwang.mysports.custome.PointsLayout>
+            </com.wentongwang.mysports.views.custome.PointsLayout>
 
             <EditText
                 android:id="@+id/event_description"

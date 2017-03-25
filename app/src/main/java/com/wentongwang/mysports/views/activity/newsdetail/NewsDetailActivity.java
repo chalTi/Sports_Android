@@ -3,8 +3,8 @@ package com.wentongwang.mysports.views.activity.newsdetail;
 
 
 import com.wentongwang.mysports.R;
-import com.wentongwang.mysports.custome.CommonHeadView;
-import com.wentongwang.mysports.base.BaseActivity;
+import com.wentongwang.mysports.views.custome.CommonHeadView;
+import com.wentongwang.mysports.views.base.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -14,7 +14,7 @@
             android:layout_height="match_parent"
             app:layout_scrollFlags="scroll|enterAlways"
             android:orientation="vertical">
-            <com.wentongwang.mysports.custome.CommonHeadView
+            <com.wentongwang.mysports.views.custome.CommonHeadView
                 android:id="@+id/tool_bar"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"

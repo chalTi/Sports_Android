@@ -8,12 +8,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.wentongwang.mysports.custome.NoScrollGridView
+        <com.wentongwang.mysports.views.custome.NoScrollGridView
             android:id="@+id/grid_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:horizontalSpacing="8dp"
             android:numColumns="3"
-            android:padding="5dp"></com.wentongwang.mysports.custome.NoScrollGridView>
+            android:padding="5dp"></com.wentongwang.mysports.views.custome.NoScrollGridView>
     </android.support.v4.widget.NestedScrollView>
 </LinearLayout>
