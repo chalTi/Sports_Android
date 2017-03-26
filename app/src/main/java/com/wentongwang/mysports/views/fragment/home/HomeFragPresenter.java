@@ -110,6 +110,7 @@ public class HomeFragPresenter {
         params.put("user_like", "sssss");
 
         String url = HOST + GET_EVENT_PATH;
+        mView.showProgressBar();
         RxVolleyRequest.getInstance().getRequestObservable(mContext, Request.Method.POST, url, params)
                 .subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
                 .observeOn(AndroidSchedulers.mainThread())// 指定 Subscriber 的回调发生在主线程
@@ -122,7 +123,7 @@ public class HomeFragPresenter {
                     @Override
                     public void onError(Throwable e) {
                         mView.hideProgressBar();
-                        ToastUtil.show(mContext, e.hashCode(), 1500);
+                        ToastUtil.show(mContext, e.toString(), 1500);
                     }
 
                     @Override
