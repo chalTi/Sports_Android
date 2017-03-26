@@ -114,7 +114,7 @@ public class AgendaPresenter {
                     @Override
                     public void onError(Throwable e) {
                         view.hideProgressBar();
-                        ToastUtil.show(mContext, e.hashCode(), 1500);
+                        ToastUtil.show(mContext, e.toString(), 1500);
                     }
 
                     @Override

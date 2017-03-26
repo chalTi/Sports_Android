@@ -136,16 +136,14 @@ public class LoginPresenter {
                     @Override
                     public void onError(Throwable e) {
                         view.hideProgressBar();
-                        ToastUtil.show(mContext, e.hashCode(), 1500);
+                        ToastUtil.show(mContext, e.toString(), 1500);
                     }
 
                     @Override
                     public void onNext(String volleyResponse) {
-                        Log.i("xxxxx", volleyResponse + "    ");
                         VolleyResponse<LoginResponse> loginResponse = new VolleyResponse<LoginResponse>();
                         loginResponse.setMsg(volleyResponse);
-                        Log.i("xxxxx", loginResponse.getResult(LoginResponse.class).toString());
-//                        view.goToHomeActivity();
+                        view.goToHomeActivity();
 
                     }
                 });

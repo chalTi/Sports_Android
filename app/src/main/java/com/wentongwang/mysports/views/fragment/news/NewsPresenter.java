@@ -99,7 +99,7 @@ public class NewsPresenter {
                     @Override
                     public void onError(Throwable e) {
                         mView.hideProgressBar();
-                        ToastUtil.show(mContext, e.hashCode(), 1500);
+                        ToastUtil.show(mContext, e.toString(), 1500);
                     }
 
                     @Override

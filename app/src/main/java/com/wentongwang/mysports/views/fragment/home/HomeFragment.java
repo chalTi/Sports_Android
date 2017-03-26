@@ -33,18 +33,6 @@ public class HomeFragment extends BaseFragment implements HomeFragView, SwipeRef
 
     private HomeFragPresenter mPresenter = new HomeFragPresenter(this);
 
-
-    private Handler homehandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            switch (msg.what) {
-                case REFRESH_COMPLETE:
-                    homeContainer.setRefreshing(false);
-                    break;
-            }
-        }
-    };
     private MyExpandableListAdpater adapter;
 
     @Override
@@ -92,8 +80,7 @@ public class HomeFragment extends BaseFragment implements HomeFragView, SwipeRef
 
     @Override
     public void onRefresh() {
-        //这里用presenter去请求服务器
-        homehandler.sendEmptyMessageDelayed(REFRESH_COMPLETE, 2000);
+        mPresenter.getSportEvents();
     }
 
     @Override

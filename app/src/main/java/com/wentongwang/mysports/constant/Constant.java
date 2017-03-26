@@ -8,7 +8,7 @@ public class Constant {
     //*********************** local host *******************************/
     //this is for test, in fact, should save in SP
 //    public static final String HOST = "http://35.156.49.76:8080/sports";
-    public static final String HOST = "http://192.168.1.35:8080/sports";
+    public static final String HOST = "http://35.156.49.76:8080/sports/";
 
     //*********************** servlet path *******************************//
     public static final String LOGIN_PATH = "/user/login";
