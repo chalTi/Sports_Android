@@ -45,18 +45,18 @@ public class ChooseSportsPresenter implements PresenterHandler {
 
     public void initSportEvents() {
         //Event从服务器获取比较好一点
-        sportEvents.add(new SportEvents(R.drawable.basketball, "basketball"));
-        sportEvents.add(new SportEvents(R.drawable.soccerball, "soccerball"));
-        sportEvents.add(new SportEvents(R.drawable.football, "football"));
-        sportEvents.add(new SportEvents(R.drawable.volleyball, "volleyball"));
-        sportEvents.add(new SportEvents(R.drawable.badminton, "badminton"));
-        sportEvents.add(new SportEvents(R.drawable.pingpang, "pingpang"));
-        sportEvents.add(new SportEvents(R.drawable.tennis, "tennis"));
-        sportEvents.add(new SportEvents(R.drawable.bicycle, "bicycle"));
-        sportEvents.add(new SportEvents(R.drawable.running, "running"));
-        sportEvents.add(new SportEvents(R.drawable.swimming, "swimming"));
-        sportEvents.add(new SportEvents(R.drawable.exercise, "exercise"));
-        sportEvents.add(new SportEvents(R.drawable.boxing, "boxing"));
+        sportEvents.add(new SportEvents(R.drawable.basketball, "basketball", "001"));
+        sportEvents.add(new SportEvents(R.drawable.soccerball, "soccerball", "002"));
+        sportEvents.add(new SportEvents(R.drawable.football, "football", "003"));
+        sportEvents.add(new SportEvents(R.drawable.volleyball, "volleyball", "004"));
+        sportEvents.add(new SportEvents(R.drawable.badminton, "badminton", "005"));
+        sportEvents.add(new SportEvents(R.drawable.pingpang, "pingpang", "006"));
+        sportEvents.add(new SportEvents(R.drawable.tennis, "tennis", "007"));
+        sportEvents.add(new SportEvents(R.drawable.bicycle, "bicycle", "008"));
+        sportEvents.add(new SportEvents(R.drawable.running, "running", "009"));
+        sportEvents.add(new SportEvents(R.drawable.swimming, "swimming", "010"));
+        sportEvents.add(new SportEvents(R.drawable.exercise, "exercise", "011"));
+        sportEvents.add(new SportEvents(R.drawable.boxing, "boxing", "012"));
 
         totalEvents = sportEvents.size();
         //初始化爱好ViewPager及其下方的圆点
