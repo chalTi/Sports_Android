@@ -36,14 +36,24 @@
     </LinearLayout>
 
 
+    <CheckBox
+        android:textColor="@color/white"
+        android:layout_marginEnd="35dp"
+        android:id="@+id/auto_login_ckeck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/auto_login_check_box_string"
+        android:layout_below="@+id/ll_login_container"
+        android:layout_alignParentEnd="true" />
+
     <ImageView
         android:id="@+id/iv_login_divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@id/ll_login_container"
-        android:layout_marginEnd="130dp"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="35dp"
         android:background="#33000000" />
 
 
