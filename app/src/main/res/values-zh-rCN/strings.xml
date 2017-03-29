@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    
+    
+    <!--LoginActivity-->
+    <string name="login_btn">登录</string>
     <string name="auto_login_check_box_string">自动登录</string>
-
+    <string name="login_fail">登录失败</string>
+    <string name="user_name_empty_alert">用户名不能为空</string>
+    <string name="user_password_empty_alert">密码不能为空</string>
 </resources>
