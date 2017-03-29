@@ -25,7 +25,7 @@ public abstract class BaseFragment extends Fragment {
     /**
      * 初始化数据
      */
-    public abstract void initDatas();
+    public abstract void initDates();
 
     /**
      * 初始化控件的事件
@@ -38,7 +38,7 @@ public abstract class BaseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, root);
-        initDatas();
+        initDates();
         initEvents();
         return root;
     }

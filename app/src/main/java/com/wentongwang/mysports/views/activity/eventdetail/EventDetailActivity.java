@@ -21,7 +21,7 @@ public class EventDetailActivity extends BaseActivity {
     Toolbar toolbar;
 
     @Override
-    protected boolean notitle() {
+    protected boolean noTitle() {
 
         return false;
     }
@@ -40,7 +40,7 @@ public class EventDetailActivity extends BaseActivity {
      * 初始化数据
      */
     @Override
-    protected void initDatasAndViews() {
+    protected void initDatesAndViews() {
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.back));
         setSupportActionBar(toolbar);
 

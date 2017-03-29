@@ -48,7 +48,7 @@ public class CreatEventActivity extends BaseActivity implements CreatEventView {
     private int totalEvents = 0;
 
     @Override
-    protected boolean notitle() {
+    protected boolean noTitle() {
         return true;
     }
 
@@ -58,7 +58,7 @@ public class CreatEventActivity extends BaseActivity implements CreatEventView {
     }
 
     @Override
-    protected void initDatasAndViews() {
+    protected void initDatesAndViews() {
         listGViews = new ArrayList<>();
 
         initSportEvents();

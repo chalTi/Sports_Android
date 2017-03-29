@@ -34,7 +34,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
     private LoginPresenter mPresenter = new LoginPresenter(this);
 
     @Override
-    protected boolean notitle() {
+    protected boolean noTitle() {
         return false;
     }
 
@@ -44,7 +44,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
     }
 
     @Override
-    protected void initDatasAndViews() {
+    protected void initDatesAndViews() {
         //initial datas
         mPresenter.init(LoginActivity.this);
     }

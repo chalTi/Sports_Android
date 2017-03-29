@@ -36,7 +36,7 @@ public class NewsFragment extends BaseFragment implements NewsView {
     }
 
     @Override
-    public void initDatas() {
+    public void initDates() {
         mPresenter.init(getActivity());
         newsListViewAdapter = new NewsInfoListAdapter();
         newslistview.setAdapter(newsListViewAdapter);

@@ -15,7 +15,7 @@ public class SplashActivity extends BaseActivity implements SplashView{
     private SplashPresenter mPresenter = new SplashPresenter(this);
 
     @Override
-    protected boolean notitle() {
+    protected boolean noTitle() {
         return false;
     }
 
@@ -25,7 +25,7 @@ public class SplashActivity extends BaseActivity implements SplashView{
     }
 
     @Override
-    protected void initDatasAndViews() {
+    protected void initDatesAndViews() {
         mPresenter.init(this);
     }
 
