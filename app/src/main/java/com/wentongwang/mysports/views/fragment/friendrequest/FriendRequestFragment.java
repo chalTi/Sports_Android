@@ -27,7 +27,7 @@ public class FriendRequestFragment extends BaseFragment {
     }
 
     @Override
-    public void initDatas() {
+    public void initDates() {
         adapter = new GridViewAdapter();
         gridView.setAdapter(adapter);
     }

@@ -30,7 +30,7 @@ public class PersonDetailActivity extends BaseActivity implements PersonDetailVi
     private List<Fragment> fragments;
 
     @Override
-    protected boolean notitle() {
+    protected boolean noTitle() {
         return false;
     }
 
@@ -40,7 +40,7 @@ public class PersonDetailActivity extends BaseActivity implements PersonDetailVi
     }
 
     @Override
-    protected void initDatasAndViews() {
+    protected void initDatesAndViews() {
 
         tabTitles = new ArrayList<>();
         tabTitles.add("tab 1");

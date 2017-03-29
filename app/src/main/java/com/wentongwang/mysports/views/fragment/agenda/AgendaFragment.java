@@ -42,7 +42,7 @@ public class AgendaFragment extends BaseFragment implements AgendaView {
     }
 
     @Override
-    public void initDatas() {
+    public void initDates() {
         mPresenter.init(getActivity());
         adapter = new AgendaEventsAdapter();
         listView.setAdapter(adapter);

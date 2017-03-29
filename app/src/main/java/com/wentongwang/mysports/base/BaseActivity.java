@@ -18,16 +18,16 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         ActivityManager.getInstance().addActivity(this);
         super.onCreate(savedInstanceState);
-        if (notitle()) {
+        if (noTitle()) {
             setNoTitle();
         }
         setContentView(getLayoutId());
         ButterKnife.bind(this);
-        initDatasAndViews();
+        initDatesAndViews();
         initEvents();
     }
 
-    protected abstract boolean notitle();
+    protected abstract boolean noTitle();
 
     protected void setNoTitle(){
         //设置无标题栏和状态栏
@@ -48,7 +48,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 初始化数据
      */
-    protected abstract void initDatasAndViews();
+    protected abstract void initDatesAndViews();
 
     /**
      * 初始化控件的事件

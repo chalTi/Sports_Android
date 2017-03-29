@@ -61,7 +61,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
     private int userType = 1;
 
     @Override
-    protected boolean notitle() {
+    protected boolean noTitle() {
         return false;
     }
 
@@ -71,7 +71,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
     }
 
     @Override
-    protected void initDatasAndViews() {
+    protected void initDatesAndViews() {
         initFragments();
 
         FragmentManager manager = getSupportFragmentManager();

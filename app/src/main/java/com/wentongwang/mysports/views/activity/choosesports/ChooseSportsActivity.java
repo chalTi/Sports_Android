@@ -49,7 +49,7 @@ public class ChooseSportsActivity extends BaseActivity implements ChooseSportsVi
     private ChooseSportsPresenter mPresenter = new ChooseSportsPresenter(this);
 
     @Override
-    protected boolean notitle() {
+    protected boolean noTitle() {
         return true;
     }
 
@@ -59,7 +59,7 @@ public class ChooseSportsActivity extends BaseActivity implements ChooseSportsVi
     }
 
     @Override
-    protected void initDatasAndViews() {
+    protected void initDatesAndViews() {
         mPresenter.init(ChooseSportsActivity.this);
 
         listGridViews = new ArrayList<>();

@@ -28,7 +28,7 @@ public class PersonInfoFragment extends BaseFragment implements PersonInfoView {
     }
 
     @Override
-    public void initDatas() {
+    public void initDates() {
 
     }
 

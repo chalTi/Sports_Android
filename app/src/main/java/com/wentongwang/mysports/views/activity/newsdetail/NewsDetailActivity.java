@@ -21,7 +21,7 @@ public class NewsDetailActivity extends BaseActivity implements NewsDetailView {
     private boolean isSelected = false;
 
     @Override
-    protected boolean notitle() {
+    protected boolean noTitle() {
         return false;
     }
 
@@ -31,7 +31,7 @@ public class NewsDetailActivity extends BaseActivity implements NewsDetailView {
     }
 
     @Override
-    protected void initDatasAndViews() {
+    protected void initDatesAndViews() {
 
         if (isSelected) {
             mToolbar.setImageRight(R.drawable.liked);

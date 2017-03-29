@@ -46,7 +46,7 @@ public class HomeFragment extends BaseFragment implements HomeFragView, SwipeRef
     }
 
     @Override
-    public void initDatas() {
+    public void initDates() {
         mPresenter.init(getActivity());
         adapter = new MyExpandableListAdpater(getActivity());
         expandableListView.setAdapter(adapter);
