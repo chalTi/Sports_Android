@@ -10,8 +10,8 @@
         android:id="@+id/iv_login_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
         android:layout_marginTop="60dp"
         android:background="@drawable/logo"
         android:scaleType="fitCenter" />
@@ -37,14 +37,14 @@
 
 
     <CheckBox
-        android:textColor="@color/white"
-        android:layout_marginEnd="35dp"
         android:id="@+id/auto_login_ckeck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/auto_login_check_box_string"
+        android:layout_alignParentEnd="true"
         android:layout_below="@+id/ll_login_container"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginEnd="35dp"
+        android:text="@string/auto_login_check_box_string"
+        android:textColor="@color/white" />
 
     <ImageView
         android:id="@+id/iv_login_divider"
@@ -55,7 +55,6 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="35dp"
         android:background="#33000000" />
-
 
 
     <LinearLayout
@@ -92,7 +91,7 @@
         android:id="@+id/btn_sign_in"
         style="@style/login_button_style"
         android:layout_above="@id/ll_login_bottom_container"
-        android:background="@drawable/btn_orange_background"
         android:layout_marginBottom="30dp"
+        android:background="@drawable/btn_orange_background"
         android:text="@string/login_btn" />
 </RelativeLayout>
