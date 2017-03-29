@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.android.volley.Request;
+import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.constant.Constant;
 import com.wentongwang.mysports.model.bussiness.RxVolleyRequest;
 import com.wentongwang.mysports.model.bussiness.VolleyQueueManager;
@@ -101,12 +102,12 @@ public class LoginPresenter {
         final String userPwd = view.getUserPwd();
 
         if (TextUtils.isEmpty(userName)) {
-            ToastUtil.show(mContext, "密码不能为空", 1500);
+            ToastUtil.show(mContext, mContext.getString(R.string.user_name_empty_alert), 1500);
             return;
         }
 
         if (TextUtils.isEmpty(userPwd)) {
-            ToastUtil.show(mContext, "密码不能为空", 1500);
+            ToastUtil.show(mContext, mContext.getString(R.string.user_password_empty_alert), 1500);
             return;
         }
 
@@ -135,7 +136,7 @@ public class LoginPresenter {
                     @Override
                     public void onError(Throwable e) {
                         view.hideProgressBar();
-                        ToastUtil.show(mContext, e.toString(), 1500);
+                        ToastUtil.show(mContext, mContext.getString(R.string.login_fail), 1500);
                     }
 
                     @Override

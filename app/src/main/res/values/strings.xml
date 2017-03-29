@@ -6,11 +6,6 @@
 
     <string name="action_settings">Settings</string>
 
-    <string name="login_btn">Sign in</string>
-    <string name="login_by_facebook">Sign in with Facebook</string>
-    <string name="login_by_twitter">Sign in with Twitter</string>
-
-
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
@@ -191,6 +186,12 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
 
+    <!--LoginActivity-->
 
+    <string name="login_btn">Sign in</string>
     <string name="auto_login_check_box_string">auto login</string>
+    <string name="login_fail">login failed</string>
+    <string name="user_name_empty_alert">user name is empty</string>
+    <string name="user_password_empty_alert">password is empty</string>
+
 </resources>
