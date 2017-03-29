@@ -4,6 +4,8 @@ package com.wentongwang.mysports.views.activity.login;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -30,6 +32,8 @@ public class LoginActivity extends BaseActivity implements LoginView {
     @BindView(R.id.login_sign_up)
     protected TextView sign_up;
 
+    @BindView(R.id.auto_login_ckeck)
+    CheckBox autoLoginCheckBox;
 
     private LoginPresenter mPresenter = new LoginPresenter(this);
 
@@ -45,7 +49,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     @Override
     protected void initDatesAndViews() {
-        //initial datas
+        //initial dates
         mPresenter.init(LoginActivity.this);
     }
 
@@ -66,7 +70,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
         });
     }
 
-    //callbacks after onCreat() write there
+    //callbacks after onCreate() write there
 
 
     @Override
@@ -102,5 +106,10 @@ public class LoginActivity extends BaseActivity implements LoginView {
         Intent it = new Intent();
         it.setClass(LoginActivity.this, HomeActivity.class);
         startActivity(it);
+    }
+
+    @Override
+    public boolean autoLoginSelected() {
+        return autoLoginCheckBox.isChecked();
     }
 }

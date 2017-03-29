@@ -30,7 +30,7 @@ public class LoginPresenter {
 
     private LoginView view;
     private Context mContext;
-    private VollyRequestManager vollyRequestManager;
+//    private VollyRequestManager vollyRequestManager;
 
     public LoginPresenter(LoginView view) {
         this.view = view;
@@ -45,77 +45,72 @@ public class LoginPresenter {
      */
     public void init(Context context) {
         this.mContext = context;
-        vollyRequestManager = new VollyRequestManager(VolleyQueueManager.getRequestQueue());
+//        vollyRequestManager = new VollyRequestManager(VolleyQueueManager.getRequestQueue());
     }
 
     public void goToSignUp() {
         view.goToSignUp();
     }
 
-    public void login() {
+//    public void login() {
+//
+//
+//        String userName = view.getUserName();
+//        String userPwd = view.getUserPwd();
+//
+//        if (TextUtils.isEmpty(userName))
+//
+//        if (TextUtils.isEmpty(userPwd)) {
+//            ToastUtil.show(mContext, "密码不能为空", 1500);
+//            return;
+//        }
+//
+//
+//        String url = Constant.HOST + Constant.LOGIN_PATH;
+//
+//        VolleyResponse<LoginResponse> loginResponse = new VolleyResponse<LoginResponse>();
+//
+//        Map<String, String> params = new HashMap<>();
+//        params.put("loginName", userName);
+//        params.put("password", userPwd);
+//
+//        view.showProgressBar();
+//        vollyRequestManager.doPost(mContext, url, loginResponse, params, new VollyRequestManager.OnRequestFinishedListener() {
+//            @Override
+//            public void onSuccess(VolleyResponse response) {
+//                Logger.i("Login", response.getMsg());
+//                view.hideProgressBar();
+//                //存储用户登录信息，cookie之类的
+//                LoginResponse result = (LoginResponse) response.getResult(LoginResponse.class);
+//                SharedPreferenceUtil.put(mContext, "user_base_info", result);
+//                view.goToHomeActivity();
+//            }
+//
+//            @Override
+//            public void onFailed(String msg) {
+//                view.hideProgressBar();
+//                ToastUtil.show(mContext, msg, 1500);
+//
+//            }
+//        });
+//
+//    }
 
+    public void loginRx() {
+        final String userName = view.getUserName();
+        final String userPwd = view.getUserPwd();
 
-        String userName = view.getUserName();
-        String userPwd = view.getUserPwd();
-
-        if (TextUtils.isEmpty(userName))
+        if (TextUtils.isEmpty(userName)) {
+            ToastUtil.show(mContext, "密码不能为空", 1500);
+            return;
+        }
 
         if (TextUtils.isEmpty(userPwd)) {
             ToastUtil.show(mContext, "密码不能为空", 1500);
             return;
         }
 
-
         String url = Constant.HOST + Constant.LOGIN_PATH;
-
-        VolleyResponse<LoginResponse> loginResponse = new VolleyResponse<LoginResponse>();
-
-        Map<String, String> params = new HashMap<>();
-        params.put("loginName", userName);
-        params.put("password", userPwd);
-
-        view.showProgressBar();
-        vollyRequestManager.doPost(mContext, url, loginResponse, params, new VollyRequestManager.OnRequestFinishedListener() {
-            @Override
-            public void onSuccess(VolleyResponse response) {
-                Logger.i("Login", response.getMsg());
-                view.hideProgressBar();
-                //存储用户登录信息，cookie之类的
-                LoginResponse result = (LoginResponse) response.getResult(LoginResponse.class);
-                SharedPreferenceUtil.put(mContext, "user_base_info", result);
-                view.goToHomeActivity();
-            }
-
-            @Override
-            public void onFailed(String msg) {
-                view.hideProgressBar();
-                ToastUtil.show(mContext, msg, 1500);
-
-            }
-        });
-
-    }
-
-    public void loginTest() {
-        view.goToHomeActivity();
-    }
-
-
-    public void loginRx() {
-        String userName = view.getUserName();
-        String userPwd = view.getUserPwd();
-
-        if (TextUtils.isEmpty(userName))
-
-            if (TextUtils.isEmpty(userPwd)) {
-                ToastUtil.show(mContext, "密码不能为空", 1500);
-                return;
-            }
-
-
-        String url = Constant.HOST + Constant.LOGIN_PATH;
-
-
 
         Map<String, String> params = new HashMap<>();
         params.put("loginName", userName);
@@ -130,6 +125,10 @@ public class LoginPresenter {
                     @Override
                     public void onCompleted() {
                         view.hideProgressBar();
+                        if (view.autoLoginSelected())
+                            saveUserLoginInfo(userName, userPwd);
+                        else
+                            clearUserLoginInfo();
                         view.goToHomeActivity();
                     }
 
@@ -143,9 +142,18 @@ public class LoginPresenter {
                     public void onNext(String volleyResponse) {
                         VolleyResponse<LoginResponse> loginResponse = new VolleyResponse<LoginResponse>();
                         loginResponse.setMsg(volleyResponse);
-                        view.goToHomeActivity();
 
                     }
                 });
+    }
+
+    private void saveUserLoginInfo(String userName, String pwd) {
+        SharedPreferenceUtil.put(mContext, Constant.USER_NAME, userName);
+        SharedPreferenceUtil.put(mContext, Constant.USER_PASSWORD, pwd);
+    }
+
+    private void clearUserLoginInfo() {
+        SharedPreferenceUtil.remove(mContext, Constant.USER_NAME);
+        SharedPreferenceUtil.remove(mContext, Constant.USER_PASSWORD);
     }
 }

@@ -8,5 +8,5 @@ import com.wentongwang.mysports.base.BaseView;
 public interface SplashView extends BaseView {
     void goToLogin();
 
-    void goToHome();
+    void goToHomeActivity();
 }

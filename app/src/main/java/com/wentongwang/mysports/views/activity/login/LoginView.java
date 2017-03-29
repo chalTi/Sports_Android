@@ -14,4 +14,6 @@ public interface LoginView extends BaseView {
     String getUserPwd();
 
     void goToHomeActivity();
+
+    boolean autoLoginSelected();
 }

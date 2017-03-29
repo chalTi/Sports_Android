@@ -47,11 +47,13 @@ public class RxVolleyRequest {
                             if (!TextUtils.isEmpty(msg)) {
                                 //获取数组型数据
                                 subscriber.onNext(msg);
+                                subscriber.onCompleted();
                             } else {
                                 //获取普通型数据
                                 msg = AppServerUtil.getResultData(context, response);
                                 if (!TextUtils.isEmpty(msg)) {
                                     subscriber.onNext(msg);
+                                    subscriber.onCompleted();
                                 } else {
                                     //没有获取到任何数据
                                     Exception error = new Exception("获取服务器数据为空");
