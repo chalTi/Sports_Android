@@ -24,4 +24,9 @@
     <color name="holo_teal_light">#009688</color>
     <color name="holo_blue_light">#2196F3</color>
     <color name="holo_purple_light">#9C27B0</color>
+
+    <!--按钮栏-白天 -->
+    <color name="rl_normal_bg">#FFFFFF</color><!--状态栏的的背景颜色-->
+    <color name="rl_highlight_bg">#f2f2f2</color><!--状态栏的的背景颜色-->
+    <color name="rl_textcolor">#111111</color>
 </resources>
