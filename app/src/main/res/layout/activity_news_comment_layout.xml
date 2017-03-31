@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:mToolbar="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+    <com.wentongwang.mysports.custome.CommonHeadView
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        mToolbar:tbBackground="@color/colorPrimary"
+        mToolbar:tbImgLeft="@drawable/back">
+    </com.wentongwang.mysports.custome.CommonHeadView>
+
+    <ListView
+        android:id="@+id/comment_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/gray"
+        android:dividerHeight="1px"
+        android:layout_below="@id/bottom_bar">
+    </ListView>
+
+</RelativeLayout>
