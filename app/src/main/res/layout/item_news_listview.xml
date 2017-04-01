@@ -62,15 +62,16 @@
             android:layout_weight="3"
             android:drawableLeft="@drawable/view"
             android:drawablePadding="5dp"
-            android:text="124 Views"/>
+            android:text="124 浏览"/>
         <TextView
+            android:id="@+id/comment_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:layout_weight="1.8"
             android:drawableLeft="@drawable/message"
             android:drawablePadding="5dp"
-            android:text="14 Applies"/>
+            android:text="14 评论"/>
         <CheckBox
             android:id="@+id/like_button"
             android:button="@null"
@@ -83,6 +84,6 @@
             android:paddingLeft="9dp"
             android:textColor="#ffffff"
             android:background="#dc6263"
-            android:text="20 Likes" />
+            android:text="20 赞" />
     </LinearLayout>
 </RelativeLayout>
