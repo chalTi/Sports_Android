@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.view.View;
 import android.view.LayoutInflater;
@@ -12,9 +13,11 @@ import android.content.Context;
 
 
 import com.wentongwang.mysports.base.BaseActivity;
+import com.wentongwang.mysports.custome.CommonHeadView;
 import com.wentongwang.mysports.model.module.CommentInfo;
 import com.wentongwang.mysports.model.module.NewsInfo;
 import com.wentongwang.mysports.R;
+import com.wentongwang.mysports.utils.Logger;
 
 
 import org.w3c.dom.Text;
@@ -35,6 +38,8 @@ import butterknife.BindView;
 public class NewsCommentActivity extends BaseActivity implements NewsCommentView {
     @BindView(R.id.comment_list)
     protected ListView commentList;
+    @BindView(R.id.tool_bar)
+    protected CommonHeadView mToolbar;
 
     private NewsCommentAdapter newsCommentAdapter;
     private List<CommentInfo> itemList;
@@ -47,8 +52,7 @@ public class NewsCommentActivity extends BaseActivity implements NewsCommentView
         initComment(this.itemList);
         newsCommentAdapter = new NewsCommentAdapter();
         LayoutInflater layoutInflater = (LayoutInflater)this.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
-        LinearLayout ll = (LinearLayout) layoutInflater.inflate( R.layout.acitivity_news_comment_header_layout, null, false );
-        //LinearLayout ll = (LinearLayout) findViewById(R.id.comment_news_header);
+        RelativeLayout ll = (RelativeLayout) layoutInflater.inflate( R.layout.acitivity_news_comment_header_layout, null, false );
         TextView tv = (TextView) ll.findViewById(R.id.comment_news_item_content);
         tv.setText(news.getNews_content());
         commentList.addHeaderView(ll);
@@ -69,7 +73,21 @@ public class NewsCommentActivity extends BaseActivity implements NewsCommentView
 
     @Override
     protected void initEvents() {
+        mToolbar.setCallbck(new CommonHeadView.CALLBACK() {
+            @Override
+            public void onLeftClick() {
+                NewsCommentActivity.this.finish();
+            }
 
+            @Override
+            public void onRightClick() {
+            }
+
+            @Override
+            public void onCenterClick() {
+
+            }
+        });
     }
 
     @Override
@@ -82,6 +100,7 @@ public class NewsCommentActivity extends BaseActivity implements NewsCommentView
         return R.layout.activity_news_comment_layout;
     }
 
+    //the comment of news for testing
     public void initComment(List<CommentInfo> list){
         for (int i=0;i<10;i++){
             CommentInfo item = new CommentInfo("content" + i, i);
