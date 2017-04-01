@@ -40,6 +40,8 @@ public class NewsCommentActivity extends BaseActivity implements NewsCommentView
     protected ListView commentList;
     @BindView(R.id.tool_bar)
     protected CommonHeadView mToolbar;
+    @BindView(R.id.head_left_tv)
+    protected TextView headLeftTv;
 
     private NewsCommentAdapter newsCommentAdapter;
     private List<CommentInfo> itemList;
@@ -50,6 +52,7 @@ public class NewsCommentActivity extends BaseActivity implements NewsCommentView
         news = (NewsInfo) getIntent().getSerializableExtra("item");
         itemList = new ArrayList<>();
         initComment(this.itemList);
+        headLeftTv.setText("评论");
         newsCommentAdapter = new NewsCommentAdapter();
         LayoutInflater layoutInflater = (LayoutInflater)this.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
         RelativeLayout ll = (RelativeLayout) layoutInflater.inflate( R.layout.acitivity_news_comment_header_layout, null, false );
