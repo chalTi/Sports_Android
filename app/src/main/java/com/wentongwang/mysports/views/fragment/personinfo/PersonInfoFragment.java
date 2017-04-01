@@ -2,9 +2,11 @@ package com.wentongwang.mysports.views.fragment.personinfo;
 
 
 import android.content.Intent;
+import android.text.style.RelativeSizeSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.base.BaseFragment;
@@ -17,8 +19,8 @@ import butterknife.BindView;
  * Created by Wentong WANG on 2016/9/17.
  */
 public class PersonInfoFragment extends BaseFragment implements PersonInfoView {
-    @BindView(R.id.gotopersondetail)
-    protected ImageView btn_gotopersondetail;
+    @BindView(R.id.myprofile_layout)
+    protected RelativeLayout myprofile_layout;
 
 
     private PersonInfoPresenter mPresenter = new PersonInfoPresenter(this);
@@ -36,7 +38,7 @@ public class PersonInfoFragment extends BaseFragment implements PersonInfoView {
     @Override
     public void initEvents() {
 
-        btn_gotopersondetail.setOnClickListener(new View.OnClickListener() {
+        myprofile_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mPresenter.goToDetailActivity();

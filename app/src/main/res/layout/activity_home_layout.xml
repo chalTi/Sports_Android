@@ -29,41 +29,36 @@
             android:id="@+id/rg_home_bottom_tab"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
             android:background="@color/colorPrimary"
             android:orientation="horizontal"
             android:paddingLeft="20dp"
-            android:paddingRight="20dp">
+            android:paddingRight="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true">
 
             <RadioButton
-                android:paddingTop="10dp"
+                android:paddingTop="@dimen/home_switch_button_paddingTop"
                 android:id="@+id/btn_home"
                 style="@style/radio_button_style"
                 android:drawableTop="@drawable/bottom_tag_home" />
 
             <RadioButton
-                android:paddingTop="10dp"
+                android:paddingTop="@dimen/home_switch_button_paddingTop"
                 android:id="@+id/btn_calendar"
                 style="@style/radio_button_style"
-                android:layout_marginRight="30dp"
+                android:layout_marginRight="40dp"
                 android:drawableTop="@drawable/bottom_tag_agenda" />
 
-            <!--<RadioButton-->
-            <!--android:id="@+id/btn3"-->
-            <!--style="@style/radio_button_style"-->
-            <!--android:drawableTop="@drawable/bottom_tag_creat_event" />-->
-
-
             <RadioButton
-                android:paddingTop="10dp"
                 android:id="@+id/btn_news"
                 style="@style/radio_button_style"
-                android:layout_marginLeft="30dp"
-                android:drawableTop="@drawable/bottom_tag_news" />
+                android:layout_marginLeft="40dp"
+                android:drawableTop="@drawable/bottom_tag_news"
+                android:paddingTop="@dimen/home_switch_button_paddingTop" />
 
             <RadioButton
-                android:paddingTop="10dp"
-                android:id="@+id/btn_preson"
+                android:paddingTop="@dimen/home_switch_button_paddingTop"
+                android:id="@+id/btn_person"
                 style="@style/radio_button_style"
                 android:drawableTop="@drawable/bottom_tag_person_info" />
         </RadioGroup>

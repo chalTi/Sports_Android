@@ -134,7 +134,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
                     case R.id.btn_news:
                         mViewPager.setCurrentItem(2);
                         break;
-                    case R.id.btn_preson:
+                    case R.id.btn_person:
                         mViewPager.setCurrentItem(3);
                         break;
                 }

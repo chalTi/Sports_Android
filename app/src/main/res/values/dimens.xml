@@ -67,5 +67,7 @@
     <dimen name="sp_14">14sp</dimen>
     <dimen name="sp_16">16sp</dimen>
 
-
+    <!-- homepage -->
+    <dimen name="home_switch_button_paddingTop">15dp</dimen>
+    <dimen name="toolbar_height">50dp</dimen>
 </resources>

@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="fitXY"
-        android:src="@drawable/profie_background"/>
+        android:src="@drawable/profie_background"
+        android:contentDescription="" />
 
     <android.support.design.widget.CoordinatorLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"

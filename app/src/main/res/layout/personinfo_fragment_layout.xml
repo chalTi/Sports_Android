@@ -2,11 +2,12 @@
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content" >
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
         android:orientation="vertical">
 
 
@@ -53,7 +54,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:layout_marginBottom="10dp"
-                            android:hint="昵称"
+                            android:hint="@string/profile_myname"
                             android:textColor="@color/rl_textcolor"
                             android:textSize="@dimen/home_original_weiboitem_font" />
 
@@ -62,7 +63,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:hint="简介"
+                            android:hint="@string/profile_mydescribe"
                             android:textColor="@color/gray"
                             android:textSize="13dp" />
                     </LinearLayout>
@@ -76,98 +77,6 @@
                         android:layout_marginRight="15dp"
                         android:src="@drawable/weibobrowser_goforward_disabled" />
                 </RelativeLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:background="@color/white">
-
-                    <LinearLayout
-                        android:id="@+id/yyweibo_layout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/message_item_auto"
-                        android:clickable="true"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp">
-
-                        <TextView
-                            android:id="@+id/profile_statuses_count"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textColor="@color/rl_textcolor"
-                            android:textSize="13sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="微博"
-                            android:textColor="@color/gray"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/friends_layout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/message_item_auto"
-                        android:clickable="true"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp">
-
-                        <TextView
-                            android:id="@+id/profile_friends_count"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textColor="@color/rl_textcolor"
-                            android:textSize="13sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="关注"
-                            android:textColor="@color/gray"
-                            android:textSize="12sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/followers_layout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/message_item_auto"
-                        android:clickable="true"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp">
-
-                        <TextView
-                            android:id="@+id/profile_followers_count"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textColor="@color/rl_textcolor"
-                            android:textSize="13sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="粉丝"
-                            android:textColor="@color/gray"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </LinearLayout>
 
                 <include layout="@layout/profilefragment_layout_moreline" />
 
