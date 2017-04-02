@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.wentongwang.mysports.R;
+import com.wentongwang.mysports.constant.IntentConstants;
 import com.wentongwang.mysports.model.module.NewsInfo;
 import com.wentongwang.mysports.utils.Logger;
 import com.wentongwang.mysports.views.activity.choosesports.ChooseSportsActivity;
@@ -90,7 +91,7 @@ public class NewsInfoListAdapter extends BaseAdapter {
             public void onClick(View v){
                 NewsInfo item = (NewsInfo) getItem(position);
                 Intent intent = new Intent(context,NewsCommentActivity.class);
-                intent.putExtra("item",item);
+                intent.putExtra(IntentConstants.EXTRA_NEWS_ITEM,item);
                 context.startActivity(intent);
             }
         });

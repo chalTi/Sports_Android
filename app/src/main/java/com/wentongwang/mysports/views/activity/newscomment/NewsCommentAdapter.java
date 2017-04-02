@@ -33,6 +33,7 @@ public class NewsCommentAdapter extends BaseAdapter {
 
     public void setItemList(List<CommentInfo> list) {
         this.itemList = list;
+        notifyDataSetChanged();
     }
 
     @Override
