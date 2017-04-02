@@ -27,11 +27,11 @@ public class SportEvents {
         this.event_code = event_code;
     }
 
-    public int getEvent_image() {
+    public int getEventImage() {
         return event_image;
     }
 
-    public void setEvent_image(int event_image) {
+    public void setEventImage(int event_image) {
         this.event_image = event_image;
     }
 
@@ -43,26 +43,26 @@ public class SportEvents {
         this.isSelected = isSelected;
     }
 
-    public String getEvent_name() {
+    public String getEventName() {
         return event_name;
     }
 
-    public void setEvent_name(String event_name) {
+    public void setEventName(String event_name) {
         this.event_name = event_name;
     }
 
-    public String getEvent_code() {
+    public String getEventCode() {
         return event_code;
     }
 
-    public void setEvent_code(String event_code) {
+    public void setEventCode(String event_code) {
         this.event_code = event_code;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o instanceof SportEvents) {
-            String code = ((SportEvents) o).getEvent_code();
+            String code = ((SportEvents) o).getEventCode();
             return event_code.equals(code);
         } else {
             return false;

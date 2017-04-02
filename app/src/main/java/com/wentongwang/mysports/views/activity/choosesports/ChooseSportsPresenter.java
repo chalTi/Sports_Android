@@ -3,6 +3,7 @@ package com.wentongwang.mysports.views.activity.choosesports;
 import android.content.Context;
 
 import com.wentongwang.mysports.R;
+import com.wentongwang.mysports.base.BasePresenter;
 import com.wentongwang.mysports.model.bussiness.VollyRequestManager;
 import com.wentongwang.mysports.model.module.SportEvents;
 import com.wentongwang.mysports.utils.VolleyUtil;
@@ -13,11 +14,8 @@ import java.util.List;
 /**
  * Created by Wentong WANG on 2016/10/14.
  */
-public class ChooseSportsPresenter implements PresenterHandler {
+public class ChooseSportsPresenter extends BasePresenter<ChooseSportsView> implements PresenterHandler {
 
-    private ChooseSportsView mView;
-    private Context mContext;
-    private VollyRequestManager vollyRequestManager;
     //all events
     private List<SportEvents> sportEvents;
 
@@ -31,14 +29,8 @@ public class ChooseSportsPresenter implements PresenterHandler {
     //events are chosen
     private List<SportEvents> sportEventsChosen;
 
-
-    public ChooseSportsPresenter(ChooseSportsView mView) {
-        this.mView = mView;
-    }
-
     public void init(Context context) {
-        this.mContext = context;
-        vollyRequestManager = new VollyRequestManager(VolleyUtil.getInstance(mContext).getRequestQueue());
+        super.init(context);
         sportEvents = new ArrayList<>();
         sportEventsChosen = new ArrayList<>();
     }
@@ -60,7 +52,7 @@ public class ChooseSportsPresenter implements PresenterHandler {
 
         totalEvents = sportEvents.size();
         //初始化爱好ViewPager及其下方的圆点
-        mView.initGirdViewsAndPoints();
+        view.initGirdViewsAndPoints();
     }
 
     public int getTotalEvents() {
@@ -74,14 +66,14 @@ public class ChooseSportsPresenter implements PresenterHandler {
     @Override
     public void addChooseEvent(SportEvents item) {
         sportEventsChosen.add(item);
-        mView.refreshEventChoose(sportEventsChosen);
+        view.refreshEventChoose(sportEventsChosen);
 
     }
 
     @Override
     public void removeChooseEvent(SportEvents item) {
         sportEventsChosen.remove(item);
-        mView.refreshEventChoose(sportEventsChosen);
+        view.refreshEventChoose(sportEventsChosen);
 
     }
 }

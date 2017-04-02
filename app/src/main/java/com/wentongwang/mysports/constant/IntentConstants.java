@@ -15,4 +15,8 @@ public class IntentConstants {
     public static final int MY_PERMISSIONS_REQUEST_TAKE_PHOTO = 1;
     public static final int MY_PERMISSIONS_REQUEST_CHOOSE_PHOTO = 2;
     public static final int MY_PERMISSIONS_REQUEST_CHOOSE_MULTI_PHOTO = 3;
+
+
+    //NewsCommentActivity
+    public static final String EXTRA_NEWS_ITEM = "EXTRA_NEWS_ITEM";
 }

@@ -37,7 +37,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
     @BindView(R.id.auto_login_ckeck)
     CheckBox autoLoginCheckBox;
 
-    private LoginPresenter mPresenter = new LoginPresenter(this);
+    private LoginPresenter mPresenter = new LoginPresenter();
 
     @Override
     protected boolean noTitle() {
@@ -50,9 +50,15 @@ public class LoginActivity extends BaseActivity implements LoginView {
     }
 
     @Override
+    protected void initPresenter() {
+        mPresenter.setView(this);
+        mPresenter.init(LoginActivity.this);
+    }
+
+    @Override
     protected void initDatesAndViews() {
         //initial dates
-        mPresenter.init(LoginActivity.this);
+
     }
 
     @Override

@@ -30,7 +30,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".views.activity.createvent.CreatEventActivity"
+            android:name=".views.activity.createvent.CreateEventActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".views.activity.home.HomeActivity"
@@ -44,6 +44,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".views.activity.eventdetail.EventDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".views.activity.newscomment.NewsCommentActivity"
             android:screenOrientation="portrait" />
     </application>
 

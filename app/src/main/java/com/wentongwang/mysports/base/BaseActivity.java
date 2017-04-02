@@ -23,6 +23,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
         setContentView(getLayoutId());
         ButterKnife.bind(this);
+        initPresenter();
         initDatesAndViews();
         initEvents();
     }
@@ -44,7 +45,10 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @return layout的id
      */
     protected abstract int getLayoutId();
-
+    /**
+     * 初始化Presenter
+     */
+    protected abstract void initPresenter();
     /**
      * 初始化数据
      */

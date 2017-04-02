@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -23,7 +22,7 @@ import com.wentongwang.mysports.utils.Logger;
 import com.wentongwang.mysports.utils.ToastUtil;
 import com.wentongwang.mysports.base.BaseActivity;
 import com.wentongwang.mysports.views.activity.choosesports.ChooseSportsActivity;
-import com.wentongwang.mysports.views.activity.createvent.CreatEventActivity;
+import com.wentongwang.mysports.views.activity.createvent.CreateEventActivity;
 import com.wentongwang.mysports.views.fragment.agenda.AgendaFragment;
 import com.wentongwang.mysports.views.fragment.home.HomeFragment;
 import com.wentongwang.mysports.views.fragment.news.NewsFragment;
@@ -33,7 +32,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by Wentong WANG on 2016/9/16.
@@ -57,7 +55,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
     private List<Fragment> mFragmentList;
     private HomeFragmentPagerAdapter mvpAdapter; //adapter of fragment
 
-    private HomePresenter mPresenter = new HomePresenter(this);
+    private HomePresenter mPresenter = new HomePresenter();
     private int userType = 1;
 
     @Override
@@ -68,6 +66,11 @@ public class HomeActivity extends BaseActivity implements HomeView {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_home_layout;
+    }
+
+    @Override
+    protected void initPresenter() {
+        mPresenter.setView(this);
     }
 
     @Override
@@ -149,7 +152,6 @@ public class HomeActivity extends BaseActivity implements HomeView {
 
             @Override
             public void onRightClick() {
-                Logger.i("HomeActivity", "点击了");
                 mPresenter.goToChoseSports();
             }
 
@@ -185,7 +187,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
     @Override
     public void goToCreatEventActivity() {
         Intent it = new Intent();
-        it.setClass(HomeActivity.this, CreatEventActivity.class);
+        it.setClass(HomeActivity.this, CreateEventActivity.class);
         startActivity(it);
     }
 

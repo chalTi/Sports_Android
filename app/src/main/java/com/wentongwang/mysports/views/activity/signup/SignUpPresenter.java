@@ -10,6 +10,7 @@ import android.widget.PopupWindow;
 import com.android.volley.Request;
 import com.google.gson.Gson;
 import com.wentongwang.mysports.R;
+import com.wentongwang.mysports.base.BasePresenter;
 import com.wentongwang.mysports.constant.Constant;
 import com.wentongwang.mysports.model.bussiness.RxVolleyRequest;
 import com.wentongwang.mysports.model.bussiness.VollyRequestManager;
@@ -31,18 +32,14 @@ import rx.schedulers.Schedulers;
 /**
  * Created by Wentong WANG on 2016/9/8.
  */
-public class SignUpPresenter {
-    private SignUpView view;
-    private Context mContext;
+public class SignUpPresenter extends BasePresenter<SignUpView>{
+
     private VollyRequestManager vollyRequestManager;
     private PopupWindow popupWindow;
 
-    public SignUpPresenter(SignUpView view){
-        this.view = view;
-    }
-
+    @Override
     public void init(Context context) {
-        mContext = context;
+        super.init(context);
         vollyRequestManager = new VollyRequestManager(VolleyUtil.getInstance(mContext).getRequestQueue());
     }
 

@@ -2,17 +2,15 @@ package com.wentongwang.mysports.views.fragment.home;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 import android.widget.ExpandableListView;
 
 import com.wentongwang.mysports.R;
+import com.wentongwang.mysports.base.BaseFragment;
 import com.wentongwang.mysports.model.module.SportsFirstClass;
 import com.wentongwang.mysports.model.module.SportsSecondClass;
-import com.wentongwang.mysports.base.BaseFragment;
 import com.wentongwang.mysports.views.activity.eventdetail.EventDetailActivity;
 
 import java.util.List;
@@ -33,7 +31,7 @@ public class HomeFragment extends BaseFragment implements HomeFragView, SwipeRef
 
     private HomeFragPresenter mPresenter = new HomeFragPresenter(this);
 
-    private MyExpandableListAdpater adapter;
+    private HomeExpandableListAdapter adapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,7 +46,7 @@ public class HomeFragment extends BaseFragment implements HomeFragView, SwipeRef
     @Override
     public void initDates() {
         mPresenter.init(getActivity());
-        adapter = new MyExpandableListAdpater(getActivity());
+        adapter = new HomeExpandableListAdapter(getActivity());
         expandableListView.setAdapter(adapter);
 
         homeContainer.setColorSchemeColors(
@@ -95,7 +93,7 @@ public class HomeFragment extends BaseFragment implements HomeFragView, SwipeRef
 
     @Override
     public void refreshList(List<SportsFirstClass> list) {
-        adapter.setSportTypes(list);
+        adapter.setSports(list);
 //        adapter.refresh();
         adapter.notifyDataSetChanged();
     }
@@ -112,15 +110,10 @@ public class HomeFragment extends BaseFragment implements HomeFragView, SwipeRef
 
     @Override
     public void setHomeEventList(List<SportsFirstClass> list) {
-        adapter.setSportTypes(list);
-//        adapter.refresh();
-        adapter.notifyDataSetChanged();
+        adapter.setSports(list);
     }
 
     @Override
     public void SportsEventDetail(List<SportsSecondClass> list) {
-        adapter.setSportTypesDetail(list);
-//        adapter.refresh();
-        adapter.notifyDataSetChanged();
     }
 }

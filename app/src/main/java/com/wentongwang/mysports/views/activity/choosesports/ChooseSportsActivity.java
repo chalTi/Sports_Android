@@ -46,7 +46,7 @@ public class ChooseSportsActivity extends BaseActivity implements ChooseSportsVi
     private SportsGridViewAdapter gridViewAdapter;
     private SportsChosenAdapter sportsChooseAdapter;
 
-    private ChooseSportsPresenter mPresenter = new ChooseSportsPresenter(this);
+    private ChooseSportsPresenter mPresenter = new ChooseSportsPresenter();
 
     @Override
     protected boolean noTitle() {
@@ -59,8 +59,14 @@ public class ChooseSportsActivity extends BaseActivity implements ChooseSportsVi
     }
 
     @Override
-    protected void initDatesAndViews() {
+    protected void initPresenter() {
+        mPresenter.setView(this);
         mPresenter.init(ChooseSportsActivity.this);
+    }
+
+    @Override
+    protected void initDatesAndViews() {
+
 
         listGridViews = new ArrayList<>();
         mPresenter.initSportEvents();

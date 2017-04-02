@@ -45,7 +45,7 @@ public class AgendaEventsAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder viewHolder = null;
+        ViewHolder viewHolder;
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_agenda_event_list, null);
             viewHolder = new ViewHolder(convertView);
@@ -55,10 +55,10 @@ public class AgendaEventsAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         AgendaEvents agendaEvents = itemList.get(position);
-        viewHolder.event_place.setText(agendaEvents.getUser_events_place());
-        viewHolder.event_time.setText(agendaEvents.getUser_events_time());
-        viewHolder.event_type.setText(agendaEvents.getUser_events_name());
-        viewHolder.event_progress.setProgress(Integer.parseInt(agendaEvents.getEvents_Progress()));
+        viewHolder.event_place.setText(agendaEvents.getUserEventsPlace());
+        viewHolder.event_time.setText(agendaEvents.getUserEventsTime());
+        viewHolder.event_type.setText(agendaEvents.getUserEventsName());
+        viewHolder.event_progress.setProgress(Integer.parseInt(agendaEvents.getEventsProgress()));
         viewHolder.user_head.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

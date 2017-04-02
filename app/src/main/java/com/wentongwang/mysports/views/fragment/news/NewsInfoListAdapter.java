@@ -1,5 +1,7 @@
 package com.wentongwang.mysports.views.fragment.news;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +11,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.wentongwang.mysports.R;
+import com.wentongwang.mysports.constant.IntentConstants;
 import com.wentongwang.mysports.model.module.NewsInfo;
 import com.wentongwang.mysports.utils.Logger;
+import com.wentongwang.mysports.views.activity.choosesports.ChooseSportsActivity;
+import com.wentongwang.mysports.views.activity.home.HomeActivity;
+import com.wentongwang.mysports.views.activity.newscomment.NewsCommentActivity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,9 +28,12 @@ import java.util.List;
 
 public class NewsInfoListAdapter extends BaseAdapter {
     private List<NewsInfo> itemList = new ArrayList<>();
-
+    private Context context;
     public void setItemList(List<NewsInfo> list) {
         this.itemList = list;
+    }
+    public NewsInfoListAdapter(Context ctx){
+        context = ctx;
     }
     @Override
     public int getCount() {
@@ -76,6 +86,15 @@ public class NewsInfoListAdapter extends BaseAdapter {
                 notifyDataSetChanged();
             }
         });
+        holder.news_comment.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                NewsInfo item = (NewsInfo) getItem(position);
+                Intent intent = new Intent(context,NewsCommentActivity.class);
+                intent.putExtra(IntentConstants.EXTRA_NEWS_ITEM,item);
+                context.startActivity(intent);
+            }
+        });
 
         return convertView;
     }
@@ -83,11 +102,13 @@ public class NewsInfoListAdapter extends BaseAdapter {
         CheckBox new_liked;
         ImageView news_photo;
         TextView news_content;
+        TextView news_comment;
 
         public ViewHolder(View view) {
             new_liked = (CheckBox) view.findViewById(R.id.like_button);
             news_photo = (ImageView) view.findViewById(R.id.iv_news_item_background);
             news_content = (TextView) view.findViewById(R.id.tv_news_item_content);
+            news_comment = (TextView) view.findViewById(R.id.comment_button);
         }
     }
 }

@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.android.volley.Request;
 import com.wentongwang.mysports.R;
+import com.wentongwang.mysports.base.BasePresenter;
 import com.wentongwang.mysports.constant.Constant;
 import com.wentongwang.mysports.model.bussiness.RxVolleyRequest;
 import com.wentongwang.mysports.model.bussiness.VolleyQueueManager;
@@ -27,15 +28,10 @@ import rx.schedulers.Schedulers;
 /**
  * Created by Wentong WANG on 2016/9/8.
  */
-public class LoginPresenter {
+public class LoginPresenter extends BasePresenter<LoginView> {
 
-    private LoginView view;
-    private Context mContext;
+
 //    private VollyRequestManager vollyRequestManager;
-
-    public LoginPresenter(LoginView view) {
-        this.view = view;
-    }
 
     /**
      * initial presenter
@@ -44,8 +40,9 @@ public class LoginPresenter {
      *
      * @param context
      */
+    @Override
     public void init(Context context) {
-        this.mContext = context;
+        super.init(context);
 //        vollyRequestManager = new VollyRequestManager(VolleyQueueManager.getRequestQueue());
     }
 

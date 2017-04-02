@@ -1,35 +1,27 @@
 package com.wentongwang.mysports.views.activity.createvent;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.GridView;
-import android.widget.ImageView;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.custome.PointsLayout;
 import com.wentongwang.mysports.model.module.SportEvents;
-import com.wentongwang.mysports.utils.Logger;
 import com.wentongwang.mysports.base.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * creat event layout
  * <p>
  * Created by Wentong WANG on 2016/9/9.
  */
-public class CreatEventActivity extends BaseActivity implements CreatEventView {
+public class CreateEventActivity extends BaseActivity implements CreateEventView {
 
 
     @BindView(R.id.ll_point_container)
@@ -47,6 +39,8 @@ public class CreatEventActivity extends BaseActivity implements CreatEventView {
     private int gvColumns = 3;
     private int totalEvents = 0;
 
+    private CreateEventPresenter mPresenter = new CreateEventPresenter();
+
     @Override
     protected boolean noTitle() {
         return true;
@@ -55,6 +49,12 @@ public class CreatEventActivity extends BaseActivity implements CreatEventView {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_creat_event_layout;
+    }
+
+    @Override
+    protected void initPresenter() {
+        mPresenter.setView(this);
+        mPresenter.init(this);
     }
 
     @Override
@@ -134,7 +134,7 @@ public class CreatEventActivity extends BaseActivity implements CreatEventView {
      * @return
      */
     private View getViewPagerItem(int index) {
-        LayoutInflater inflater = (LayoutInflater) CreatEventActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) CreateEventActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.viewpage_gridview, null);
         GridView gridView = (GridView) layout.findViewById(R.id.grid_view);
 

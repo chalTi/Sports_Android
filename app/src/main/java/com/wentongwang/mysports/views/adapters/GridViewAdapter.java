@@ -94,7 +94,7 @@ public class GridViewAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         SportEvents event = items.get(position);
-        Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), event.getEvent_image());
+        Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), event.getEventImage());
         holder.event_icon.setImageBitmap(bitmap);
 
         if (event.isSelected()) {

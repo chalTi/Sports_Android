@@ -51,28 +51,6 @@ public class HomeFragPresenter {
         vollyRequestManager = new VollyRequestManager(VolleyUtil.getInstance(mContext).getRequestQueue());
     }
 
-    /**
-     * 纯粹为了测试，莫管
-     */
-    public void getSportEventsTest() {
-        sportsList = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            SportsFirstClass item = new SportsFirstClass();
-            item.setType("type" + i);
-            List<SportsSecondClass> list1 = new ArrayList<>();
-            for (int j = 0; j < i; j++) {
-                SportsSecondClass item1 = new SportsSecondClass();
-                item1.setEvent_creator_name("user" + i);
-                item1.setEvent_start_time("12:30");
-                item1.setEvent_end_time("15:30");
-                item1.setEvent_place("Troyes");
-                list1.add(item1);
-            }
-            item.setSports(list1);
-            sportsList.add(item);
-        }
-        mView.refreshList(sportsList);
-    }
 
     /* public void getSportEvents() {
          //这个可能不需要分页

@@ -6,26 +6,20 @@ import android.view.ViewGroup;
 import android.widget.PopupWindow;
 
 import com.wentongwang.mysports.R;
+import com.wentongwang.mysports.base.BasePresenter;
 import com.wentongwang.mysports.utils.ActivityManager;
 import com.wentongwang.mysports.utils.ToastUtil;
 
 /**
  * Created by Wentong WANG on 2016/9/16.
  */
-public class HomePresenter {
-
-    private HomeView view;
+public class HomePresenter extends BasePresenter<HomeView> {
 
     private int currentPage = 0;
     private boolean isToolBarVisible = true;
     private PopupWindow popupWindow;
 
     private long mExitTime;
-
-    public HomePresenter(HomeView homeView) {
-        this.view = homeView;
-    }
-
 
     /**
      * selon the position to set page in viewpager
