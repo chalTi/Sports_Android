@@ -20,6 +20,8 @@ public class NewsDetailActivity extends BaseActivity implements NewsDetailView {
 
     private boolean isSelected = false;
 
+    private NewsDetailPresenter mPresenter = new NewsDetailPresenter();
+
     @Override
     protected boolean noTitle() {
         return false;
@@ -28,6 +30,12 @@ public class NewsDetailActivity extends BaseActivity implements NewsDetailView {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_newsdetail_layout;
+    }
+
+    @Override
+    protected void initPresenter() {
+        mPresenter.setView(this);
+        mPresenter.init(this);
     }
 
     @Override

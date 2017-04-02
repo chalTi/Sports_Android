@@ -1,15 +1,12 @@
 package com.wentongwang.mysports.views.activity.splash;
 
-import android.content.Context;
-
 import com.android.volley.Request;
+import com.wentongwang.mysports.base.BasePresenter;
 import com.wentongwang.mysports.constant.Constant;
 import com.wentongwang.mysports.model.bussiness.RxVolleyRequest;
 import com.wentongwang.mysports.model.bussiness.VolleyResponse;
 import com.wentongwang.mysports.model.module.LoginResponse;
 import com.wentongwang.mysports.utils.SharedPreferenceUtil;
-import com.wentongwang.mysports.utils.ToastUtil;
-import com.wentongwang.mysports.views.activity.signup.SignUpView;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,18 +18,7 @@ import rx.schedulers.Schedulers;
 /**
  * Created by Wentong WANG on 2017/3/27.
  */
-public class SplashPresenter {
-
-    private SplashView view;
-    private Context mContext;
-
-    public SplashPresenter(SplashView view) {
-        this.view = view;
-    }
-
-    public void init(Context context) {
-        mContext = context;
-    }
+public class SplashPresenter extends BasePresenter<SplashView>{
 
     public void autoLogin() {
         //TODO:现在直接跳转登录界面，我之后会做自动登录

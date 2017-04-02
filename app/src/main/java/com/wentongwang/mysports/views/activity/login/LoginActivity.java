@@ -48,10 +48,15 @@ public class LoginActivity extends BaseActivity implements LoginView {
     }
 
     @Override
-    protected void initDatesAndViews() {
-        //initial dates
+    protected void initPresenter() {
         mPresenter.setView(this);
         mPresenter.init(LoginActivity.this);
+    }
+
+    @Override
+    protected void initDatesAndViews() {
+        //initial dates
+
     }
 
     @Override

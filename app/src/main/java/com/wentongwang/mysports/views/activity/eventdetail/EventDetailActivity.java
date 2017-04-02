@@ -36,6 +36,11 @@ public class EventDetailActivity extends BaseActivity {
         return R.layout.activity_event_detail_layout;
     }
 
+    @Override
+    protected void initPresenter() {
+
+    }
+
     /**
      * 初始化数据
      */

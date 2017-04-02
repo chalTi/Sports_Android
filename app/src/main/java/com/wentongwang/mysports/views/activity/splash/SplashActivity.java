@@ -12,7 +12,7 @@ import com.wentongwang.mysports.views.activity.login.LoginActivity;
  */
 public class SplashActivity extends BaseActivity implements SplashView{
 
-    private SplashPresenter mPresenter = new SplashPresenter(this);
+    private SplashPresenter mPresenter = new SplashPresenter();
 
     @Override
     protected boolean noTitle() {
@@ -22,6 +22,12 @@ public class SplashActivity extends BaseActivity implements SplashView{
     @Override
     protected int getLayoutId() {
         return R.layout.activity_splash_layout;
+    }
+
+    @Override
+    protected void initPresenter() {
+        mPresenter.setView(this);
+        mPresenter.init(this);
     }
 
     @Override

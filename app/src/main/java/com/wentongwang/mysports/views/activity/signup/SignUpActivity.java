@@ -49,7 +49,7 @@ public class SignUpActivity extends GetPictureBaseActivity implements SignUpView
 
 
     private int userSex = 0; //0 = male; 1 = female
-    private SignUpPresenter mPresenter = new SignUpPresenter(this);
+    private SignUpPresenter mPresenter = new SignUpPresenter();
 
 
     @Override
@@ -63,8 +63,14 @@ public class SignUpActivity extends GetPictureBaseActivity implements SignUpView
     }
 
     @Override
-    protected void initDatesAndViews() {
+    protected void initPresenter() {
+        mPresenter.setView(this);
         mPresenter.init(SignUpActivity.this);
+    }
+
+    @Override
+    protected void initDatesAndViews() {
+
     }
 
     @Override

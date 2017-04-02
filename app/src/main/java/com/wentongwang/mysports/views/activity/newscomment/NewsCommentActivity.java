@@ -32,7 +32,13 @@ public class NewsCommentActivity extends BaseActivity implements NewsCommentView
     private NewsCommentAdapter newsCommentAdapter;
     private NewsInfo news;
 
-    private NewsCommentPresenter mPresenter = new NewsCommentPresenter(this);
+    private NewsCommentPresenter mPresenter = new NewsCommentPresenter();
+
+    @Override
+    protected void initPresenter() {
+        mPresenter.setView(this);
+        mPresenter.init(this);
+    }
 
     @Override
     protected void initDatesAndViews() {
@@ -40,7 +46,6 @@ public class NewsCommentActivity extends BaseActivity implements NewsCommentView
         headLeftTv.setText(this.getString(R.string.comment));
         initCommentListView();
 
-        mPresenter.init(this);
         mPresenter.getComments();
     }
 

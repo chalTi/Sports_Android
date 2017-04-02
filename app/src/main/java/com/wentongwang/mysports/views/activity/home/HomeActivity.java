@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -23,7 +22,7 @@ import com.wentongwang.mysports.utils.Logger;
 import com.wentongwang.mysports.utils.ToastUtil;
 import com.wentongwang.mysports.base.BaseActivity;
 import com.wentongwang.mysports.views.activity.choosesports.ChooseSportsActivity;
-import com.wentongwang.mysports.views.activity.createvent.CreatEventActivity;
+import com.wentongwang.mysports.views.activity.createvent.CreateEventActivity;
 import com.wentongwang.mysports.views.fragment.agenda.AgendaFragment;
 import com.wentongwang.mysports.views.fragment.home.HomeFragment;
 import com.wentongwang.mysports.views.fragment.news.NewsFragment;
@@ -33,7 +32,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by Wentong WANG on 2016/9/16.
@@ -71,6 +69,11 @@ public class HomeActivity extends BaseActivity implements HomeView {
     }
 
     @Override
+    protected void initPresenter() {
+        mPresenter.setView(this);
+    }
+
+    @Override
     protected void initDatesAndViews() {
         initFragments();
 
@@ -78,7 +81,6 @@ public class HomeActivity extends BaseActivity implements HomeView {
         mvpAdapter = new HomeFragmentPagerAdapter(manager, mFragmentList);
         mViewPager.setAdapter(mvpAdapter);
 
-        mPresenter.setView(this);
         mPresenter.setPage(0);
     }
 
@@ -185,7 +187,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
     @Override
     public void goToCreatEventActivity() {
         Intent it = new Intent();
-        it.setClass(HomeActivity.this, CreatEventActivity.class);
+        it.setClass(HomeActivity.this, CreateEventActivity.class);
         startActivity(it);
     }
 

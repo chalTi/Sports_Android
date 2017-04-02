@@ -29,6 +29,8 @@ public class PersonDetailActivity extends BaseActivity implements PersonDetailVi
 
     private List<Fragment> fragments;
 
+    private PersonDetailPresenter mPresenter = new PersonDetailPresenter();
+
     @Override
     protected boolean noTitle() {
         return false;
@@ -37,6 +39,12 @@ public class PersonDetailActivity extends BaseActivity implements PersonDetailVi
     @Override
     protected int getLayoutId() {
         return R.layout.activity_persondetail_layout;
+    }
+
+    @Override
+    protected void initPresenter() {
+        mPresenter.setView(this);
+        mPresenter.init(this);
     }
 
     @Override
