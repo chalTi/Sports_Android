@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#607D8B"
+    android:background="@drawable/background"
     android:clipToPadding="false"
     android:fitsSystemWindows="true">
 
@@ -44,17 +44,8 @@
         android:layout_below="@+id/ll_login_container"
         android:layout_marginEnd="35dp"
         android:text="@string/auto_login_check_box_string"
-        android:textColor="@color/white" />
-
-    <ImageView
-        android:id="@+id/iv_login_divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/ll_login_container"
-        android:layout_marginEnd="100dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="35dp"
-        android:background="#33000000" />
+        android:textColor="@color/white"
+        android:buttonTint="@color/white"/>
 
 
     <LinearLayout
@@ -72,7 +63,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Forgot password?"
-            android:textColor="#5f000000"
+            android:textColor="#9da7b1"
             android:textSize="15dp" />
 
         <TextView
@@ -82,7 +73,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="New here? Sign up"
-            android:textColor="#5f000000"
+            android:textColor="#9da7b1"
             android:textSize="15dp" />
 
     </LinearLayout>

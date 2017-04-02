@@ -18,10 +18,11 @@
         android:id="@+id/ll_sign_up_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/iv_sign_up_user_head"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_below="@+id/iv_sign_up_user_head"
+        android:layout_centerHorizontal="true">
 
         <TextView
             android:layout_width="match_parent"
@@ -113,7 +114,8 @@
                 android:layout_height="wrap_content"
                 android:text="Male"
                 android:textColor="@android:color/white"
-                android:textSize="12dp" />
+                android:textSize="12dp"
+                android:buttonTint="@color/white"/>
 
             <RadioButton
                 android:id="@+id/rb_female"
@@ -121,7 +123,8 @@
                 android:layout_height="wrap_content"
                 android:text="Female"
                 android:textColor="@android:color/white"
-                android:textSize="12dp" />
+                android:textSize="12dp"
+                android:buttonTint="@color/white"/>
 
         </RadioGroup>
 
