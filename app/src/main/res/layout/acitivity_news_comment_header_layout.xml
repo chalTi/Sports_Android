@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff">
+    android:id="@+id/news_in_comment_layout">
     <!--新闻图片-->
     <ImageView
         android:id="@+id/iv_news_item_background"
@@ -13,47 +13,49 @@
 
     <!--新闻内容-->
     <TextView
-        android:id="@+id/tv_news_item_content"
+        android:id="@+id/comment_news_item_content"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_below="@+id/iv_news_item_background"/>
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/iv_news_item_background" />
 
     <!--新闻图片底部栏-->
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="30dp"
-       android:layout_above="@+id/tv_news_item_content"
-       android:background="#00B6B6B6">
-       <TextView
-           android:layout_width="0dp"
-           android:layout_height="match_parent"
-           android:layout_weight="1"
-           android:layout_marginRight="3dp"
-           android:gravity="center_vertical"
-           android:text="Invite friends"
-           android:textColor="#ffffff"/>
-
-       <TextView
-           android:layout_width="0dp"
-           android:layout_height="match_parent"
-           android:layout_weight="1"
-           android:layout_marginLeft="5dp"
-           android:gravity="center_vertical"
-           android:text="i want to join"
-           android:textColor="#ffffff"/>
-       <TextView
-           android:layout_width="0dp"
-           android:layout_height="match_parent"
-           android:layout_weight="1"
-           android:gravity="right|center"
-           android:text="Time to set up"
-           android:textColor="#ffffff"/>
-   </LinearLayout>
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_above="@+id/comment_news_item_content"
+        android:background="#00B6B6B6">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="3dp"
+            android:gravity="center_vertical"
+            android:text="Invite friends"
+            android:textColor="#ffffff"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:gravity="center_vertical"
+            android:text="i want to join"
+            android:textColor="#ffffff"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="right|center"
+            android:text="Time to set up"
+            android:textColor="#ffffff"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/bottom_bar"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@+id/tv_news_item_content"
+        android:layout_below="@+id/comment_news_item_content"
         android:background="#5FB6B6B6">
         <TextView
             android:layout_width="0dp"
