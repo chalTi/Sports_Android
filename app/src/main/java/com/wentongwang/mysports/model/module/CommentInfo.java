@@ -13,14 +13,14 @@ public class CommentInfo implements Serializable {
         this.comment_content = content;
         this.comment_liked = liked;
     }
-    public String getComment_content(){
+    public String getCommentContent(){
         return comment_content;
     }
-    public void setComment_content(String content){
+    public void setCommentContent(String content){
         this.comment_content = content;
     }
-    public int getComment_liked(){return comment_liked;}
-    public void setComment_liked(int liked){
+    public int getCommentLiked(){return comment_liked;}
+    public void setComment_Liked(int liked){
         this.comment_liked = liked;
     }
 }

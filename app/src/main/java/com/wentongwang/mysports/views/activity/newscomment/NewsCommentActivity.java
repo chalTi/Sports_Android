@@ -95,7 +95,7 @@ public class NewsCommentActivity extends BaseActivity implements NewsCommentView
         //TODO:这个headView需要提取出来复用
         RelativeLayout ll = (RelativeLayout) layoutInflater.inflate( R.layout.acitivity_news_comment_header_layout, null, false );
         TextView tv = (TextView) ll.findViewById(R.id.comment_news_item_content);
-        tv.setText(news.getNews_content());
+        tv.setText(news.getNewsContent());
         commentList.addHeaderView(ll);
         commentList.setAdapter(newsCommentAdapter);
     }

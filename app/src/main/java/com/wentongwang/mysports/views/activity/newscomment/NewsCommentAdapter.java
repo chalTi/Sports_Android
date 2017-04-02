@@ -63,7 +63,7 @@ public class NewsCommentAdapter extends BaseAdapter {
 
 
         CommentInfo item = itemList.get(position);
-        holder.comment_content.setText(item.getComment_content());
+        holder.comment_content.setText(item.getCommentContent());
 
         final ViewHolder finalHolder = holder;
 
