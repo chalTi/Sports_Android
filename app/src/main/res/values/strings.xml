@@ -197,4 +197,9 @@
 
     <!--NewsCommentActivity-->
     <string name="comment">comments</string>
+
+    <!--HomeFragment-->
+    <string name="event_participator_number_vs_total">%1$d &#047; %2$d</string>
+    <string name="sports_event_number">%d EVENT</string>
+    <string name="invite_you">invite you</string>
 </resources>

@@ -37,14 +37,13 @@
                     android:id="@+id/creator_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="BASKETBALL"
                     android:textColor="@color/colorPrimaryText" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:text="invite you" />
+                    android:text="@string/invite_you" />
             </LinearLayout>
 
             <LinearLayout

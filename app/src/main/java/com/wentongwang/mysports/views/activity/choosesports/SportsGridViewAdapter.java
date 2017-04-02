@@ -86,7 +86,7 @@ public class SportsGridViewAdapter extends BaseAdapter {
 
         final ViewHolder finalHolder = holder;
         final SportEvents event = items.get(position);
-        Bitmap bitmap = BitmapFactory.decodeResource(parent.getContext().getResources(), event.getEvent_image());
+        Bitmap bitmap = BitmapFactory.decodeResource(parent.getContext().getResources(), event.getEventImage());
         holder.event_icon.setImageBitmap(bitmap);
         holder.event_icon.setOnClickListener(new View.OnClickListener() {
             @Override

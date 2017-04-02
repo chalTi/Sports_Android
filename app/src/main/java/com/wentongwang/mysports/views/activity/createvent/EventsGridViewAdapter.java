@@ -1,6 +1,5 @@
 package com.wentongwang.mysports.views.activity.createvent;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -8,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.model.module.SportEvents;
@@ -54,7 +52,7 @@ public class EventsGridViewAdapter extends BaseAdapter {
         }
 
         for (int i = list_index; i < lastItem; i++) {
-            Logger.i("gv", "item name " + sportEvents.get(i).getEvent_name());
+            Logger.i("gv", "item name " + sportEvents.get(i).getEventName());
             items.add(sportEvents.get(i));
         }
     }
@@ -88,7 +86,7 @@ public class EventsGridViewAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         SportEvents event = items.get(position);
-        Bitmap bitmap = BitmapFactory.decodeResource(parent.getContext().getResources(), event.getEvent_image());
+        Bitmap bitmap = BitmapFactory.decodeResource(parent.getContext().getResources(), event.getEventImage());
         holder.event_icon.setImageBitmap(bitmap);
 
         if (event.isSelected()) {

@@ -38,4 +38,8 @@ public class SportsFirstClass implements Serializable {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
+
+    public int getSportEventsNumber() {
+        return sports != null ? sports.size() : 0;
+    }
 }

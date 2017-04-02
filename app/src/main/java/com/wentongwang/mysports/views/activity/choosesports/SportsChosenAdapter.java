@@ -50,7 +50,7 @@ public class SportsChosenAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         SportEvents event = items.get(position);
-        Bitmap bitmap = BitmapFactory.decodeResource(parent.getContext().getResources(), event.getEvent_image());
+        Bitmap bitmap = BitmapFactory.decodeResource(parent.getContext().getResources(), event.getEventImage());
         holder.event_icon.setImageBitmap(bitmap);
         holder.selected.setVisibility(View.INVISIBLE);
         return convertView;
