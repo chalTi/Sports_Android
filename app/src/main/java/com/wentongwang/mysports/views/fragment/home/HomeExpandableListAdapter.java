@@ -17,6 +17,8 @@ import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.custome.CircleImageView;
 import com.wentongwang.mysports.model.module.SportsFirstClass;
 import com.wentongwang.mysports.model.module.SportsSecondClass;
+import com.wentongwang.mysports.views.viewholder.HomeSportsItemViewHolder;
+import com.wentongwang.mysports.views.viewholder.HomeSportsTypeViewHolder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,56 +35,39 @@ import butterknife.ButterKnife;
  * 可展开列表的适配器FR
  * Created by Wentong WANG on 2016/11/3.
  */
-public class MyExpandableListAdpater extends BaseExpandableListAdapter {
+public class HomeExpandableListAdapter extends BaseExpandableListAdapter {
 
     private List<SportsFirstClass> sportTypes;
-    private List<SportsSecondClass> sportTypesDetail;
     private Context mContext;
 
-    public MyExpandableListAdpater(Context mContext) {
+    public HomeExpandableListAdapter(Context mContext) {
         this.mContext = mContext;
         this.sportTypes = new ArrayList<>();
     }
 
-    public MyExpandableListAdpater(Context mContext, List<SportsFirstClass> sportTypes) {
+    public void setSports(List<SportsFirstClass> sportTypes) {
         this.sportTypes = sportTypes;
-        ;
-        this.mContext = mContext;
+        notifyDataSetChanged();
     }
 
-    public MyExpandableListAdpater(List<SportsFirstClass> sportTypes, List<SportsSecondClass> sportTypesDetail, Context mContext) {
-        this.sportTypes = sportTypes;
-        this.sportTypesDetail = sportTypesDetail;
-        this.mContext = mContext;
-    }
-
-    public void setSportTypes(List<SportsFirstClass> sportTypes) {
-        this.sportTypes = sportTypes;
-    }
-
-    public void setSportTypesDetail(List<SportsSecondClass> sportTypesDetail) {
-        this.sportTypesDetail = sportTypesDetail;
-    }
 
     /**
      * 条目数量
-     *
      * @return
      */
     @Override
     public int getGroupCount() {
-        return sportTypes.size();
+        return sportTypes != null ? sportTypes.size() : 0;
     }
 
     /**
      * 每条目里有几项内容
-     *
      * @param groupPosition
      * @return
      */
     @Override
     public int getChildrenCount(int groupPosition) {
-        return sportTypes.get(groupPosition).getSports().size();
+        return sportTypes.get(groupPosition).getSports()!= null ? sportTypes.get(groupPosition).getSports().size() : 0;
     }
 
     /**
@@ -105,7 +90,7 @@ public class MyExpandableListAdpater extends BaseExpandableListAdapter {
      */
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return sportTypes.get(groupPosition).getSports().size();
+        return sportTypes.get(groupPosition).getSports().get(childPosition);
     }
 
     @Override
@@ -135,17 +120,16 @@ public class MyExpandableListAdpater extends BaseExpandableListAdapter {
      */
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        GroupViewHolder holder = null;
+        HomeSportsTypeViewHolder holder;
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_sports_first_class, parent, false);
-            holder = new GroupViewHolder(convertView);
+            holder = new HomeSportsTypeViewHolder(convertView);
             convertView.setTag(holder);
         } else {
-            holder = (GroupViewHolder) convertView.getTag();
+            holder = (HomeSportsTypeViewHolder) convertView.getTag();
         }
-        SportsFirstClass item = sportTypes.get(groupPosition);
-        holder.sport_type.setText(item.getType());
-        holder.event_total_count.setText(item.getSports().size() + "EVENMENT");
+
+        holder.setItem(sportTypes.get(groupPosition));
         return convertView;
     }
 
@@ -161,21 +145,17 @@ public class MyExpandableListAdpater extends BaseExpandableListAdapter {
      */
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        ChildViewHolder holder = null;
+        HomeSportsItemViewHolder holder = null;
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_sports_second_class, parent, false);
-            holder = new ChildViewHolder(convertView);
+            holder = new HomeSportsItemViewHolder(convertView);
             convertView.setTag(holder);
         } else {
-            holder = (ChildViewHolder) convertView.getTag();
+            holder = (HomeSportsItemViewHolder) convertView.getTag();
         }
 
-        SportsSecondClass item = sportTypesDetail.get(childPosition);
-        holder.creator_name.setText(item.getEvent_creat_time());
-        holder.event_place.setText(item.getEvent_place());
-        holder.event_start_time.setText(item.getEvent_start_time());
-        holder.event_end_time.setText(item.getEvent_end_time());
-        holder.event_number_vs_total.setText((childPosition+1)+"/" + Integer.valueOf(item.getEvent_number()) + "");
+        SportsSecondClass item = sportTypes.get(groupPosition).getSports().get(childPosition);
+        holder.setItem(item);
         return convertView;
     }
 
@@ -184,35 +164,4 @@ public class MyExpandableListAdpater extends BaseExpandableListAdapter {
         return true;
     }
 
-    class GroupViewHolder {
-        @BindView(R.id.sport_image)
-        ImageView sport_image;
-        @BindView(R.id.sport_type)
-        TextView sport_type;
-        @BindView(R.id.event_total_count)
-        TextView event_total_count;
-
-        public GroupViewHolder(View view) {
-            ButterKnife.bind(this, view);
-        }
-    }
-
-    class ChildViewHolder {
-        @BindView(R.id.creator_head)
-        CircleImageView creator_head;
-        @BindView(R.id.creator_name)
-        TextView creator_name;
-        @BindView(R.id.event_start_time)
-        TextView event_start_time;
-        @BindView(R.id.event_end_time)
-        TextView event_end_time;
-        @BindView(R.id.event_place)
-        TextView event_place;
-        @BindView(R.id.event_number_vs_total)
-        TextView event_number_vs_total;
-
-        public ChildViewHolder(View view) {
-            ButterKnife.bind(this, view);
-        }
-    }
 }

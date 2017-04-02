@@ -1,5 +1,6 @@
 package com.wentongwang.mysports.views.viewholder;
 
+import android.content.Context;
 import android.view.View;
 
 import butterknife.ButterKnife;
@@ -10,11 +11,12 @@ import butterknife.ButterKnife;
 public abstract class ItemViewHolder<Item> {
 
     protected View rootView;
-
+    protected Context context;
     protected Item item;
 
     public ItemViewHolder(View view) {
         this.rootView = view;
+        this.context = view.getContext();
         ButterKnife.bind(this, view);
     }
 
