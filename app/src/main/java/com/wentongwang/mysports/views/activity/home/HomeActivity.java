@@ -37,7 +37,7 @@ import butterknife.BindView;
  * Created by Wentong WANG on 2016/9/16.
  */
 public class HomeActivity extends BaseActivity implements HomeView {
-    private static final int FINISHE_CHOSE_SPORTS = 0x123;
+    private static final int FINISHE_CHOSE_SPORTS = 0x123; //
 
     @BindView(R.id.root_view)
     protected View rootView;
@@ -137,7 +137,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
                     case R.id.btn_news:
                         mViewPager.setCurrentItem(2);
                         break;
-                    case R.id.btn_preson:
+                    case R.id.btn_person:
                         mViewPager.setCurrentItem(3);
                         break;
                 }

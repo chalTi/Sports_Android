@@ -16,4 +16,9 @@
     <!--HomeFragment-->
     <string name="sports_event_number">%d 活动</string>
     <string name="invite_you">邀请你</string>
+
+    <!-- PersonInfoFragment -->
+    <string name="profile_myname">昵称</string>
+    <string name="profile_mydescribe">简介</string>
+
 </resources>
