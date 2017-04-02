@@ -14,11 +14,8 @@ import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.constant.IntentConstants;
 import com.wentongwang.mysports.model.module.NewsInfo;
 import com.wentongwang.mysports.utils.Logger;
-import com.wentongwang.mysports.views.activity.choosesports.ChooseSportsActivity;
-import com.wentongwang.mysports.views.activity.home.HomeActivity;
 import com.wentongwang.mysports.views.activity.newscomment.NewsCommentActivity;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,9 +57,9 @@ public class NewsInfoListAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         NewsInfo item = itemList.get(position);
-        holder.news_content.setText(item.getNews_content());
-        holder.new_liked.setText(item.getNews_likes_total());
-        if (item.getNews_liked().equals("0")) {
+        holder.news_content.setText(item.getNewsContent());
+        holder.new_liked.setText(item.getNewsLikesTotal());
+        if (item.getNewsLiked().equals("0")) {
             holder.new_liked.setChecked(false);
         } else {
             holder.new_liked.setChecked(true);
@@ -72,17 +69,17 @@ public class NewsInfoListAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 NewsInfo item = (NewsInfo) getItem(position);
-                if (item.getNews_liked().equals("0")) {
+                if (item.getNewsLiked().equals("0")) {
                     Logger.i("xxx", "true");
-                    item.setNews_liked("1");
+                    item.setNewsLiked("1");
                     finalHolder.new_liked.setChecked(true);
                 } else {
-                    item.setNews_liked("0");
+                    item.setNewsLiked("0");
                     finalHolder.new_liked.setChecked(false);
                 }
                 itemList.remove(position);
                 itemList.add(position, item);
-                Logger.i("xxx", itemList.get(position).getNews_liked());
+                Logger.i("xxx", itemList.get(position).getNewsLiked());
                 notifyDataSetChanged();
             }
         });

@@ -16,75 +16,75 @@ public class LoginResponse implements Serializable {
     private String user_sex;
     private String user_imageURL;
 
-    public String getUser_id() {
+    public String getUserId() {
         return user_id;
     }
 
-    public void setUser_id(String user_id) {
+    public void setUserId(String user_id) {
         this.user_id = user_id;
     }
 
-    public String getUser_like() {
+    public String getUserLike() {
         return user_like;
     }
 
-    public void setUser_like(String user_like) {
+    public void setUserLike(String user_like) {
         this.user_like = user_like;
     }
 
-    public String getUser_authority() {
+    public String getUserAuthority() {
         return user_authority;
     }
 
-    public void setUser_authority(String user_authority) {
+    public void setUserAuthority(String user_authority) {
         this.user_authority = user_authority;
     }
 
-    public String getUser_age() {
+    public String getUserAge() {
         return user_age;
     }
 
-    public void setUser_age(String user_age) {
+    public void setUserAge(String user_age) {
         this.user_age = user_age;
     }
 
-    public String getUser_name() {
+    public String getUserName() {
         return user_name;
     }
 
-    public void setUser_name(String user_name) {
+    public void setUserName(String user_name) {
         this.user_name = user_name;
     }
 
-    public String getUser_password() {
+    public String getUserPassword() {
         return user_password;
     }
 
-    public void setUser_password(String user_password) {
+    public void setUserPassword(String user_password) {
         this.user_password = user_password;
     }
 
-    public String getUser_email() {
+    public String getUserEmail() {
         return user_email;
     }
 
-    public void setUser_email(String user_email) {
+    public void setUserEmail(String user_email) {
         this.user_email = user_email;
     }
 
-    public String getUser_sex() {
+    public String getUserSex() {
         return user_sex;
     }
 
-    public void setUser_sex(String user_sex) {
+    public void setUserSex(String user_sex) {
         this.user_sex = user_sex;
     }
 
-    public String getUser_imageURL() {
+    public String getUserImageURL() {
         return user_imageURL;
     }
 
-    public void setUser_imageURL(String user_imageURL) {
+    public void setUserImageURL(String user_imageURL) {
         this.user_imageURL = user_imageURL;
     }
 }
