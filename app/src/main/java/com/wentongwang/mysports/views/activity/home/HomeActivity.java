@@ -57,7 +57,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
     private List<Fragment> mFragmentList;
     private HomeFragmentPagerAdapter mvpAdapter; //adapter of fragment
 
-    private HomePresenter mPresenter = new HomePresenter(this);
+    private HomePresenter mPresenter = new HomePresenter();
     private int userType = 1;
 
     @Override
@@ -78,6 +78,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
         mvpAdapter = new HomeFragmentPagerAdapter(manager, mFragmentList);
         mViewPager.setAdapter(mvpAdapter);
 
+        mPresenter.setView(this);
         mPresenter.setPage(0);
     }
 
@@ -149,7 +150,6 @@ public class HomeActivity extends BaseActivity implements HomeView {
 
             @Override
             public void onRightClick() {
-                Logger.i("HomeActivity", "点击了");
                 mPresenter.goToChoseSports();
             }
 
