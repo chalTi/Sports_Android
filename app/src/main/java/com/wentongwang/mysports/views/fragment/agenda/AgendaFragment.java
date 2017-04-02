@@ -1,5 +1,7 @@
 package com.wentongwang.mysports.views.fragment.agenda;
 
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +32,7 @@ public class AgendaFragment extends BaseFragment implements AgendaView {
     @BindView(R.id.root_view)
     protected View rootView;
     @BindView(R.id.agenda_events_list)
-    protected ListView listView;
+    protected RecyclerView recyclerView;
 
     private AgendaEventsAdapter adapter;
 
@@ -45,8 +47,14 @@ public class AgendaFragment extends BaseFragment implements AgendaView {
     public void initDates() {
         mPresenter.init(getActivity());
         adapter = new AgendaEventsAdapter();
-        listView.setAdapter(adapter);
+        initRecyclerView();
+
         mPresenter.getAgenda();
+    }
+
+    private void initRecyclerView(){
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
     }
 
     @Override

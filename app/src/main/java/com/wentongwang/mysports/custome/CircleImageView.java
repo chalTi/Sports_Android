@@ -77,7 +77,7 @@ public class CircleImageView extends View {
             bitmap = ImageUtil.resize(bitmap, imageSize, imageSize);
             canvas.drawBitmap(ImageUtil.createCircleImage(bitmap, imageSize), 0, 0, mPaint);
         } else {
-            defaut = ImageUtil.decodeBitmapFromResource(getResources(), R.drawable.user_head_defaut, imageSize, imageSize);
+            defaut = ImageUtil.decodeBitmapFromResource(getResources(), R.drawable.avator_default, imageSize, imageSize);
             defaut = ImageUtil.resize(defaut, imageSize, imageSize);
             canvas.drawBitmap(ImageUtil.createCircleImage(defaut, imageSize), 0, 0, mPaint);
         }

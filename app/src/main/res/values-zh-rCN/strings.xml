@@ -20,5 +20,13 @@
     <!-- PersonInfoFragment -->
     <string name="profile_myname">昵称</string>
     <string name="profile_mydescribe">简介</string>
+    <string name="new_friend_request">新的好友</string>
+    <string name="my_sports">我的运动</string>
+    <string name="my_liked">我的赞</string>
+    <string name="my_album">我的相册</string>
+    <string name="my_more">更多</string>
+    <string name="my_more_description">数据中心，收藏，等级</string>
+
+
 
 </resources>
