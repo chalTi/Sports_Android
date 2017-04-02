@@ -11,6 +11,9 @@
     <dimen name="person_title_profile_time">12sp</dimen><!--微博时间-->
 
 
+    <dimen name="home_menu_title">18sp</dimen><!--发微博用户-->
+    <dimen name="home_menu_sub_title">16sp</dimen><!--微博时间-->
+
     <!--顶部标题栏的高度-->
     <dimen name="top_bar_height">45dp</dimen>
 

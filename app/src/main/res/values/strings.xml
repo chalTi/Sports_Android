@@ -186,6 +186,18 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
 
+    <!--HomeActivity-->
+    <string name="logout">Logout</string>
+    <string name="menu_title">Menu</string>
+    <string name="menu_title_profile">My Profile</string>
+    <string name="menu_title_news">News</string>
+    <string name="menu_title_agenda">Agenda</string>
+    <string name="menu_title_events">Sport Events</string>
+
+    <string name="menu_application">Application</string>
+    <string name="menu_application_setting">Setting</string>
+    <string name="menu_application_account">Account</string>
+
     <!--LoginActivity-->
 
     <string name="login_btn">Sign in</string>

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="200dp"
     android:layout_height="match_parent"
-    android:background="#455A64"
+    android:background="@color/colorPrimary"
     android:clickable="true">
 
     <com.wentongwang.mysports.custome.CircleImageView
@@ -20,7 +20,7 @@
         android:layout_below="@id/iv_left_menu_user_head"
         android:gravity="center"
         android:padding="5dp"
-        android:text="用户名"
+        android:text="@string/profile_myname"
         android:textColor="@android:color/white"
         android:textSize="18sp" />
 
@@ -33,10 +33,9 @@
         android:layout_marginStart="10dp"
         android:background="@drawable/btn_light_red_background"
         android:gravity="center"
-        android:text="UPLOAD"
-        android:textSize="14sp"
+        android:text="@string/logout"
         android:textColor="@android:color/white"
-        />
+        android:textSize="14sp" />
 
     <LinearLayout
         android:id="@+id/ll_left_menu_menu_content"
@@ -52,8 +51,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:text="MENU" />
+            android:text="@string/menu_title"
+            android:textSize="@dimen/home_menu_title"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -67,9 +67,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="8"
-                android:textSize="11sp"
+                android:text="@string/menu_title_profile"
                 android:textColor="@android:color/white"
-                android:text="PROFIT" />
+                android:textSize="@dimen/home_menu_sub_title" />
         </LinearLayout>
 
 
@@ -85,9 +85,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="8"
-                android:textSize="11sp"
+                android:text="@string/menu_title_events"
                 android:textColor="@android:color/white"
-                android:text="EVENEMENT" />
+                android:textSize="@dimen/home_menu_sub_title" />
 
         </LinearLayout>
 
@@ -103,9 +103,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="8"
-                android:textSize="11sp"
+                android:text="@string/menu_title_news"
                 android:textColor="@android:color/white"
-                android:text="NOTIFICATIONS" />
+                android:textSize="@dimen/home_menu_sub_title" />
 
             <TextView
                 android:layout_width="0dp"
@@ -113,9 +113,9 @@
                 android:layout_weight="1"
                 android:background="@drawable/btn_light_blue_background"
                 android:gravity="center"
-                android:textSize="9sp"
+                android:text="12"
                 android:textColor="@android:color/white"
-                android:text="12" />
+                android:textSize="9sp" />
         </LinearLayout>
 
 
@@ -131,9 +131,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="8"
-                android:textSize="11sp"
+                android:text="@string/menu_title_agenda"
                 android:textColor="@android:color/white"
-                android:text="CALENDAR" />
+                android:textSize="@dimen/home_menu_sub_title" />
 
         </LinearLayout>
 
@@ -141,22 +141,23 @@
     </LinearLayout>
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="10dp"
         android:layout_marginBottom="40dp"
+        android:layout_marginStart="10dp"
         android:divider="@drawable/login_divider_line"
         android:orientation="vertical"
         android:showDividers="middle">
 
         <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:text="APPLICATION" />
+            android:text="@string/menu_application"
+            android:textSize="@dimen/home_menu_title"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -170,9 +171,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="8"
-                android:textSize="11sp"
+                android:text="@string/menu_application_setting"
                 android:textColor="@android:color/white"
-                android:text="SETTINGS" />
+                android:textSize="@dimen/home_menu_sub_title" />
         </LinearLayout>
 
 
@@ -188,9 +189,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="8"
-                android:textSize="11sp"
+                android:text="@string/menu_application_account"
                 android:textColor="@android:color/white"
-                android:text="ACCOUNT" />
+                android:textSize="@dimen/home_menu_sub_title" />
 
         </LinearLayout>
 

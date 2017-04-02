@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
-    
+
+    <!--HomeActivity-->
+    <string name="logout">注销</string>
+    <string name="menu_title">菜单</string>
+    <string name="menu_title_profile">个人主页</string>
+    <string name="menu_title_news">好友圈</string>
+    <string name="menu_title_agenda">运动记录</string>
+    <string name="menu_title_events">所有运动</string>
+
+    <string name="menu_application">应用</string>
+    <string name="menu_application_setting">设置</string>
+    <string name="menu_application_account">账户设置</string>
+
     <!--LoginActivity-->
     <string name="login_btn">登录</string>
     <string name="auto_login_check_box_string">自动登录</string>
