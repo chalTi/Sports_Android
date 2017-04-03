@@ -20,15 +20,16 @@ import rx.schedulers.Schedulers;
  */
 public class SplashPresenter extends BasePresenter<SplashView>{
 
-    public void autoLogin() {
+    public boolean autoLogin() {
         //TODO:现在直接跳转登录界面，我之后会做自动登录
-
         String userName = (String) SharedPreferenceUtil.get(mContext, Constant.USER_NAME, "");
         String userPwd = (String) SharedPreferenceUtil.get(mContext, Constant.USER_PASSWORD, "");
         if (userName != null && !userName.isEmpty() && userPwd != null && !userPwd.isEmpty()){
             login(userName, userPwd);
+            return true;
         }else {
-            view.goToLogin();
+//            view.goToLogin();
+            return false;
         }
 
     }
