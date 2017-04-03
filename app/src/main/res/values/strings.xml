@@ -224,5 +224,6 @@
     <string name="my_album">Album</string>
     <string name="my_more">More</string>
     <string name="my_more_description">Setting etc.</string>
+    <string name="splash_copyright">Copyright © 2017 by Sport UTT</string>
 
 </resources>

@@ -1,16 +1,22 @@
 package com.wentongwang.mysports.views.activity.splash;
 
 import android.content.Intent;
+import android.widget.ProgressBar;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.base.BaseActivity;
 import com.wentongwang.mysports.views.activity.home.HomeActivity;
 import com.wentongwang.mysports.views.activity.login.LoginActivity;
 
+import butterknife.BindView;
+
 /**
  * Created by Wentong WANG on 2017/3/27.
  */
 public class SplashActivity extends BaseActivity implements SplashView{
+
+    @BindView(R.id.pb_splash_loading)
+    protected ProgressBar pbloading;
 
     private SplashPresenter mPresenter = new SplashPresenter();
 
@@ -43,7 +49,7 @@ public class SplashActivity extends BaseActivity implements SplashView{
     @Override
     protected void onResume() {
         super.onResume();
-        mPresenter.autoLogin();
+//        mPresenter.autoLogin();
     }
 
     @Override
