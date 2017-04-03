@@ -3,75 +3,99 @@
     xmlns:pb="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="5dp">
+    android:paddingBottom="3dp">
 
     <android.support.v7.widget.CardView
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:cardCornerRadius="10dp"
-        card_view:contentPadding="10dp"
-        >
-
-        <com.wentongwang.mysports.custome.CircleImageView
-            android:id="@+id/user_head"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp" />
+        card_view:cardCornerRadius="0dp"
+        card_view:contentPadding="10dp" >
 
         <LinearLayout
-            android:id="@+id/container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="5dp"
-
+            android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tv_event_type"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:text="BASKETBALL"
-                android:textColor="@color/colorPrimaryText"
-                android:textSize="18sp" />
+            <com.wentongwang.mysports.custome.CircleImageView
+                android:id="@+id/user_head"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp" />
 
-            <TextView
-                android:id="@+id/tv_event_time"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="12:30"
-                android:textColor="@color/colorSecondaryText" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginRight="10dp">
 
-            <TextView
-                android:id="@+id/tv_event_place"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="地点"
-                android:textColor="@color/colorPrimaryText" />
+                <LinearLayout
+                    android:id="@+id/container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_event_type"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="BASKETBALL"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="18sp"
+                        android:textAllCaps="true"/>
+
+                    <TextView
+                        android:id="@+id/tv_event_time"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="12:30"
+                        android:textColor="@color/colorSecondaryText"
+                        android:textAllCaps="true"/>
+
+                    <TextView
+                        android:id="@+id/tv_event_place"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="地点"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textAllCaps="true"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <com.wentongwang.mysports.custome.MyProgressBarHorizontal
+                        android:id="@+id/event_progress_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@id/container"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="6dp"
+
+                        android:layout_weight="1"
+                        android:progress="60"
+                        pb:gradient="true"
+                        pb:reachEndColor="#2CDD73"
+                        pb:reachHeight="8dp"
+                        pb:reachStartColor="#1F5DF5"
+                        pb:unReachColor="#F2F2F2"
+                        pb:unReachHeight="8dp" />
+                </LinearLayout>
+
+            </LinearLayout>
         </LinearLayout>
-
-        <com.wentongwang.mysports.custome.MyProgressBarHorizontal
-            android:id="@+id/event_progress_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@id/container"
-            android:layout_gravity="bottom"
-            android:layout_marginBottom="6dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginRight="50dp"
-            android:progress="60"
-            pb:gradient="true"
-            pb:reachColor="@color/colorPrimaryDark"
-            pb:reachHeight="8dp"
-            pb:unReachColor="#9E9E9E"
-            pb:unReachHeight="8dp" />
 
     </android.support.v7.widget.CardView>
 

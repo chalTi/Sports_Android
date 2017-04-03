@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/home_weiboitem_bottombar_height"
+            android:layout_marginBottom="@dimen/personInfo_bottombar_height"
             android:layout_weight="1">
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -56,7 +56,7 @@
                             android:layout_marginBottom="10dp"
                             android:hint="@string/profile_myname"
                             android:textColor="@color/rl_textcolor"
-                            android:textSize="@dimen/home_original_weiboitem_font" />
+                            android:textSize="@dimen/personInfo_big_font" />
 
                         <TextView
                             android:id="@+id/profile_mydescribe"
@@ -65,7 +65,7 @@
                             android:layout_centerInParent="true"
                             android:hint="@string/profile_mydescribe"
                             android:textColor="@color/gray"
-                            android:textSize="13dp" />
+                            android:textSize="@dimen/personInfo_small_font" />
                     </LinearLayout>
 
                     <ImageView
@@ -75,7 +75,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="15dp"
-                        android:src="@drawable/weibobrowser_goforward_disabled" />
+                        android:src="@drawable/goforward_disabled" />
                 </RelativeLayout>
 
                 <include layout="@layout/profilefragment_layout_moreline" />

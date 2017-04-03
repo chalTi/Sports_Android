@@ -3,7 +3,7 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="50dp">
+    android:paddingTop="@dimen/toolbar_height">
 
     <RelativeLayout
         android:id="@+id/banner_container"
@@ -13,6 +13,8 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:background="#00BCD4"
+            android:src="@drawable/running_pic_agenda"
+            android:scaleType="centerCrop"
             />
 
         <include layout="@layout/agenda_count_table_layout" />
