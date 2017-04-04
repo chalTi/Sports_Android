@@ -30,4 +30,8 @@
     <dimen name="personInfo_big_font">16sp</dimen><!--字体大小:16big,15middle,13small-->
     <dimen name="personInfo_middle_font">15sp</dimen>
     <dimen name="personInfo_small_font">13sp</dimen>
+
+    <!-- news -->
+    <dimen name="news_item_big_font">20sp</dimen>
+    <dimen name="news_item_small_font">13sp</dimen>
 </resources>

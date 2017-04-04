@@ -25,8 +25,12 @@
     <color name="holo_blue_light">#2196F3</color>
     <color name="holo_purple_light">#9C27B0</color>
 
-    <!--按钮栏-白天 -->
+    <!-- PersonInfo -->
     <color name="rl_normal_bg">#FFFFFF</color><!--状态栏的的背景颜色-->
     <color name="rl_highlight_bg">#f2f2f2</color><!--状态栏的的背景颜色-->
     <color name="rl_textcolor">#111111</color>
+
+    <!-- News -->
+    <color name="news_listview_lower_border">#1E000000</color>
+    <color name="news_listview_lower_background">#F3F3F3</color>
 </resources>

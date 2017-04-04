@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff">
@@ -8,40 +10,66 @@
         android:id="@+id/iv_news_item_background"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:scaleType="fitXY"
-        android:background="#00bcd4" />
+        android:scaleType="centerCrop"
+        android:background="#00bcd4"
+        android:src="@drawable/basket"/>
 
     <!--新闻内容-->
-    <TextView
-        android:id="@+id/tv_news_item_content"
+    <LinearLayout
+        android:id="@+id/tv_news_item_layout"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_below="@+id/iv_news_item_background"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_below="@id/iv_news_item_background" >
+
+        <TextView
+            android:id="@+id/tv_news_item_title"
+            fontPath="fonts/agency-fb-bold.ttf"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="basketball match created by utt"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/news_item_big_font" />
+
+        <TextView
+            android:id="@+id/tv_news_item_content"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="This is a great match which you can ..." />
+    </LinearLayout>
 
     <!--新闻图片底部栏-->
    <LinearLayout
        android:layout_width="match_parent"
-       android:layout_height="30dp"
-       android:layout_above="@+id/tv_news_item_content"
-       android:background="#00B6B6B6">
+       android:layout_height="40dp"
+       android:paddingLeft="10dp"
+       android:paddingRight="10dp"
+       android:layout_above="@+id/tv_news_item_layout"
+       android:background="#4C000000">
        <TextView
            android:layout_width="0dp"
            android:layout_height="match_parent"
            android:layout_weight="1"
-           android:layout_marginRight="3dp"
            android:gravity="center_vertical"
            android:text="@string/news_listview_invite_friends"
+           android:textSize="@dimen/news_item_small_font"
            android:drawableLeft="@drawable/invite_friends"
+           android:drawablePadding="5dp"
            android:textColor="#ffffff"/>
 
        <TextView
            android:layout_width="0dp"
            android:layout_height="match_parent"
            android:layout_weight="1"
-           android:layout_marginLeft="5dp"
            android:gravity="center_vertical"
            android:text="@string/news_listview_join"
+           android:textSize="@dimen/news_item_small_font"
            android:drawableLeft="@drawable/join_star"
+           android:drawablePadding="5dp"
            android:textColor="#ffffff"/>
        <TextView
            android:layout_width="0dp"
@@ -49,44 +77,57 @@
            android:layout_weight="1"
            android:gravity="center_vertical"
            android:text="@string/news_listview_event_time"
+           android:textSize="@dimen/news_item_small_font"
            android:drawableLeft="@drawable/event_time"
+           android:drawablePadding="5dp"
            android:textColor="#ffffff"/>
    </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@+id/tv_news_item_content"
-        android:background="#5FB6B6B6">
+        android:layout_below="@+id/tv_news_item_layout"
+        android:background="#F3F3F3"
+        android:divider="@drawable/news_listview_lower_button_divider"
+        android:showDividers="middle">
+
         <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical"
-        android:layout_weight="2"
-        android:drawableLeft="@drawable/view"
-        android:drawablePadding="5dp"
-        android:text="@string/iv_news_item_read_num"/>
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/news_listview_lower_button"
+            android:drawableLeft="@drawable/view"
+            android:drawablePadding="5dp"
+            android:paddingLeft="17dp"
+            android:gravity="center_vertical"
+            android:text="@string/iv_news_item_read_num"
+            android:textSize="@dimen/news_item_small_font" />
+
         <TextView
             android:id="@+id/comment_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:layout_weight="2"
+            android:layout_weight="1"
+            android:background="@drawable/news_listview_lower_button"
             android:drawableLeft="@drawable/message"
             android:drawablePadding="5dp"
-            android:text="@string/iv_news_item_comment_num"/>
+            android:paddingLeft="15dp"
+            android:gravity="center_vertical"
+            android:text="@string/iv_news_item_comment_num"
+            android:textSize="@dimen/news_item_small_font" />
         <CheckBox
             android:id="@+id/like_button"
             android:button="@null"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.5"
+            android:layout_weight="1"
             android:gravity="center_vertical"
             android:drawablePadding="5dp"
             android:drawableLeft="@drawable/like_btn_selector"
             android:paddingLeft="9dp"
             android:textColor="#ffffff"
             android:background="#dc6263"
-            android:text="@string/iv_news_item_like_num" />
+            android:text="@string/iv_news_item_like_num"
+            android:textSize="@dimen/news_item_small_font" />
     </LinearLayout>
 </RelativeLayout>

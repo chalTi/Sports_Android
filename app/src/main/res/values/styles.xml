@@ -145,4 +145,9 @@
 
 
     </declare-styleable>
+
+    <!-- textview fonts -->
+    <style name="TextAppearance.FontPath" parent="android:TextAppearance">
+        <item name="fontPath">fonts/SquadaOne-Regular.ttf</item>
+    </style>
 </resources>
