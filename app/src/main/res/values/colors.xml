@@ -31,6 +31,11 @@
     <color name="rl_textcolor">#111111</color>
 
     <!-- News -->
-    <color name="news_listview_lower_border">#1E000000</color>
-    <color name="news_listview_lower_background">#F3F3F3</color>
+    <color name="news_listview_lower_border">#C7CAD5</color>
+    <color name="news_listview_lower_background">#F2F4F7</color>
+    <color name="news_background">#E6E9F0</color>
+
+    <!-- calendar -->
+    <color name="calendar_event_list_gray">#C8C8C8</color>
+    <color name="calendar_event_list_unreach">#F2F2F2</color>
 </resources>

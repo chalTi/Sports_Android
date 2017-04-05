@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:pb="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="3dp">
@@ -45,9 +47,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
+                        fontPath="fonts/agency-fb-bold.ttf"
                         android:text="BASKETBALL"
                         android:textColor="@color/colorPrimaryText"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/calendar_event_list_big_font"
                         android:textAllCaps="true"/>
 
                     <TextView
@@ -55,8 +58,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        fontPath="fonts/agency-fb-bold.ttf"
                         android:text="12:30"
-                        android:textColor="@color/colorSecondaryText"
+                        android:textColor="@color/calendar_event_list_gray"
+                        android:textSize="@dimen/calendar_event_list_big_font"
                         android:textAllCaps="true"/>
 
                     <TextView
@@ -64,8 +69,11 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        fontPath="fonts/agency-fb-bold.ttf"
                         android:text="地点"
                         android:textColor="@color/colorPrimaryText"
+                        android:textSize="@dimen/calendar_event_list_small_font"
                         android:textAllCaps="true"/>
                 </LinearLayout>
 
@@ -83,14 +91,13 @@
                         android:layout_below="@id/container"
                         android:layout_gravity="bottom"
                         android:layout_marginBottom="6dp"
-
                         android:layout_weight="1"
                         android:progress="60"
                         pb:gradient="true"
                         pb:reachEndColor="#2CDD73"
                         pb:reachHeight="8dp"
                         pb:reachStartColor="#1F5DF5"
-                        pb:unReachColor="#F2F2F2"
+                        pb:unReachColor="@color/calendar_event_list_unreach"
                         pb:unReachHeight="8dp" />
                 </LinearLayout>
 

@@ -82,26 +82,36 @@
            android:drawablePadding="5dp"
            android:textColor="#ffffff"/>
    </LinearLayout>
+
+
+    <!-- news lower button group -->
     <LinearLayout
+        android:id="@+id/news_items_lower_buttons_layout"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@+id/tv_news_item_layout"
-        android:background="#F3F3F3"
-        android:divider="@drawable/news_listview_lower_button_divider"
-        android:showDividers="middle">
+        android:layout_height="40dp"
+        android:layout_below="@id/tv_news_item_layout"
+        android:background="#F3F3F3" >
 
         <TextView
+            android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/news_listview_lower_button"
             android:drawableLeft="@drawable/view"
             android:drawablePadding="5dp"
-            android:paddingLeft="17dp"
             android:gravity="center_vertical"
+            android:paddingLeft="17dp"
             android:text="@string/iv_news_item_read_num"
             android:textSize="@dimen/news_item_small_font" />
+
+        <FrameLayout
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/news_listview_lower_border">
+
+        </FrameLayout>
 
         <TextView
             android:id="@+id/comment_button"
@@ -120,7 +130,7 @@
             android:button="@null"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="0.8"
             android:gravity="center_vertical"
             android:drawablePadding="5dp"
             android:drawableLeft="@drawable/like_btn_selector"
@@ -129,5 +139,14 @@
             android:background="#dc6263"
             android:text="@string/iv_news_item_like_num"
             android:textSize="@dimen/news_item_small_font" />
+
     </LinearLayout>
+    <!-- margin between two listViews -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/news_listview_margin"
+        android:layout_below="@id/news_items_lower_buttons_layout"
+        android:background="@drawable/news_listview_margin_bg">
+
+    </FrameLayout>
 </RelativeLayout>
