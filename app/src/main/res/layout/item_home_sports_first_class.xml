@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:orientation="vertical">
@@ -12,19 +14,21 @@
         android:src="@drawable/basket" />
 
     <TextView
-        android:background="#b0000000"
         android:id="@+id/sport_type"
+        fontPath="fonts/agency-fb-bold.ttf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:padding="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:shadowColor="#7F000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="3"
         android:text="BASKETBALL"
         android:textColor="@color/white"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="5dp"/>
+        android:textSize="@dimen/home_listview_big_font" />
 
     <TextView
         android:id="@+id/event_total_count"
@@ -32,10 +36,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
         android:background="@drawable/btn_light_green_background"
         android:padding="8dp"
         android:text="9 EVENMENTS"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:textSize="@dimen/home_listview_small_font"
+        fontPath="fonts/agency-fb-bold.ttf" />
 </RelativeLayout>

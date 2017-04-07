@@ -214,4 +214,15 @@
     <string name="iv_news_item_read_num">%d Views</string>
     <string name="iv_news_item_comment_num">%d Replies</string>
     <string name="iv_news_item_like_num">%d Likes</string>
+
+    <!-- Navigator -->
+    <string name="nav_upload_profile">Upload</string>
+    <string name="nav_home_title">Home</string>
+    <string name="nav_calendar_title">Calendar</string>
+    <string name="nav_news_title">News</string>
+    <string name="nav_personinfo_title">My Profile</string>
+    <string name="nav_application_title">Application</string>
+    <string name="nav_setting_title">Settings</string>
+    <string name="nav_account_title">Account</string>
+    <string name="nav_logout_title">Sign out</string>
 </resources>

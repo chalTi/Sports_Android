@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -49,6 +50,9 @@ public class HomeActivity extends BaseActivity implements HomeView {
     //toolbar
     @BindView(R.id.tool_bar)
     protected CommonHeadView mToolbar;
+    //slide menu
+    @BindView(R.id.my_drawer_layout)
+    protected DrawerLayout mDrawerLayout;
     @BindView(R.id.btn_creat_event)
     protected ImageView creatEventBtn;
 
@@ -57,6 +61,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
 
     private HomePresenter mPresenter = new HomePresenter();
     private int userType = 1;
+    private boolean mSlideState = false;
 
     @Override
     protected boolean noTitle() {
@@ -147,7 +152,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
         mToolbar.setCallbck(new CommonHeadView.CALLBACK() {
             @Override
             public void onLeftClick() {
-
+                mDrawerLayout.openDrawer(Gravity.START);
             }
 
             @Override

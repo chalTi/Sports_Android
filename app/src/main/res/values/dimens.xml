@@ -39,4 +39,14 @@
     <!-- calendar event list -->
     <dimen name="calendar_event_list_big_font">20sp</dimen>
     <dimen name="calendar_event_list_small_font">15sp</dimen>
+
+    <!-- home -->
+    <dimen name="home_listview_big_font">35sp</dimen>
+    <dimen name="home_listview_small_font">15sp</dimen>
+    <dimen name="home_drawerlayout_width">250dp</dimen>
+
+    <!-- navigation -->
+    <dimen name="navigation_big_font">18sp</dimen>
+    <dimen name="navigation_middle_font">14sp</dimen>
+    <dimen name="navigation_small_font">13sp</dimen>
 </resources>

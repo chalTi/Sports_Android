@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/ll_left_menu_menu_top"
+    android:background="@color/colorPrimaryDark"
+    android:paddingBottom="20dp">
+
+    <com.wentongwang.mysports.custome.CircleImageView
+        android:id="@+id/iv_left_menu_user_head"
+        android:layout_marginTop="20dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/tv_left_menu_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_left_menu_user_head"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="用户名"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/navigation_big_font" />
+
+    <Button
+        android:id="@+id/btn_left_menu_upload"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/tv_left_menu_user_name"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:background="@drawable/btn_light_red_background"
+        android:gravity="center"
+        android:text="UPLOAD"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/navigation_middle_font" />
+
+</LinearLayout>
