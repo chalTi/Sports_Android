@@ -86,7 +86,7 @@ public class PersonDetailActivity extends BaseActivity implements PersonDetailVi
             }
         });
 
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 myTabLayout.scroll(position, positionOffset);

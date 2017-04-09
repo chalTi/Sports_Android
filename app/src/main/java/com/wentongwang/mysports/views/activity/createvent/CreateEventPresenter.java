@@ -70,4 +70,10 @@ public class CreateEventPresenter extends BasePresenter<CreateEventView> impleme
     public void removeChooseEvent(SportEvents item) {
         sportEventChosen = null;
     }
+
+    public void createSportEvent(){
+        //TODO:这里请求服务器
+
+
+    }
 }

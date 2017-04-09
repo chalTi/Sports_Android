@@ -89,7 +89,7 @@ public class CreateEventActivity extends BaseActivity implements CreateEventView
     @Override
     protected void initEvents() {
 
-        mGridViewContainer.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        mGridViewContainer.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 

@@ -101,7 +101,7 @@ public class ChooseSportsActivity extends BaseActivity implements ChooseSportsVi
 
     @Override
     protected void initEvents() {
-        mGridViewContainer.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        mGridViewContainer.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
