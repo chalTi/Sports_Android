@@ -65,7 +65,7 @@
                             android:layout_centerInParent="true"
                             android:hint="@string/profile_mydescribe"
                             android:textColor="@color/gray"
-                            android:textSize="13dp" />
+                            android:textSize="@dimen/personInfo_small_font" />
                     </LinearLayout>
 
                     <ImageView

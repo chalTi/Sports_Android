@@ -8,6 +8,7 @@ import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Rect;
+import android.graphics.RectF;
 import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
@@ -22,20 +23,21 @@ import com.wentongwang.mysports.utils.DensityUtil;
  */
 public class MyProgressBarHorizontal extends ProgressBar {
 
-    private static final int DEFAUT_COLOR_UNREACH = 0XFFD3D6DA;
+    private static final int DEFAUT_COLOR_UNREACH = 0XFFF2F2F2;
     private static final int DEFAUT_HEIGHT_UNREACH = 2; //DP
-    private static final int DEFAUT_COLOR_REACH = 0XFFFC00D1;
+    private static final int DEFAUT_COLOR_START_REACH = 0XFF1F5DF5;
+    private static final int DEFAUT_COLOR_END_REACH = 0XFF2CDD73;
+    private static final int DEFAUT_COLOR_REACH = 0XFF1F5DF5;
     private static final int DEFAUT_HEIGHT_REACH = 2;
 
+    //渐变颜色的配置
     private int mReachColor = DEFAUT_COLOR_REACH;
+    private int mReachStartColor = DEFAUT_COLOR_START_REACH;
+    private int mReachEndColor = DEFAUT_COLOR_END_REACH;
     private int mReachHeight = DEFAUT_HEIGHT_REACH;
     private int mUnReachColor = DEFAUT_COLOR_UNREACH;
     private int mUnReachHeight = DEFAUT_HEIGHT_UNREACH;
-    //渐变颜色的配置
     private boolean needGradient = true;
-    private int mStartColor = Color.BLUE;
-//    private int mMiddleColor = Color.GREEN;
-    private int mEndColor = Color.GREEN;
 
     private Paint mReachPaint = new Paint();
     private Paint mUnReachPaint = new Paint();
@@ -43,7 +45,7 @@ public class MyProgressBarHorizontal extends ProgressBar {
     private int mRealWidth;
 
     private Context context;
-    private Shader mShader;
+//    private Shader mShader;
 
     public MyProgressBarHorizontal(Context context) {
         this(context, null);
@@ -61,8 +63,9 @@ public class MyProgressBarHorizontal extends ProgressBar {
 
     private void obtainStyleAttrs(AttributeSet attrs) {
         TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.MyProgressBarHorizontal);
-
         mReachColor = ta.getColor(R.styleable.MyProgressBarHorizontal_reachColor, DEFAUT_COLOR_REACH);
+        mReachStartColor = ta.getColor(R.styleable.MyProgressBarHorizontal_reachStartColor, DEFAUT_COLOR_START_REACH);
+        mReachEndColor = ta.getColor(R.styleable.MyProgressBarHorizontal_reachEndColor, DEFAUT_COLOR_END_REACH);
         mUnReachColor = ta.getColor(R.styleable.MyProgressBarHorizontal_unReachColor, DEFAUT_COLOR_UNREACH);
 
         mReachHeight = (int) ta.getDimension(R.styleable.MyProgressBarHorizontal_reachHeight, DensityUtil.dp2px(context, DEFAUT_HEIGHT_REACH));
@@ -78,7 +81,7 @@ public class MyProgressBarHorizontal extends ProgressBar {
         //下一个参数是渐变颜色的分布，如果为空，每个颜色就是均匀分布的。
         // 最后是模式，这里设置的是循环渐变
 //        mShader = new LinearGradient(0, 0, 100, 0, new int[]{mStartColor, mEndColor}, new float[]{0.5f}, Shader.TileMode.REPEAT);
-        mShader = new LinearGradient(0, 0, 200, 0, mStartColor, mEndColor, Shader.TileMode.MIRROR);
+//        mShader = new LinearGradient(0, 0, 200, 0, mStartColor, mEndColor, Shader.TileMode.CLAMP);
     }
 
 
@@ -138,7 +141,7 @@ public class MyProgressBarHorizontal extends ProgressBar {
             mReachPaint.setAntiAlias(true);
 //            mShader = new LinearGradient(0, 0, endX, 0, new int[]{Color.BLUE, Color.GREEN}, null, Shader.TileMode.REPEAT);
             if (needGradient) {
-                mReachPaint.setShader(mShader);
+                mReachPaint.setShader(new LinearGradient(0, 0, endX, 0, mReachStartColor, mReachEndColor, Shader.TileMode.CLAMP));
             } else {
                 mReachPaint.setColor(mReachColor);
             }
@@ -164,13 +167,17 @@ public class MyProgressBarHorizontal extends ProgressBar {
         int r_cycle = getHeight() / 2;
 
         Path path = new Path();
+//        path.moveTo(r_cycle, 0);
+//        path.lineTo(endX - r_cycle, 0);
+//        path.quadTo(endX, r_cycle, endX - r_cycle, getHeight()); //赛贝尔曲线画圆弧
+//        path.lineTo(r_cycle, getHeight());
+//        path.quadTo(0, r_cycle, r_cycle, 0); //赛贝尔曲线画圆弧
+//        path.close();//封闭
         path.moveTo(r_cycle, 0);
-        path.lineTo(endX - r_cycle, 0);
-        path.quadTo(endX, r_cycle, endX - r_cycle, getHeight()); //赛贝尔曲线画圆弧
-        path.lineTo(r_cycle, getHeight());
-        path.quadTo(0, r_cycle, r_cycle, 0); //赛贝尔曲线画圆弧
-        path.close();//封闭
-
+        path.arcTo(new RectF(0, 0, r_cycle*2, getHeight()), -90, -180);
+        path.lineTo(endX - r_cycle, getHeight());
+        path.arcTo(new RectF(endX - r_cycle*2, 0, endX, getHeight()), 90, -180);
+        path.close();
 
         return path;
     }
@@ -181,19 +188,30 @@ public class MyProgressBarHorizontal extends ProgressBar {
 
         Path path = new Path();
         if (endX > 0) {
+//            path.moveTo(endX - r_cycle, 0);
+//            path.quadTo(endX, r_cycle, endX - r_cycle, getHeight()); //赛贝尔曲线画圆弧
+//            path.lineTo(mRealWidth - r_cycle, getHeight());
+//            path.quadTo(mRealWidth, r_cycle, mRealWidth - r_cycle, 0); //赛贝尔曲线画圆弧
+////        path.lineTo(mRealWidth, 0);
+//            path.close();//封闭
             path.moveTo(endX - r_cycle, 0);
-            path.quadTo(endX, r_cycle, endX - r_cycle, getHeight()); //赛贝尔曲线画圆弧
+            path.arcTo(new RectF(endX - r_cycle*2, 0, endX, getHeight()), -90, 180);
             path.lineTo(mRealWidth - r_cycle, getHeight());
-            path.quadTo(mRealWidth, r_cycle, mRealWidth - r_cycle, 0); //赛贝尔曲线画圆弧
-//        path.lineTo(mRealWidth, 0);
-            path.close();//封闭
-        } else {
-            path.moveTo(r_cycle, getHeight());
+            path.arcTo(new RectF(mRealWidth - r_cycle*2, 0, mRealWidth, getHeight()), 90, -180);
+            path.close();
+        }
+        else {
+//            path.moveTo(r_cycle, getHeight());
+//            path.lineTo(mRealWidth - r_cycle, getHeight());
+//            path.quadTo(mRealWidth, r_cycle, mRealWidth - r_cycle, 0); //赛贝尔曲线画圆弧
+//            path.lineTo(r_cycle, 0);
+//            path.quadTo(0, r_cycle, r_cycle, getHeight()); //赛贝尔曲线画圆弧
+//            path.close();//封闭
+            path.moveTo(r_cycle, 0);
+            path.arcTo(new RectF(0, 0, r_cycle*2, getHeight()), -90, -180);
             path.lineTo(mRealWidth - r_cycle, getHeight());
-            path.quadTo(mRealWidth, r_cycle, mRealWidth - r_cycle, 0); //赛贝尔曲线画圆弧
-            path.lineTo(r_cycle, 0);
-            path.quadTo(0, r_cycle, r_cycle, getHeight()); //赛贝尔曲线画圆弧
-            path.close();//封闭
+            path.arcTo(new RectF(mRealWidth - r_cycle*2, 0, mRealWidth, getHeight()), 90, -180);
+            path.close();
         }
 
 

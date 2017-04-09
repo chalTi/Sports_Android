@@ -40,4 +40,23 @@
 
 
 
+    <!-- News ListView -->
+    <string name="news_listview_invite_friends">邀请好友</string>
+    <string name="news_listview_join">我想加入</string>
+    <string name="news_listview_event_time">活动时间</string>
+    <string name="iv_news_item_read_num">%d 浏览</string>
+    <string name="iv_news_item_comment_num">%d 评论</string>
+    <string name="iv_news_item_like_num">%d 赞</string>
+    <string name="nav_account_title">账户</string>
+    <string name="nav_application_title">程序</string>
+    <string name="nav_calendar_title">日历</string>
+    <string name="nav_home_title">主页</string>
+    <string name="nav_logout_title">登出</string>
+    <string name="nav_news_title">新闻</string>
+    <string name="nav_personinfo_title">个人信息</string>
+    <string name="nav_setting_title">设置</string>
+    <string name="nav_upload_profile">上传头像</string>
+    <string name="action_settings">设置</string>
+
+
 </resources>

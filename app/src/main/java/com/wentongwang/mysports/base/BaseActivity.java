@@ -1,5 +1,6 @@
 package com.wentongwang.mysports.base;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
@@ -8,6 +9,7 @@ import android.view.WindowManager;
 import com.wentongwang.mysports.utils.ActivityManager;
 
 import butterknife.ButterKnife;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by Wentong WANG on 2016/8/18.
@@ -26,6 +28,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         initPresenter();
         initDatesAndViews();
         initEvents();
+    }
+    // pass context to Calligraphy
+    @Override
+    protected void attachBaseContext(Context context) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(context));
     }
 
     protected abstract boolean noTitle();

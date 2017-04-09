@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#424458</color>
-    <color name="colorPrimaryDark">#424458</color>
+    <color name="colorPrimaryDark">#363747</color>
     <color name="colorAccent">#607D8B</color>
     <color name="colorPrimaryLight">#CFD8DC</color>
     <color name="colorSecondaryText">#757575</color>
@@ -25,8 +25,24 @@
     <color name="holo_blue_light">#2196F3</color>
     <color name="holo_purple_light">#9C27B0</color>
 
-    <!--按钮栏-白天 -->
+    <!-- PersonInfo -->
     <color name="rl_normal_bg">#FFFFFF</color><!--状态栏的的背景颜色-->
     <color name="rl_highlight_bg">#f2f2f2</color><!--状态栏的的背景颜色-->
     <color name="rl_textcolor">#111111</color>
+
+    <!-- News -->
+    <color name="news_listview_lower_border">#C7CAD5</color>
+    <color name="news_listview_lower_background">#F2F4F7</color>
+    <color name="news_background">#E6E9F0</color>
+
+    <!-- calendar -->
+    <color name="calendar_event_list_gray">#C8C8C8</color>
+    <color name="calendar_event_list_unreach">#F2F2F2</color>
+
+    <!-- home -->
+    <color name="home_listview_button">#22BF63</color>
+
+    <!-- navigation -->
+    <color name="navigation_menulist">@color/black</color>
+    <color name="navigation_gray">#F6F6F6</color>
 </resources>

@@ -215,6 +215,25 @@
     <string name="sports_event_number">%d EVENT</string>
     <string name="invite_you">invite you</string>
 
+    <!-- News ListView -->
+    <string name="news_listview_invite_friends">Invite friends</string>
+    <string name="news_listview_join">I want to join</string>
+    <string name="news_listview_event_time">Event time</string>
+    <string name="iv_news_item_read_num">%d Views</string>
+    <string name="iv_news_item_comment_num">%d Replies</string>
+    <string name="iv_news_item_like_num">%d Likes</string>
+
+    <!-- Navigator -->
+    <string name="nav_upload_profile">Upload</string>
+    <string name="nav_home_title">Home</string>
+    <string name="nav_calendar_title">Calendar</string>
+    <string name="nav_news_title">News</string>
+    <string name="nav_personinfo_title">My Profile</string>
+    <string name="nav_application_title">Application</string>
+    <string name="nav_setting_title">Settings</string>
+    <string name="nav_account_title">Account</string>
+    <string name="nav_logout_title">Sign out</string>
+
     <!-- PersonInfoFragment -->
     <string name="profile_myname">Nick name</string>
     <string name="profile_mydescribe">Description</string>

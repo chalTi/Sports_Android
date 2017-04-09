@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#55ffffff"
-    android:orientation="horizontal">
+    android:layout_height="57dp"
+    android:background="#D8FFFFFF"
+    android:orientation="horizontal"
+    android:elevation="5dp" >
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/active_time_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:gravity="bottom"
             android:text="Active Time"
             android:textColor="@color/colorSecondaryText" />
 
@@ -22,27 +27,30 @@
             android:id="@+id/active_time_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/active_time_title"
             android:layout_centerHorizontal="true"
-            android:drawableLeft="@drawable/event_time"
-            android:drawablePadding="5dp"
+            android:layout_weight="1"
+            android:gravity="top"
             android:text="4h30min"
             android:textColor="@color/colorPrimaryText" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/active_burn_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/colorSecondaryText"
-            android:text="Active Burn" />
+            android:gravity="bottom"
+            android:layout_weight="1"
+            android:text="Active Burn"
+            android:textColor="@color/colorSecondaryText" />
 
         <TextView
             android:id="@+id/active_burn_number"
@@ -50,22 +58,28 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/active_burn_title"
             android:layout_centerHorizontal="true"
+            android:gravity="top"
+            android:layout_weight="1"
             android:text="2555 cal"
             android:textColor="@color/colorPrimaryText" />
-    </RelativeLayout>
+    </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/sports_done_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/colorSecondaryText"
-            android:text="Sports Done" />
+            android:gravity="bottom"
+            android:layout_weight="1"
+            android:text="Sports Done"
+            android:textColor="@color/colorSecondaryText" />
 
         <TextView
             android:id="@+id/sports_done_number"
@@ -73,8 +87,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/sports_done_title"
             android:layout_centerHorizontal="true"
+            android:gravity="top"
+            android:layout_weight="1"
             android:text="3"
             android:textColor="@color/colorPrimaryText" />
-    </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>

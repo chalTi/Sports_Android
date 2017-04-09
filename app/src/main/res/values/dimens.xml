@@ -55,6 +55,31 @@
 
     <!-- homepage -->
     <dimen name="home_switch_button_paddingTop">15dp</dimen>
+
+    <!-- personInfo -->
+    <dimen name="personInfo_bottombar_height">45dp</dimen>
+    <dimen name="personInfo_big_font">16sp</dimen><!--字体大小:16big,15middle,13small-->
+    <dimen name="personInfo_middle_font">15sp</dimen>
+    <dimen name="personInfo_small_font">13sp</dimen>
+
+    <!-- news -->
+    <dimen name="news_item_big_font">20sp</dimen>
+    <dimen name="news_item_small_font">13sp</dimen>
+    <dimen name="news_listview_margin">10dp</dimen>
+
+    <!-- calendar event list -->
+    <dimen name="calendar_event_list_big_font">20sp</dimen>
+    <dimen name="calendar_event_list_small_font">15sp</dimen>
+
+    <!-- home -->
+    <dimen name="home_listview_big_font">35sp</dimen>
+    <dimen name="home_listview_small_font">15sp</dimen>
+    <dimen name="home_drawerlayout_width">250dp</dimen>
+
+    <!-- navigation -->
+    <dimen name="navigation_big_font">18sp</dimen>
+    <dimen name="navigation_middle_font">14sp</dimen>
+    <dimen name="navigation_small_font">13sp</dimen>
     <dimen name="toolbar_height">50dp</dimen>
 
     <dimen name="small_margin">10dp</dimen>
