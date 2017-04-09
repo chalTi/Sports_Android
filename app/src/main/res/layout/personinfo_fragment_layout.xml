@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/personInfo_bottombar_height"
+            android:layout_marginBottom="@dimen/bottom_bar_height"
             android:layout_weight="1">
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -25,7 +25,7 @@
                 android:orientation="vertical">
 
                 <RelativeLayout
-                    android:id="@+id/myprofile_layout"
+                    android:id="@+id/my_profile_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
@@ -35,7 +35,7 @@
                     android:paddingTop="10dp">
 
                     <ImageView
-                        android:id="@+id/profile_myimg"
+                        android:id="@+id/profile_user_head"
                         android:layout_width="65dp"
                         android:layout_height="65dp"
                         android:layout_marginLeft="10dp"
@@ -49,17 +49,17 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/profile_myname"
+                            android:id="@+id/profile_user_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:layout_marginBottom="10dp"
                             android:hint="@string/profile_myname"
                             android:textColor="@color/rl_textcolor"
-                            android:textSize="@dimen/personInfo_big_font" />
+                            android:textSize="@dimen/home_original_item_font" />
 
                         <TextView
-                            android:id="@+id/profile_mydescribe"
+                            android:id="@+id/profile_user_describe"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
@@ -69,7 +69,7 @@
                     </LinearLayout>
 
                     <ImageView
-                        android:id="@+id/gotopersondetail"
+                        android:id="@+id/go_to_person_detail"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_alignParentRight="true"

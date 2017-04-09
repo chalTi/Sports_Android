@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.model.module.SportEvents;
 import com.wentongwang.mysports.utils.Logger;
+import com.wentongwang.mysports.views.viewholder.SportTypeViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,37 +75,22 @@ public class EventsGridViewAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder = null;
+        SportTypeViewHolder holder;
         if (convertView == null) {
 
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.events_gridview_items, null);
-            holder = new ViewHolder(convertView);
+            holder = new SportTypeViewHolder(convertView);
 
 
             convertView.setTag(holder);
         } else {
-            holder = (ViewHolder) convertView.getTag();
+            holder = (SportTypeViewHolder) convertView.getTag();
         }
         SportEvents event = items.get(position);
-        Bitmap bitmap = BitmapFactory.decodeResource(parent.getContext().getResources(), event.getEventImage());
-        holder.event_icon.setImageBitmap(bitmap);
+        holder.setItem(event);
 
-        if (event.isSelected()) {
-            holder.selected.setVisibility(View.VISIBLE);
-        } else {
-            holder.selected.setVisibility(View.INVISIBLE);
-        }
         return convertView;
     }
 
-    private class ViewHolder {
-        ImageView event_icon;
-        ImageView selected;
-
-        public ViewHolder(View view) {
-            event_icon = (ImageView) view.findViewById(R.id.event_icon);
-            selected = (ImageView) view.findViewById(R.id.iv_selected);
-        }
-    }
 }
 

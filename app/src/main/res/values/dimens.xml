@@ -3,7 +3,38 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="toolbar_height">50dp</dimen>
+    <dimen name="sports_item_space">8dp</dimen>
+
+    <!--微博顶部TitleBar的各项字体大小-->
+    <dimen name="person_title_profile_pic">38dp</dimen><!--头像大小（长宽相等）-->
+    <dimen name="person_title_profile_name">14sp</dimen><!--发微博用户-->
+    <dimen name="person_title_profile_time">12sp</dimen><!--微博时间-->
+
+
+    <dimen name="home_menu_title">18sp</dimen><!--发微博用户-->
+    <dimen name="home_menu_sub_title">16sp</dimen><!--微博时间-->
+
+    <!--顶部标题栏的高度-->
+    <dimen name="top_bar_height">45dp</dimen>
+
+    <!--底部导航栏的高度-->
+    <dimen name="bottom_bar_height">45dp</dimen>
+
+    <!--微博顶部BottomBar的各项字体大小-->
+    <dimen name="bottom_bar_font">12sp</dimen><!--底部Bar的字体大小-->
+
+    <!--原创内容的字体大小-->
+    <dimen name="home_original_item_font">16sp</dimen><!--微博内容中字体大小:16中号,15小号-->
+    <dimen name="home_original_line_space">3dp</dimen><!--微博内容中行距大小-->
+
+    <!--转发内容的字体大小-->
+    <dimen name="home_retweet_font">15sp</dimen><!--转发内容中的字体大小：15中号，14小号-->
+
+    <!--发微博的内容字体大小-->
+    <dimen name="post_content_font">15sp</dimen><!--发微博的内容字体大小：15中号，14小号-->
+
+    <!--微博内容中字体大小-->
+    <dimen name="detail_bottom_bar_font">14sp</dimen>
 
     <dimen name="dp_066">0.66dp</dimen>
     <dimen name="dp_4">4dp</dimen>
@@ -49,4 +80,7 @@
     <dimen name="navigation_big_font">18sp</dimen>
     <dimen name="navigation_middle_font">14sp</dimen>
     <dimen name="navigation_small_font">13sp</dimen>
+    <dimen name="toolbar_height">50dp</dimen>
+
+    <dimen name="small_margin">10dp</dimen>
 </resources>

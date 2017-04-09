@@ -1,15 +1,13 @@
 package com.wentongwang.mysports.views.activity.choosesports;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.model.module.SportEvents;
+import com.wentongwang.mysports.views.viewholder.SportTypeViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,31 +73,30 @@ public class SportsGridViewAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        ViewHolder holder = null;
+        SportTypeViewHolder holder;
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.events_gridview_items, null);
-            holder = new ViewHolder(convertView);
+            holder = new SportTypeViewHolder(convertView);
             convertView.setTag(holder);
         } else {
-            holder = (ViewHolder) convertView.getTag();
+            holder = (SportTypeViewHolder) convertView.getTag();
         }
 
-        final ViewHolder finalHolder = holder;
         final SportEvents event = items.get(position);
-        Bitmap bitmap = BitmapFactory.decodeResource(parent.getContext().getResources(), event.getEventImage());
-        holder.event_icon.setImageBitmap(bitmap);
-        holder.event_icon.setOnClickListener(new View.OnClickListener() {
+        holder.setItem(event);
+        final SportTypeViewHolder finalHolder = holder;
+        holder.setOnIconSelectListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (event.isSelected()) {
+                if (finalHolder.isEventSelected()) {
                     //设为不选定
-                    finalHolder.selected.setVisibility(View.INVISIBLE);
+                    finalHolder.setSelectedIconVisibility(false);
                     items.get(position).setIsSelected(false);
                     //从已选择的运动中剔除
                     handler.removeChooseEvent(event);
                 } else {
                     //设为选定
-                    finalHolder.selected.setVisibility(View.VISIBLE);
+                    finalHolder.setSelectedIconVisibility(true);
                     items.get(position).setIsSelected(true);
                     //加入到已选择运动中
                     handler.addChooseEvent(event);
@@ -107,23 +104,7 @@ public class SportsGridViewAdapter extends BaseAdapter {
             }
         });
 
-
-        if (event.isSelected()) {
-            holder.selected.setVisibility(View.VISIBLE);
-        } else {
-            holder.selected.setVisibility(View.INVISIBLE);
-        }
-
         return convertView;
     }
 
-    private class ViewHolder {
-        ImageView event_icon;
-        ImageView selected;
-
-        public ViewHolder(View view) {
-            event_icon = (ImageView) view.findViewById(R.id.event_icon);
-            selected = (ImageView) view.findViewById(R.id.iv_selected);
-        }
-    }
 }
