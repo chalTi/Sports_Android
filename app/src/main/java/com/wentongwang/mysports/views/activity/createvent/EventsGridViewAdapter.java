@@ -1,16 +1,13 @@
 package com.wentongwang.mysports.views.activity.createvent;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.model.module.SportEvents;
-import com.wentongwang.mysports.utils.Logger;
+import com.wentongwang.mysports.views.activity.choosesports.PresenterHandler;
 import com.wentongwang.mysports.views.viewholder.SportTypeViewHolder;
 
 import java.util.ArrayList;
@@ -34,11 +31,7 @@ public class EventsGridViewAdapter extends BaseAdapter {
      */
     private int pageItemCount;
 
-    /**
-     * @param index
-     * @param pageItemCount
-     * @param sportEvents
-     */
+    private PresenterHandler handler;
 
     public EventsGridViewAdapter(int index, int pageItemCount, List<SportEvents> sportEvents) {
         this.index = index;
@@ -53,9 +46,12 @@ public class EventsGridViewAdapter extends BaseAdapter {
         }
 
         for (int i = list_index; i < lastItem; i++) {
-            Logger.i("gv", "item name " + sportEvents.get(i).getEventName());
             items.add(sportEvents.get(i));
         }
+    }
+
+    public void setSelectedSportTypeHandler(PresenterHandler handler){
+        this.handler = handler;
     }
 
     @Override
@@ -74,20 +70,36 @@ public class EventsGridViewAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        SportTypeViewHolder holder;
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        final SportTypeViewHolder holder;
         if (convertView == null) {
 
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.events_gridview_items, null);
             holder = new SportTypeViewHolder(convertView);
 
-
             convertView.setTag(holder);
         } else {
             holder = (SportTypeViewHolder) convertView.getTag();
         }
-        SportEvents event = items.get(position);
+        final SportEvents event = items.get(position);
         holder.setItem(event);
+        holder.setOnIconSelectListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (event.isSelected()) {
+                    //if is selected, remove selected icon
+                    holder.setSelectedIconVisibility(false);
+                    event.setIsSelected(false);
+                    items.set(position, event);
+                    handler.removeChooseEvent(event);
+                } else {
+                    holder.setSelectedIconVisibility(true);
+                    event.setIsSelected(true);
+                    items.set(position, event);
+                    handler.addChooseEvent(event);
+                }
+            }
+        });
 
         return convertView;
     }

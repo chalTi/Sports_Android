@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#607D8B"
+    android:background="@color/colorAccent"
     android:paddingTop="50dp">
 
     <ScrollView
@@ -28,6 +28,13 @@
                 android:layout_below="@id/title">
 
                 <EditText
+                    android:id="@+id/event_location"
+                    style="@style/creat_event_edittext_style"
+                    android:drawableLeft="@drawable/event_lieu"
+                    android:drawablePadding="5dp"
+                    android:hint="Enter the location" />
+
+                <EditText
                     android:id="@+id/event_name"
                     style="@style/creat_event_edittext_style"
                     android:drawableLeft="@drawable/event_name"
@@ -40,13 +47,6 @@
                     android:drawableLeft="@drawable/event_time"
                     android:drawablePadding="5dp"
                     android:hint="2016-05-31" />
-
-                <EditText
-                    android:id="@+id/event_location"
-                    style="@style/creat_event_edittext_style"
-                    android:drawableLeft="@drawable/event_lieu"
-                    android:drawablePadding="5dp"
-                    android:hint="Enter the location" />
 
                 <EditText
                     android:id="@+id/event_person_number"

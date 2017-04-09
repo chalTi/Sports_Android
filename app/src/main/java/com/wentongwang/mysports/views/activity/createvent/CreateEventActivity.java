@@ -10,11 +10,13 @@ import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.custome.PointsLayout;
 import com.wentongwang.mysports.model.module.SportEvents;
 import com.wentongwang.mysports.base.BaseActivity;
+import com.wentongwang.mysports.views.activity.choosesports.SportsGridViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * creat event layout
@@ -23,21 +25,21 @@ import butterknife.BindView;
  */
 public class CreateEventActivity extends BaseActivity implements CreateEventView {
 
-
     @BindView(R.id.ll_point_container)
     protected PointsLayout mPointContainer;
     @BindView(R.id.event_type_container)
     protected ViewPager mGridViewContainer;
 
-    private List<SportEvents> sportEvents;
     //save each gridview
     private List<View> listGViews;
+    private EventsViewPagerAdapter adapter;
+    private EventsGridViewAdapter gridViewAdapter;
+
     //amount of item in one page
     private int pageItemCount = 9;
     //grideview's page size
     private int gvPageSize = 1;
     private int gvColumns = 3;
-    private int totalEvents = 0;
 
     private CreateEventPresenter mPresenter = new CreateEventPresenter();
 
@@ -61,39 +63,19 @@ public class CreateEventActivity extends BaseActivity implements CreateEventView
     protected void initDatesAndViews() {
         listGViews = new ArrayList<>();
 
-        initSportEvents();
-        initGirdViewsAndPoints();
-        mGridViewContainer.setAdapter(new EventsViewPagerAdapter(listGViews));
+        mPresenter.initSportEvents();
+
+        adapter = new EventsViewPagerAdapter(listGViews);
+        mGridViewContainer.setAdapter(adapter);
 
     }
 
-    /**
-     * 初始化运动events
-     */
-    private void initSportEvents() {
-        sportEvents = new ArrayList<>();
-        //Event从服务器获取比较好一点
-        sportEvents.add(new SportEvents(R.drawable.basketball, "basketball"));
-        sportEvents.add(new SportEvents(R.drawable.soccerball, "soccerball"));
-        sportEvents.add(new SportEvents(R.drawable.football, "football"));
-        sportEvents.add(new SportEvents(R.drawable.volleyball, "volleyball"));
-        sportEvents.add(new SportEvents(R.drawable.badminton, "badminton"));
-        sportEvents.add(new SportEvents(R.drawable.pingpang, "pingpang"));
-        sportEvents.add(new SportEvents(R.drawable.tennis, "tennis"));
-        sportEvents.add(new SportEvents(R.drawable.bicycle, "bicycle"));
-        sportEvents.add(new SportEvents(R.drawable.running, "running"));
-
-        sportEvents.add(new SportEvents(R.drawable.swimming, "swimming"));
-        sportEvents.add(new SportEvents(R.drawable.exercise, "exercise"));
-        sportEvents.add(new SportEvents(R.drawable.boxing, "boxing"));
-
-        totalEvents = sportEvents.size();
-    }
 
     /**
      * 初始化gridview底部的小圆点 and listGirdView
      */
-    private void initGirdViewsAndPoints() {
+    public void initGirdViewsAndPoints() {
+        int totalEvents = mPresenter.getTotalEvents();
         if (totalEvents > 0) {
             gvPageSize = totalEvents / pageItemCount + 1;
             mPointContainer.initPoints(gvPageSize);
@@ -102,7 +84,6 @@ public class CreateEventActivity extends BaseActivity implements CreateEventView
                 listGViews.add(getViewPagerItem(i));
             }
         }
-
     }
 
     @Override
@@ -140,9 +121,10 @@ public class CreateEventActivity extends BaseActivity implements CreateEventView
 
         gridView.setNumColumns(gvColumns);
 
-        EventsGridViewAdapter adapter = new EventsGridViewAdapter(index, pageItemCount,sportEvents);
+        gridViewAdapter = new EventsGridViewAdapter(index, pageItemCount, mPresenter.getSportEvents());
+        gridViewAdapter.setSelectedSportTypeHandler(mPresenter);
 
-        gridView.setAdapter(adapter);
+        gridView.setAdapter(gridViewAdapter);
 
         return gridView;
     }
@@ -158,6 +140,12 @@ public class CreateEventActivity extends BaseActivity implements CreateEventView
 
     }
 
+    @OnClick(R.id.event_confirm_btn)
+    public void createSportEvent(){
+
+
+        finish();
+    }
 
 }
 

@@ -7,4 +7,6 @@ import com.wentongwang.mysports.base.BaseView;
  */
 public interface CreateEventView extends BaseView {
 
+    void initGirdViewsAndPoints();
+
 }
