@@ -30,7 +30,7 @@
             android:layout_marginLeft="55dp"
             android:text="@string/new_friend_request"
             android:textColor="@color/rl_textcolor"
-            android:textSize="@dimen/home_original_weiboitem_font" />
+            android:textSize="@dimen/home_original_item_font" />
 
         <ImageView
             android:layout_width="20dp"

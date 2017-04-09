@@ -215,10 +215,6 @@
     <string name="sports_event_number">%d EVENT</string>
     <string name="invite_you">invite you</string>
 
-    <!-- PersonInfoFragment -->
-    <string name="profile_myname">My name</string>
-    <string name="profile_mydescribe">Description</string>
-
     <!-- News ListView -->
     <string name="news_listview_invite_friends">Invite friends</string>
     <string name="news_listview_join">I want to join</string>
