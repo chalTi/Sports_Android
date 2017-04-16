@@ -19,4 +19,7 @@ public class IntentConstants {
 
     //NewsCommentActivity
     public static final String EXTRA_NEWS_ITEM = "EXTRA_NEWS_ITEM";
+
+    //CreateEventActivity
+    public static final int CREATE_EVENT_SUCCESSED = 0;
 }

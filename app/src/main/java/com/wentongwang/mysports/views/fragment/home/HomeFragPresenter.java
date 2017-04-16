@@ -12,7 +12,6 @@ import com.wentongwang.mysports.model.module.SportsSecondClass;
 import com.wentongwang.mysports.utils.ToastUtil;
 import com.wentongwang.mysports.utils.VolleyUtil;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -89,7 +88,7 @@ public class HomeFragPresenter {
 
         String url = HOST + GET_EVENT_PATH;
         mView.showProgressBar();
-        RxVolleyRequest.getInstance().getRequestObservable(mContext, Request.Method.POST, url, params)
+        RxVolleyRequest.getInstance().resourceRequestObservable(mContext, Request.Method.POST, url, params)
                 .subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
                 .observeOn(AndroidSchedulers.mainThread())// 指定 Subscriber 的回调发生在主线程
                 .subscribe(new Observer<String>() {

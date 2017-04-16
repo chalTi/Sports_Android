@@ -206,6 +206,9 @@
     <string name="user_name_empty_alert">user name is empty</string>
     <string name="user_password_empty_alert">password is empty</string>
 
+    <!--CreateEventActivity-->
+    <string name="create_event_failed">Create event failed!</string>
+
 
     <!--NewsCommentActivity-->
     <string name="comment">comments</string>

@@ -14,14 +14,13 @@ public class Constant {
     public static final String LOGIN_PATH = "/user/login";
     public static final String SIGN_UP_PATH = "/user/register";
     public static final String GET_NEWS_PATH = "/articles/getarticles";
-    public static final String GET_AGENDA_PATH="/agenda/getagenda";
-    public static final String GET_EVENT_PATH="/home/gethomesportevent";
-
+    public static final String GET_AGENDA_PATH = "/agenda/getagenda";
+    public static final String GET_EVENT_PATH = "/home/gethomesportevent";
+    public static final String CREATE_EVENT_PATH = "/sport/events/create";
 
     //*********************** SharedPreference *******************************//
     public static final String USER_NAME = "USER_NAME";
     public static final String USER_PASSWORD = "USER_PASSWORD";
 
 
-    //*********************** Intent Extra *******************************//
 }

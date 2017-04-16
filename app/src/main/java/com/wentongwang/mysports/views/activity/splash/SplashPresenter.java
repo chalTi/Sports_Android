@@ -42,7 +42,7 @@ public class SplashPresenter extends BasePresenter<SplashView>{
 
         view.showProgressBar();
 
-        RxVolleyRequest.getInstance().getRequestObservable(mContext, Request.Method.POST, url, params)
+        RxVolleyRequest.getInstance().resourceRequestObservable(mContext, Request.Method.POST, url, params)
                 .subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
                 .observeOn(AndroidSchedulers.mainThread())// 指定 Subscriber 的回调发生在主线程
                 .subscribe(new Observer<String>() {

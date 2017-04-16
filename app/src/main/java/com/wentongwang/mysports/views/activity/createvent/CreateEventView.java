@@ -9,4 +9,15 @@ public interface CreateEventView extends BaseView {
 
     void initGirdViewsAndPoints();
 
+    String getLocalisation();
+
+    String getEventName();
+
+    String getStartTime();
+
+    int getParticipatorNumber();
+
+    String getDescription();
+
+    void createFinished();
 }

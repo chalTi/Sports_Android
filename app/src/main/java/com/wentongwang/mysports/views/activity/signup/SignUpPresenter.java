@@ -3,7 +3,6 @@ package com.wentongwang.mysports.views.activity.signup;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.PopupWindow;
 
@@ -20,7 +19,6 @@ import com.wentongwang.mysports.utils.SharedPreferenceUtil;
 import com.wentongwang.mysports.utils.ToastUtil;
 import com.wentongwang.mysports.utils.VolleyUtil;
 
-import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -189,7 +187,7 @@ public class SignUpPresenter extends BasePresenter<SignUpView>{
 
 
         view.showProgressBar();
-        RxVolleyRequest.getInstance().getRequestObservable(mContext, Request.Method.POST,url,params)
+        RxVolleyRequest.getInstance().resourceRequestObservable(mContext, Request.Method.POST,url,params)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())// 指定 Subscriber 的回调发生在主线程
                 .subscribe(new Observer<String>() {

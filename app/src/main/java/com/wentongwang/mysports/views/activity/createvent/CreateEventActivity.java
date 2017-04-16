@@ -1,12 +1,15 @@
 package com.wentongwang.mysports.views.activity.createvent;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.GridView;
 
 import com.wentongwang.mysports.R;
+import com.wentongwang.mysports.constant.IntentConstants;
 import com.wentongwang.mysports.custome.PointsLayout;
 import com.wentongwang.mysports.model.module.SportEvents;
 import com.wentongwang.mysports.base.BaseActivity;
@@ -29,6 +32,21 @@ public class CreateEventActivity extends BaseActivity implements CreateEventView
     protected PointsLayout mPointContainer;
     @BindView(R.id.event_type_container)
     protected ViewPager mGridViewContainer;
+
+    @BindView(R.id.event_location)
+    protected EditText localisation;
+
+    @BindView(R.id.event_person_number)
+    protected EditText participatorNumber;
+
+    @BindView(R.id.event_name)
+    protected EditText eventName;
+
+    @BindView(R.id.event_time)
+    protected EditText startTime;
+
+    @BindView(R.id.event_description)
+    protected EditText description;
 
     //save each gridview
     private List<View> listGViews;
@@ -140,11 +158,44 @@ public class CreateEventActivity extends BaseActivity implements CreateEventView
 
     }
 
+    @Override
+    public String getLocalisation() {
+        return localisation.getText().toString();
+    }
+
+    @Override
+    public String getEventName() {
+        return eventName.getText().toString();
+    }
+
+    @Override
+    public String getStartTime() {
+        return startTime.getText().toString();
+    }
+
+    @Override
+    public int getParticipatorNumber() {
+        if (participatorNumber.getText().toString().isEmpty()){
+            return 0;
+        }
+        return Integer.valueOf(participatorNumber.getText().toString());
+    }
+
+    @Override
+    public String getDescription() {
+        return description.getText().toString();
+    }
+
+    @Override
+    public void createFinished() {
+        setResult(IntentConstants.CREATE_EVENT_SUCCESSED);
+        finish();
+    }
+
+
     @OnClick(R.id.event_confirm_btn)
     public void createSportEvent(){
-
-
-        finish();
+        mPresenter.createSportEvent();
     }
 
 }

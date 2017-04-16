@@ -52,6 +52,7 @@
                     android:id="@+id/event_person_number"
                     style="@style/creat_event_edittext_style"
                     android:drawableLeft="@drawable/event_persons"
+                    android:inputType="number"
                     android:drawablePadding="5dp"
                     android:hint="Number of person" />
             </LinearLayout>

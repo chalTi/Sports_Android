@@ -1,7 +1,6 @@
 package com.wentongwang.mysports.views.fragment.news;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.android.volley.Request;
 import com.wentongwang.mysports.constant.Constant;
@@ -9,8 +8,6 @@ import com.wentongwang.mysports.model.bussiness.RxVolleyRequest;
 import com.wentongwang.mysports.model.bussiness.VollyRequestManager;
 import com.wentongwang.mysports.model.bussiness.VolleyResponse;
 import com.wentongwang.mysports.model.module.NewsInfo;
-import com.wentongwang.mysports.model.module.SportsFirstClass;
-import com.wentongwang.mysports.model.module.SportsSecondClass;
 import com.wentongwang.mysports.utils.ToastUtil;
 import com.wentongwang.mysports.utils.VolleyUtil;
 
@@ -87,7 +84,7 @@ public class NewsPresenter {
         params.put("page_size", "15");
         params.put("current_page", "5");
         mView.showProgressBar();
-        RxVolleyRequest.getInstance().getRequestObservable(mContext, Request.Method.POST, url, params)
+        RxVolleyRequest.getInstance().resourceRequestObservable(mContext, Request.Method.POST, url, params)
                 .subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
                 .observeOn(AndroidSchedulers.mainThread())// 指定 Subscriber 的回调发生在主线程
                 .subscribe(new Observer<String>() {

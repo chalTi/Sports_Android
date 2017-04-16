@@ -1,14 +1,27 @@
 package com.wentongwang.mysports.views.activity.createvent;
 
 import android.content.Context;
+import android.util.Log;
 
+import com.android.volley.Request;
+import com.google.gson.Gson;
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.base.BasePresenter;
+import com.wentongwang.mysports.constant.Constant;
+import com.wentongwang.mysports.model.bussiness.RxVolleyRequest;
+import com.wentongwang.mysports.model.module.CreateSportEvent;
 import com.wentongwang.mysports.model.module.SportEvents;
+import com.wentongwang.mysports.utils.ToastUtil;
 import com.wentongwang.mysports.views.activity.choosesports.PresenterHandler;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import rx.Observer;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by Wentong WANG on 2016/9/15.
@@ -64,6 +77,7 @@ public class CreateEventPresenter extends BasePresenter<CreateEventView> impleme
     @Override
     public void addChooseEvent(SportEvents item) {
         sportEventChosen = item;
+        Log.d("xxxx",sportEventChosen.toString());
     }
 
     @Override
@@ -73,7 +87,60 @@ public class CreateEventPresenter extends BasePresenter<CreateEventView> impleme
 
     public void createSportEvent(){
         //TODO:这里请求服务器
+        CreateSportEvent createSportEvent = new CreateSportEvent();
 
+        if (view.getEventName() != null) {
+            createSportEvent.setEventSport(view.getEventName());
+        }else {
+            return;
+        }
+        if (view.getStartTime() != null) {
+            createSportEvent.setEventStartTime(view.getStartTime());
+        }else {
+            return;
+        }
+        if (view.getLocalisation() != null) {
+            createSportEvent.setEventLocation(view.getLocalisation());
+        }else {
+            return;
+        }
+
+        if (sportEventChosen != null) {
+            createSportEvent.setEventSportType(sportEventChosen.getEventCode());
+        }else {
+            return;
+        }
+        createSportEvent.setEventParticiperNumber(view.getParticipatorNumber());
+        createSportEvent.setEventDescription(view.getDescription());
+
+        String eventJson = new Gson().toJson(createSportEvent);
+        Map<String, String> params = new HashMap<>();
+        params.put("user_id", "1");
+        params.put("eventJson", eventJson);
+
+//        String url = Constant.HOST + Constant.CREATE_EVENT_PATH;
+        String url = "http://192.168.1.17:8080/sports/" + Constant.CREATE_EVENT_PATH;
+        view.showProgressBar();
+        RxVolleyRequest.getInstance().operationRequestObservable(mContext, Request.Method.POST, url, params)
+                .subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
+                .observeOn(AndroidSchedulers.mainThread())// 指定 Subscriber 的回调发生在主线程
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onCompleted() {
+                        view.hideProgressBar();
+                        view.createFinished();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        view.hideProgressBar();
+                    }
+
+                    @Override
+                    public void onNext(String volleyResponse) {
+
+                    }
+                });
 
     }
 }

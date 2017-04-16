@@ -88,16 +88,15 @@ public class EventsGridViewAdapter extends BaseAdapter {
             public void onClick(View v) {
                 if (event.isSelected()) {
                     //if is selected, remove selected icon
-                    holder.setSelectedIconVisibility(false);
                     event.setIsSelected(false);
                     items.set(position, event);
                     handler.removeChooseEvent(event);
                 } else {
-                    holder.setSelectedIconVisibility(true);
                     event.setIsSelected(true);
                     items.set(position, event);
                     handler.addChooseEvent(event);
                 }
+                notifyDataSetChanged();
             }
         });
 

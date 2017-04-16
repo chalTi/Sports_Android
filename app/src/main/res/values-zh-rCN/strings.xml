@@ -20,6 +20,8 @@
     <string name="user_name_empty_alert">用户名不能为空</string>
     <string name="user_password_empty_alert">密码不能为空</string>
 
+    <!--CreateEventActivity-->
+    <string name="create_event_failed">创建活动失败</string>
 
     <!--NewsCommentActivity-->
     <string name="comment">评论</string>
