@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by Wentong WANG on 2016/10/14.
@@ -43,7 +42,7 @@ public class ChooseSportsActivity extends BaseActivity implements ChooseSportsVi
     private int gvColumns = 3;
 
     private SportsViewPagerAdapter adapter;
-    private SportsGridViewAdapter gridViewAdapter;
+    private EventsMultiChoiceGridViewAdapter gridViewAdapter;
     private SportsChosenAdapter sportsChooseAdapter;
 
     private ChooseSportsPresenter mPresenter = new ChooseSportsPresenter();
@@ -141,7 +140,7 @@ public class ChooseSportsActivity extends BaseActivity implements ChooseSportsVi
 
         gridView.setNumColumns(gvColumns);
 
-        gridViewAdapter = new SportsGridViewAdapter(this, mPresenter.getSportEvents(), index, pageItemCount);
+        gridViewAdapter = new EventsMultiChoiceGridViewAdapter(this, mPresenter.getSportEvents(), index, pageItemCount);
         gridViewAdapter.setPresenterHandler(mPresenter);
 
         gridView.setAdapter(gridViewAdapter);
