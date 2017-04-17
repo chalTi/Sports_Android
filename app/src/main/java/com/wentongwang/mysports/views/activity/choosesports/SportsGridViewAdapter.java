@@ -1,5 +1,6 @@
 package com.wentongwang.mysports.views.activity.choosesports;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,7 @@ import android.widget.BaseAdapter;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.model.module.SportEvents;
+import com.wentongwang.mysports.views.adapters.AbstractSportTypesGridViewAdapter;
 import com.wentongwang.mysports.views.viewholder.SportTypeViewHolder;
 
 import java.util.ArrayList;
@@ -15,67 +17,29 @@ import java.util.List;
 /**
  * Created by Wentong WANG on 2017/1/20.
  */
-public class SportsGridViewAdapter extends BaseAdapter {
-    private List<SportEvents> items;
+public class SportsGridViewAdapter extends AbstractSportTypesGridViewAdapter {
+
+    private PresenterHandler handler;
 
     /**
-     * ViewPager页码
-     */
-    private int index;
-    /**
-     * 根据屏幕大小计算得到的每页item个数
-     */
-    private int pageItemCount;
-
-    /**
-     * 构造函数
-     *
+     * @param context       上下文
+     * @param list
      * @param index         页码
      * @param pageItemCount 每页个数
      */
-    public SportsGridViewAdapter(int index, int pageItemCount, List<SportEvents> sportEvents) {
-        this.index = index;
-        this.pageItemCount = pageItemCount;
-        int totalEvents = sportEvents.size();
-        items = new ArrayList<>();
-
-        //get pageitemcount items
-        int list_index = index * pageItemCount;
-        int lastItem = list_index + pageItemCount;
-        if (lastItem > totalEvents) {
-            lastItem = totalEvents;
-        }
-        for (int i = list_index; i < lastItem; i++) {
-            items.add(sportEvents.get(i));
-        }
+    public SportsGridViewAdapter(Context context, List<?> list, int index, int pageItemCount) {
+        super(context, list, index, pageItemCount);
     }
-
-    private PresenterHandler handler;
 
     public void setPresenterHandler(PresenterHandler handler){
         this.handler = handler;
     }
 
     @Override
-    public int getCount() {
-        return items.size();
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return items.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         SportTypeViewHolder holder;
         if (convertView == null) {
-            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.events_gridview_items, null);
+            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_sport_type, null);
             holder = new SportTypeViewHolder(convertView);
             convertView.setTag(holder);
         } else {
@@ -105,6 +69,11 @@ public class SportsGridViewAdapter extends BaseAdapter {
         });
 
         return convertView;
+    }
+
+    @Override
+    protected void onSportTypeSelectSelect(int position, SportEvents sportEvents) {
+
     }
 
 }

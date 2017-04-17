@@ -77,7 +77,6 @@ public class CreateEventPresenter extends BasePresenter<CreateEventView> impleme
     @Override
     public void addChooseEvent(SportEvents item) {
         sportEventChosen = item;
-        Log.d("xxxx",sportEventChosen.toString());
     }
 
     @Override
@@ -118,8 +117,8 @@ public class CreateEventPresenter extends BasePresenter<CreateEventView> impleme
         params.put("user_id", "1");
         params.put("eventJson", eventJson);
 
-//        String url = Constant.HOST + Constant.CREATE_EVENT_PATH;
-        String url = "http://192.168.1.17:8080/sports/" + Constant.CREATE_EVENT_PATH;
+        String url = Constant.HOST + Constant.CREATE_EVENT_PATH;
+
         view.showProgressBar();
         RxVolleyRequest.getInstance().operationRequestObservable(mContext, Request.Method.POST, url, params)
                 .subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程

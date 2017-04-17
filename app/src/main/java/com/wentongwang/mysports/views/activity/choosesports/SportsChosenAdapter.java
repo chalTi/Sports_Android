@@ -43,7 +43,7 @@ public class SportsChosenAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder = null;
         if (convertView == null) {
-            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.events_gridview_items, null);
+            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_sport_type, null);
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         } else {

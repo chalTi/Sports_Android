@@ -141,7 +141,7 @@ public class ChooseSportsActivity extends BaseActivity implements ChooseSportsVi
 
         gridView.setNumColumns(gvColumns);
 
-        gridViewAdapter = new SportsGridViewAdapter(index, pageItemCount, mPresenter.getSportEvents());
+        gridViewAdapter = new SportsGridViewAdapter(this, mPresenter.getSportEvents(), index, pageItemCount);
         gridViewAdapter.setPresenterHandler(mPresenter);
 
         gridView.setAdapter(gridViewAdapter);

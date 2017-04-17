@@ -1,7 +1,6 @@
 package com.wentongwang.mysports.views.activity.createvent;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,9 +10,7 @@ import android.widget.GridView;
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.constant.IntentConstants;
 import com.wentongwang.mysports.custome.PointsLayout;
-import com.wentongwang.mysports.model.module.SportEvents;
 import com.wentongwang.mysports.base.BaseActivity;
-import com.wentongwang.mysports.views.activity.choosesports.SportsGridViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +48,7 @@ public class CreateEventActivity extends BaseActivity implements CreateEventView
     //save each gridview
     private List<View> listGViews;
     private EventsViewPagerAdapter adapter;
-    private EventsGridViewAdapter gridViewAdapter;
+    private EventsSingleChoiceGridViewAdapter gridViewAdapter;
 
     //amount of item in one page
     private int pageItemCount = 9;
@@ -139,7 +136,7 @@ public class CreateEventActivity extends BaseActivity implements CreateEventView
 
         gridView.setNumColumns(gvColumns);
 
-        gridViewAdapter = new EventsGridViewAdapter(index, pageItemCount, mPresenter.getSportEvents());
+        gridViewAdapter = new EventsSingleChoiceGridViewAdapter(this, mPresenter.getSportEvents(), index, pageItemCount);
         gridViewAdapter.setSelectedSportTypeHandler(mPresenter);
 
         gridView.setAdapter(gridViewAdapter);
@@ -175,7 +172,7 @@ public class CreateEventActivity extends BaseActivity implements CreateEventView
 
     @Override
     public int getParticipatorNumber() {
-        if (participatorNumber.getText().toString().isEmpty()){
+        if (participatorNumber.getText().toString().isEmpty()) {
             return 0;
         }
         return Integer.valueOf(participatorNumber.getText().toString());
@@ -194,7 +191,7 @@ public class CreateEventActivity extends BaseActivity implements CreateEventView
 
 
     @OnClick(R.id.event_confirm_btn)
-    public void createSportEvent(){
+    public void createSportEvent() {
         mPresenter.createSportEvent();
     }
 
