@@ -47,7 +47,7 @@ public class HomeFragPresenter {
      */
     public void init(Context context) {
         this.mContext = context;
-        vollyRequestManager = new VollyRequestManager(VolleyUtil.getInstance(mContext).getRequestQueue());
+//        vollyRequestManager = new VollyRequestManager(VolleyUtil.getInstance(mContext).getRequestQueue());
     }
 
 
@@ -82,13 +82,9 @@ public class HomeFragPresenter {
      }*/
     public void getSportEvents() {
         //这个可能不需要分页
-        Map<String, String> params = new HashMap<>();
-        params.put("user_id", "1");
-        params.put("user_like", "sssss");
-
-        String url = HOST + GET_EVENT_PATH;
+        String url = HOST + GET_EVENT_PATH + "001";
         mView.showProgressBar();
-        RxVolleyRequest.getInstance().resourceRequestObservable(mContext, Request.Method.POST, url, params)
+        RxVolleyRequest.getInstance().resourceRequestObservable(mContext, Request.Method.GET, url, null)
                 .subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
                 .observeOn(AndroidSchedulers.mainThread())// 指定 Subscriber 的回调发生在主线程
                 .subscribe(new Observer<String>() {
