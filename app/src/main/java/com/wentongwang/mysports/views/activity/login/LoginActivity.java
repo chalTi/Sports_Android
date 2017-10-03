@@ -7,7 +7,6 @@ import android.os.Build;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -17,7 +16,6 @@ import com.wentongwang.mysports.views.activity.home.HomeActivity;
 import com.wentongwang.mysports.views.activity.signup.SignUpActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * login layout
@@ -36,6 +34,9 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     @BindView(R.id.auto_login_ckeck)
     CheckBox autoLoginCheckBox;
+
+    @BindView(R.id.progress_view)
+    View progressView;
 
     private LoginPresenter mPresenter = new LoginPresenter();
 
@@ -82,7 +83,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
         sign_in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.loginRx();
+                mPresenter.login();
             }
         });
     }
@@ -92,12 +93,12 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     @Override
     public void showProgressBar() {
-
+        progressView.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgressBar() {
-
+        progressView.setVisibility(View.GONE);
     }
 
 

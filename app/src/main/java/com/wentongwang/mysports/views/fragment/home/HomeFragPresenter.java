@@ -1,33 +1,21 @@
 package com.wentongwang.mysports.views.fragment.home;
 
 import android.content.Context;
-import android.util.Log;
 
-import com.android.volley.Request;
 import com.wentongwang.mysports.http.RetrofitManager;
 import com.wentongwang.mysports.http.RetrofitResult;
-import com.wentongwang.mysports.http.SportService;
-import com.wentongwang.mysports.model.bussiness.RxVolleyRequest;
-import com.wentongwang.mysports.model.bussiness.VollyRequestManager;
-import com.wentongwang.mysports.model.bussiness.VolleyResponse;
+import com.wentongwang.mysports.http.services.SportService;
 import com.wentongwang.mysports.model.module.SportsFirstClass;
 import com.wentongwang.mysports.model.module.SportsSecondClass;
 import com.wentongwang.mysports.utils.Logger;
 import com.wentongwang.mysports.utils.ToastUtil;
-import com.wentongwang.mysports.utils.VolleyUtil;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import rx.Observable;
-import rx.Observer;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
-
-import static com.wentongwang.mysports.constant.Constant.GET_EVENT_PATH;
-import static com.wentongwang.mysports.constant.Constant.HOST;
 
 /**
  * Created by Wentong WANG on 2016/10/13.
