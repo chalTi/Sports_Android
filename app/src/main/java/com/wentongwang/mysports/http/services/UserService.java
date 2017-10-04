@@ -4,7 +4,9 @@ import com.wentongwang.mysports.http.RetrofitResult;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 import rx.Observable;
 
 /**
@@ -18,8 +20,10 @@ public interface UserService {
     Observable<RetrofitResult> login(@Field("loginName") String loginName,
                                      @Field("password") String passWord);
 
-
     @FormUrlEncoded
     @POST("user/register")
     Observable<RetrofitResult> signUp( @Field("userJson") String userJson);
+
+    @GET("user/checkuserexisted")
+    Observable<RetrofitResult> userNameExisted(@Query("userName") String userName);
 }

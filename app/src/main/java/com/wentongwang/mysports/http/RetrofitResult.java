@@ -35,4 +35,7 @@ public class RetrofitResult {
         return response.getResultArray(clazz);
     }
 
+    public boolean isSuccess(){
+        return code.equals("01");
+    }
 }

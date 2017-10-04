@@ -3,9 +3,7 @@ package com.wentongwang.mysports.views.activity.signup;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Build;
-import android.os.Environment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,8 +18,6 @@ import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.base.GetPictureBaseActivity;
 import com.wentongwang.mysports.views.activity.home.HomeActivity;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 import butterknife.BindView;
@@ -187,8 +183,7 @@ public class SignUpActivity extends GetPictureBaseActivity implements SignUpView
 
     @OnClick(R.id.btn_sign_in)
     public void signUp() {
-//        mPresenter.signUp();
-        mPresenter.singUpRx();
+        mPresenter.signUp();
     }
 
 

@@ -24,13 +24,13 @@ import butterknife.BindView;
 public class LoginActivity extends BaseActivity implements LoginView {
 
     @BindView(R.id.login_user_name)
-    protected EditText userName;
+    EditText userName;
     @BindView(R.id.login_user_pwd)
-    protected EditText userPwd;
+    EditText userPwd;
     @BindView(R.id.btn_sign_in)
-    protected Button sign_in;
+    Button sign_in;
     @BindView(R.id.login_sign_up)
-    protected TextView sign_up;
+    TextView sign_up;
 
     @BindView(R.id.auto_login_ckeck)
     CheckBox autoLoginCheckBox;
@@ -73,19 +73,9 @@ public class LoginActivity extends BaseActivity implements LoginView {
             getWindow().setNavigationBarColor(Color.TRANSPARENT);
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
-        sign_up.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.goToSignUp();
-            }
-        });
+        sign_up.setOnClickListener(v -> mPresenter.goToSignUp());
 
-        sign_in.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.login();
-            }
-        });
+        sign_in.setOnClickListener(v -> mPresenter.login());
     }
 
     //callbacks after onCreate() write there

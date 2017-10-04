@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.widget.PopupWindow;
 
-import com.google.gson.Gson;
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.base.BasePresenter;
 import com.wentongwang.mysports.http.InteractorCallback;
@@ -73,17 +72,16 @@ public class SignUpPresenter extends BasePresenter<SignUpView>{
         map.put("user_email", userEmail);
         map.put("user_sex", userSex);
         map.put("user_imageURL", "");
-        String userInfo = new Gson().toJson(map);
-
 
         view.showProgressBar();
 
-        userInteractor.signUp(userInfo, new InteractorCallback<LoginResponse>() {
+        userInteractor.signUpAndLogin(map, new InteractorCallback<LoginResponse>() {
             @Override
             public void onSuccess(LoginResponse result) {
                 view.hideProgressBar();
-                //存储用户登录信息，cookie之类的
-                login();
+
+                SharedPreferenceUtil.put(mContext, "user_base_info", result);
+                view.goToHomeActivity();
             }
 
             @Override
