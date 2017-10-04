@@ -92,37 +92,6 @@ public class SignUpPresenter extends BasePresenter<SignUpView>{
         });
     }
 
-    /**
-     * 注册成功的自动登录
-     */
-    private void login() {
-        String userName = view.getUserName();
-        String userPwd = view.getUserPwd();
-
-        Map<String, String> params = new HashMap<>();
-        params.put("loginName", userName);
-        params.put("password", userPwd);
-
-        view.showProgressBar();
-
-
-        userInteractor.login(userName, userPwd, new InteractorCallback<LoginResponse>() {
-            @Override
-            public void onSuccess(LoginResponse result) {
-                view.hideProgressBar();
-                //存储用户登录信息，cookie之类的
-                SharedPreferenceUtil.put(mContext, "user_base_info", result);
-                view.goToHomeActivity();
-            }
-
-            @Override
-            public void onFailed(String error) {
-                view.hideProgressBar();
-                ToastUtil.show(mContext, error, 1500);
-            }
-        });
-
-    }
 
     public void popupChoseWindow(){
         //获取数据，通过构造函数塞到popupWindow里
@@ -132,12 +101,7 @@ public class SignUpPresenter extends BasePresenter<SignUpView>{
         popupWindow.setOutsideTouchable(true);
         popupWindow.setBackgroundDrawable(new ColorDrawable(0x00000000));
         popupWindow.setAnimationStyle(R.style.popwindow_anim_style);
-        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
-            @Override
-            public void onDismiss() {
-                view.setBackGroundAlpha(1.0f);
-            }
-        });
+        popupWindow.setOnDismissListener(() -> view.setBackGroundAlpha(1.0f));
         view.showPopupWindow(popupWindow);
         view.setBackGroundAlpha(0.55f);
 

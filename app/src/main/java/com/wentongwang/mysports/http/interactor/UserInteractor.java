@@ -19,17 +19,6 @@ import rx.schedulers.Schedulers;
 
 public class UserInteractor {
 
-    public void isExisted(String userName, final InteractorCallback<Boolean> callback) {
-        UserService userService = RetrofitManager.getRetrofit().create(UserService.class);
-
-        Observable<RetrofitResult> observable = userService.userNameExisted(userName);
-        observable.subscribeOn(Schedulers.io())
-                .unsubscribeOn(Schedulers.immediate())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(result -> callback.onSuccess(result.getCode().equals("01")),
-                        e -> callback.onFailed(e.getMessage()));
-    }
-
     public void login(String userName, String userPassWord, final InteractorCallback<LoginResponse> callback) {
         UserService userService = RetrofitManager.getRetrofit().create(UserService.class);
 
