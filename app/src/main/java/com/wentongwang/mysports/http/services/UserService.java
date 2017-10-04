@@ -17,4 +17,9 @@ public interface UserService {
     @POST("user/login")
     Observable<RetrofitResult> login(@Field("loginName") String loginName,
                                      @Field("password") String passWord);
+
+
+    @FormUrlEncoded
+    @POST("user/register")
+    Observable<RetrofitResult> signUp( @Field("userJson") String userJson);
 }

@@ -8,7 +8,7 @@ import com.wentongwang.mysports.base.BasePresenter;
 import com.wentongwang.mysports.constant.Constant;
 import com.wentongwang.mysports.http.InteractorCallback;
 import com.wentongwang.mysports.http.interactor.UserInteractor;
-import com.wentongwang.mysports.model.module.UserInfo;
+import com.wentongwang.mysports.model.module.LoginResponse;
 import com.wentongwang.mysports.utils.SharedPreferenceUtil;
 import com.wentongwang.mysports.utils.ToastUtil;
 
@@ -54,9 +54,9 @@ public class LoginPresenter extends BasePresenter<LoginView> {
 
         view.showProgressBar();
 
-        userInteractor.login(userName, userPwd, new InteractorCallback<UserInfo>() {
+        userInteractor.login(userName, userPwd, new InteractorCallback<LoginResponse>() {
             @Override
-            public void onSuccess(UserInfo result) {
+            public void onSuccess(LoginResponse result) {
                 view.hideProgressBar();
                 if (view.autoLoginSelected())
                     saveUserLoginInfo(userName, userPwd);
