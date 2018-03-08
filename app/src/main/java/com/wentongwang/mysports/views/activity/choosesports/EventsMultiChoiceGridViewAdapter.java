@@ -1,17 +1,10 @@
 package com.wentongwang.mysports.views.activity.choosesports;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 
-import com.wentongwang.mysports.R;
-import com.wentongwang.mysports.model.module.SportEvents;
+import com.wangwentong.sports_api.model.SportEvents;
 import com.wentongwang.mysports.views.adapters.AbstractSportTypesGridViewAdapter;
-import com.wentongwang.mysports.views.viewholder.SportTypeViewHolder;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

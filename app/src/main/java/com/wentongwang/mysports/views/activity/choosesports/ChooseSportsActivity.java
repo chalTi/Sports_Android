@@ -10,7 +10,7 @@ import android.widget.GridView;
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.custome.NoScrollGridView;
 import com.wentongwang.mysports.custome.PointsLayout;
-import com.wentongwang.mysports.model.module.SportEvents;
+import com.wangwentong.sports_api.model.SportEvents;
 import com.wentongwang.mysports.base.BaseActivity;
 
 import java.util.ArrayList;
@@ -117,12 +117,9 @@ public class ChooseSportsActivity extends BaseActivity implements ChooseSportsVi
             }
         });
 
-        btnConfirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setResult(FINISHE_CHOSE_SPORTS);
-                onBackPressed();
-            }
+        btnConfirm.setOnClickListener(v -> {
+            setResult(FINISHE_CHOSE_SPORTS);
+            onBackPressed();
         });
     }
 

@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 
 import com.wentongwang.mysports.R;
-import com.wentongwang.mysports.model.module.SportsFirstClass;
-import com.wentongwang.mysports.model.module.SportsSecondClass;
+import com.wangwentong.sports_api.model.SportsFirstClass;
+import com.wangwentong.sports_api.model.SportsSecondClass;
 import com.wentongwang.mysports.views.viewholder.HomeSportsItemViewHolder;
 import com.wentongwang.mysports.views.viewholder.HomeSportsTypeViewHolder;
 

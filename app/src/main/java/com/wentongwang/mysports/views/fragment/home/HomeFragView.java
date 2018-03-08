@@ -1,7 +1,7 @@
 package com.wentongwang.mysports.views.fragment.home;
 
-import com.wentongwang.mysports.model.module.SportsFirstClass;
-import com.wentongwang.mysports.model.module.SportsSecondClass;
+import com.wangwentong.sports_api.model.SportsFirstClass;
+import com.wangwentong.sports_api.model.SportsSecondClass;
 import com.wentongwang.mysports.base.BaseView;
 
 import java.util.List;

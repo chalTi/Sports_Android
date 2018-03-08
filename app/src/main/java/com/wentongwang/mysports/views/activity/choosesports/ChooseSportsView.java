@@ -1,6 +1,6 @@
 package com.wentongwang.mysports.views.activity.choosesports;
 
-import com.wentongwang.mysports.model.module.SportEvents;
+import com.wangwentong.sports_api.model.SportEvents;
 import com.wentongwang.mysports.base.BaseView;
 
 import java.util.List;

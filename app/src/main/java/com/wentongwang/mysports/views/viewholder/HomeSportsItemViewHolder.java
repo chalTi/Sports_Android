@@ -5,7 +5,7 @@ import android.widget.TextView;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.custome.CircleImageView;
-import com.wentongwang.mysports.model.module.SportsSecondClass;
+import com.wangwentong.sports_api.model.SportsSecondClass;
 
 import butterknife.BindView;
 

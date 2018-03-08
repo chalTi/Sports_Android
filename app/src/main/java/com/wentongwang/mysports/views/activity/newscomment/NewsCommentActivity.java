@@ -10,8 +10,8 @@ import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.base.BaseActivity;
 import com.wentongwang.mysports.constant.IntentConstants;
 import com.wentongwang.mysports.custome.CommonHeadView;
-import com.wentongwang.mysports.model.module.CommentInfo;
-import com.wentongwang.mysports.model.module.NewsInfo;
+import com.wangwentong.sports_api.model.CommentInfo;
+import com.wangwentong.sports_api.model.NewsInfo;
 
 import java.util.List;
 

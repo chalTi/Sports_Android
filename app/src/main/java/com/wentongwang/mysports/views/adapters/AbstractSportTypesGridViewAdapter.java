@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.wentongwang.mysports.R;
-import com.wentongwang.mysports.model.module.SportEvents;
+import com.wangwentong.sports_api.model.SportEvents;
 import com.wentongwang.mysports.views.viewholder.SportTypeViewHolder;
 
 import java.util.ArrayList;
@@ -86,12 +86,7 @@ public abstract class AbstractSportTypesGridViewAdapter extends BaseAdapter {
 
         final SportEvents sportEvents = items.get(position);
         holder.setItem(sportEvents);
-        holder.setOnIconSelectListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onSportTypeSelectSelect(position, sportEvents);
-            }
-        });
+        holder.setOnIconSelectListener(v -> onSportTypeSelectSelect(position, sportEvents));
         return convertView;
     }
 

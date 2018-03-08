@@ -4,20 +4,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
 
 import com.wentongwang.mysports.R;
-import com.wentongwang.mysports.custome.CircleImageView;
-import com.wentongwang.mysports.custome.MyProgressBarHorizontal;
-import com.wentongwang.mysports.model.module.AgendaEvents;
+import com.wangwentong.sports_api.model.AgendaEvents;
 import com.wentongwang.mysports.views.viewholder.AgendaEventViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by qifan on 2017/3/25.

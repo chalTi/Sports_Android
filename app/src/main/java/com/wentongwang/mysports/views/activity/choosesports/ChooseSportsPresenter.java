@@ -4,9 +4,7 @@ import android.content.Context;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.base.BasePresenter;
-import com.wentongwang.mysports.model.bussiness.VollyRequestManager;
-import com.wentongwang.mysports.model.module.SportEvents;
-import com.wentongwang.mysports.utils.VolleyUtil;
+import com.wangwentong.sports_api.model.SportEvents;
 
 import java.util.ArrayList;
 import java.util.List;

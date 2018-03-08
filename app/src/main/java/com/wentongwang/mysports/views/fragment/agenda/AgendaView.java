@@ -2,7 +2,7 @@ package com.wentongwang.mysports.views.fragment.agenda;
 
 import android.widget.PopupWindow;
 
-import com.wentongwang.mysports.model.module.AgendaEvents;
+import com.wangwentong.sports_api.model.AgendaEvents;
 import com.wentongwang.mysports.base.BaseView;
 
 import java.util.List;

@@ -9,8 +9,8 @@ import android.widget.ExpandableListView;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.base.BaseFragment;
-import com.wentongwang.mysports.model.module.SportsFirstClass;
-import com.wentongwang.mysports.model.module.SportsSecondClass;
+import com.wangwentong.sports_api.model.SportsFirstClass;
+import com.wangwentong.sports_api.model.SportsSecondClass;
 import com.wentongwang.mysports.views.activity.eventdetail.EventDetailActivity;
 
 import java.util.List;

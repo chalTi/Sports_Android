@@ -2,8 +2,7 @@ package com.wentongwang.mysports;
 
 import android.app.Application;
 
-import com.wentongwang.mysports.http.RetrofitManager;
-import com.wentongwang.mysports.model.bussiness.VolleyQueueManager;
+import com.wangwentong.sports_api.retrofit.RetrofitManager;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
@@ -17,7 +16,6 @@ public class MyApplication extends Application {
         //init Retrofit
         RetrofitManager.init();
 
-        VolleyQueueManager.init(this);
         // initalize Calligraphy
         CalligraphyConfig.initDefault(
                 new CalligraphyConfig.Builder()

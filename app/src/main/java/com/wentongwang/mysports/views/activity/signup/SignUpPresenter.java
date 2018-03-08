@@ -6,11 +6,11 @@ import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.widget.PopupWindow;
 
+import com.wangwentong.sports_api.interactor.InteractorCallback;
+import com.wangwentong.sports_api.interactor.UserInteractor;
+import com.wangwentong.sports_api.model.LoginResponse;
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.base.BasePresenter;
-import com.wentongwang.mysports.http.InteractorCallback;
-import com.wentongwang.mysports.http.interactor.UserInteractor;
-import com.wentongwang.mysports.model.module.LoginResponse;
 import com.wentongwang.mysports.utils.SharedPreferenceUtil;
 import com.wentongwang.mysports.utils.ToastUtil;
 

@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':sports-api'
 include ':openCVLibrary330'

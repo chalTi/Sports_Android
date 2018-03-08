@@ -1,25 +1,13 @@
 package com.wentongwang.mysports.views.activity.newscomment;
 
-import android.content.Context;
-import android.content.Intent;
-import android.preference.PreferenceActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
-import android.widget.HeaderViewListAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.wentongwang.mysports.R;
-import com.wentongwang.mysports.model.module.CommentInfo;
-import com.wentongwang.mysports.model.module.NewsInfo;
-import com.wentongwang.mysports.utils.Logger;
-import com.wentongwang.mysports.views.fragment.news.NewsInfoListAdapter;
-
-import org.w3c.dom.Comment;
+import com.wangwentong.sports_api.model.CommentInfo;
 
 import java.util.ArrayList;
 import java.util.List;

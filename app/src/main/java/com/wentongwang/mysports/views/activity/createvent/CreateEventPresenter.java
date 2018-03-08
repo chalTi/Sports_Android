@@ -1,27 +1,19 @@
 package com.wentongwang.mysports.views.activity.createvent;
 
 import android.content.Context;
-import android.util.Log;
 
-import com.android.volley.Request;
 import com.google.gson.Gson;
+import com.wangwentong.sports_api.model.CreateSportEvent;
+import com.wangwentong.sports_api.model.SportEvents;
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.base.BasePresenter;
 import com.wentongwang.mysports.constant.Constant;
-import com.wentongwang.mysports.model.bussiness.RxVolleyRequest;
-import com.wentongwang.mysports.model.module.CreateSportEvent;
-import com.wentongwang.mysports.model.module.SportEvents;
-import com.wentongwang.mysports.utils.ToastUtil;
 import com.wentongwang.mysports.views.activity.choosesports.PresenterHandler;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import rx.Observer;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by Wentong WANG on 2016/9/15.
@@ -120,26 +112,27 @@ public class CreateEventPresenter extends BasePresenter<CreateEventView> impleme
         String url = Constant.HOST + Constant.CREATE_EVENT_PATH;
 
         view.showProgressBar();
-        RxVolleyRequest.getInstance().operationRequestObservable(mContext, Request.Method.POST, url, params)
-                .subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
-                .observeOn(AndroidSchedulers.mainThread())// 指定 Subscriber 的回调发生在主线程
-                .subscribe(new Observer<String>() {
-                    @Override
-                    public void onCompleted() {
-                        view.hideProgressBar();
-                        view.createFinished();
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        view.hideProgressBar();
-                    }
-
-                    @Override
-                    public void onNext(String volleyResponse) {
-
-                    }
-                });
+        //TODO:重写网络请求
+//        RxVolleyRequest.getInstance().operationRequestObservable(mContext, Request.Method.POST, url, params)
+//                .subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
+//                .observeOn(AndroidSchedulers.mainThread())// 指定 Subscriber 的回调发生在主线程
+//                .subscribe(new Observer<String>() {
+//                    @Override
+//                    public void onCompleted() {
+//                        view.hideProgressBar();
+//                        view.createFinished();
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        view.hideProgressBar();
+//                    }
+//
+//                    @Override
+//                    public void onNext(String volleyResponse) {
+//
+//                    }
+//                });
 
     }
 }

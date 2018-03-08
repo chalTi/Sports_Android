@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import com.wentongwang.mysports.R;
-import com.wentongwang.mysports.model.module.SportEvents;
+import com.wangwentong.sports_api.model.SportEvents;
 
 import java.util.ArrayList;
 import java.util.List;

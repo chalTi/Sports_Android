@@ -6,7 +6,7 @@ import android.widget.TextView;
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.custome.CircleImageView;
 import com.wentongwang.mysports.custome.MyProgressBarHorizontal;
-import com.wentongwang.mysports.model.module.AgendaEvents;
+import com.wangwentong.sports_api.model.AgendaEvents;
 
 import butterknife.BindView;
 
@@ -37,11 +37,8 @@ public class AgendaEventViewHolder extends ItemViewHolder<AgendaEvents> {
         eventTime.setText(agendaEvents.getUserEventsTime());
         eventType.setText(agendaEvents.getUserEventsName());
         eventProgress.setProgress(Integer.parseInt(agendaEvents.getEventsProgress()));
-        userHead.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        userHead.setOnClickListener(v -> {
 
-            }
         });
     }
 }

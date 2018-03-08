@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.wentongwang.mysports.R;
 import com.wentongwang.mysports.constant.IntentConstants;
-import com.wentongwang.mysports.model.module.NewsInfo;
+import com.wangwentong.sports_api.model.NewsInfo;
 import com.wentongwang.mysports.utils.Logger;
 import com.wentongwang.mysports.views.activity.newscomment.NewsCommentActivity;
 

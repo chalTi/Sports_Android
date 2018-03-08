@@ -1,8 +1,7 @@
 package com.wentongwang.mysports.views.activity.newscomment;
 
 import com.wentongwang.mysports.base.BaseView;
-import com.wentongwang.mysports.model.module.CommentInfo;
-import com.wentongwang.mysports.model.module.NewsInfo;
+import com.wangwentong.sports_api.model.CommentInfo;
 
 import java.util.List;
 

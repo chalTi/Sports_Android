@@ -1,9 +1,7 @@
 package com.wentongwang.mysports.views.activity.newscomment;
 
-import android.content.Context;
-
 import com.wentongwang.mysports.base.BasePresenter;
-import com.wentongwang.mysports.model.module.CommentInfo;
+import com.wangwentong.sports_api.model.CommentInfo;
 
 import java.util.ArrayList;
 import java.util.List;

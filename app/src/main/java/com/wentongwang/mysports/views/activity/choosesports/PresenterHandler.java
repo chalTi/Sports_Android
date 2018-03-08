@@ -1,6 +1,6 @@
 package com.wentongwang.mysports.views.activity.choosesports;
 
-import com.wentongwang.mysports.model.module.SportEvents;
+import com.wangwentong.sports_api.model.SportEvents;
 
 /**
  * Created by Wentong WANG on 2017/1/20.
